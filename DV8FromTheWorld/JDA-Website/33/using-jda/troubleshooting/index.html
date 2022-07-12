@@ -602,6 +602,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Using Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../interactions/" class="md-nav__link">
         Interactions
       </a>
@@ -674,6 +688,20 @@
     <li class="md-nav__item">
       <a href="../using-new-features/" class="md-nav__link">
         Using New Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events-list/" class="md-nav__link">
+        List of Events
       </a>
     </li>
   
@@ -1121,7 +1149,7 @@ This is because both <code>sendMessage(...)</code> as well as <code>delete()</co
 <li>You never registered your listener.
     <br>Use <code>jda.addEventListener(new MyListener())</code> on either the <code>JDABuilder</code> or <code>JDA</code> instance</li>
 <li>You did not override the correct method.
-    <br>Use <code>@Override</code> and see if it fails. Your method has to use the correct name and parameter list defined in <code>ListenerAdapter</code>. <a href="../../getting-started/events/">Read More</a>.</li>
+    <br>Use <code>@Override</code> and see if it fails. Your method has to use the correct name and parameter list defined in <code>ListenerAdapter</code>. <a href="../events/">Read More</a>.</li>
 <li>You don't actually extend <code>EventListener</code> or <code>ListenerAdapter</code>.
     <br>Your class should <strong>either</strong> use <code>extends ListenerAdapter</code> or <code>implements EventListener</code>.</li>
 <li>You are missing a required <a href="../gateway-intents-and-member-cache-policy/"><code>GatewayIntent</code></a> for this event.
@@ -1166,7 +1194,7 @@ This is because both <code>sendMessage(...)</code> as well as <code>delete()</co
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p><a href="../../getting-started/events/">Read More</a></p>
+<p><a href="../events/">Read More</a></p>
 <h3 id="i-cant-get-the-previous-message-content-from-deleteupdate">I can't get the previous message content from delete/update<a class="headerlink" href="#i-cant-get-the-previous-message-content-from-deleteupdate" title="Permanent link">&para;</a></h3>
 <p>When Discord emits a <code>message_delete</code> or <code>message_update</code> they only provide the new content of the message. Since JDA does not keep a cache of messages it is unable to provide the previous content. Instead you will have to track content of messages yourself.</p>
 <h3 id="preventing-use-of-complete-in-callback-threads">Preventing use of complete() in callback threads<a class="headerlink" href="#preventing-use-of-complete-in-callback-threads" title="Permanent link">&para;</a></h3>
@@ -1259,7 +1287,7 @@ You have to use <code>event.deferReply().queue()</code>, <code>event.deferEdit()
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../using-new-features/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using New Features" rel="prev">
+        <a href="../events-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Events" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1268,7 +1296,7 @@ You have to use <code>event.deferReply().queue()</code>, <code>event.deferEdit()
               <span class="md-footer__direction">
                 Previous
               </span>
-              Using New Features
+              List of Events
             </div>
           </div>
         </a>

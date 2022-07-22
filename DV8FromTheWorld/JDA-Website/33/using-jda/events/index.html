@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo-round.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -504,7 +504,7 @@
   
     <li class="md-nav__item">
       <a href="../../getting-started/migration-v3-v4/" class="md-nav__link">
-        V3 - V4
+        v3 to v4
       </a>
     </li>
   
@@ -894,42 +894,47 @@
 
 <h1 id="using-events">Using Events<a class="headerlink" href="#using-events" title="Permanent link">&para;</a></h1>
 <h2 id="registering-your-listener">Registering your Listener<a class="headerlink" href="#registering-your-listener" title="Permanent link">&para;</a></h2>
-<p>To register your listener, we currently have 2 Systems. Annotated Listeners <em>(AnnotatedEventManager)</em> and Listeners implementing the Interface <em>EventListener (InterfacedEventManager)</em>. By default, the Interfaced one is used.</p>
-<p>To switch between them, you can either use <code>JDABuilder#setEventManager(new AnnotatedEventManager())</code>, or <code>JDA#setEventManager(new MyEventManager())</code>.</p>
-<p>After that, you just need to call <code>JDABuilder#addEventListeners(Object...)</code> or <code>JDA#addEventListeners(Object...)</code> with your Listener implementation.</p>
-<div class="highlight"><span class="filename">Using JDABuilder</span><pre><span></span><code><span class="c1">// imports {...}</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Launcher</span><span class="w"></span>
+<p>JDA uses the observer pattern for its event system.  In order to use events, a listener has to be used and registered with JDA.</p>
+<p>There are currently two systems for listeners: the default implementation which requires subclassing/implementing <code>EventListener</code> or <code>ListenerAdapter</code>, and an annotated listener <code>AnnotatedEventManager</code> which runs annotated methods based on their signature.</p>
+<p>To switch between them, you can use <code>JDA#setEventManager(new InterfacedEventManager())</code> or <code>JDABuilder#setEventManager(new AnnotatedEventManager())</code>.</p>
+<p>After that, you just need to call <code>JDABuilder#addEventListeners(Object...)</code> or <code>JDA#addEventListeners(Object...)</code> with your listeners.</p>
+<p>Adding listeners to the <code>JDABuilder</code> as opposed to the <code>JDA</code> instance will ensure that all listeners will receive events during startup. 
+If the listeners are added after JDA is built, they will not receive any events that occurred before they were added.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleListener</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ListenerAdapter</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">LoginException</span><span class="p">,</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">LoginException</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
-<span class="w">                      </span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PingPongBot</span><span class="p">())</span><span class="w"></span>
-<span class="w">                      </span><span class="p">.</span><span class="na">build</span><span class="p">().</span><span class="na">awaitReady</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">jda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="n">DISCORD_TOKEN</span><span class="p">)</span><span class="w"></span>
+<span class="w">                            </span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExampleListener</span><span class="p">())</span><span class="w"></span>
+<span class="w">                            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><span class="filename">Using JDA</span><pre><span></span><code><span class="c1">// imports {...}</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyListeners</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">registerPingPongListener</span><span class="p">(</span><span class="n">JDA</span><span class="w"> </span><span class="n">api</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onReady</span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">api</span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PingPongBot</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;JDA Started!&quot;</span><span class="p">);</span><span class="w">    </span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="using-the-interfaced-system-default">Using the Interfaced System (default)<a class="headerlink" href="#using-the-interfaced-system-default" title="Permanent link">&para;</a></h2>
 <p>When using the interfaced system (default), your Listener(s) have to implement the Interface <em>EventListener</em>, which only has a single function to implement: <code>public void onEvent(GenericEvent event)</code>.</p>
 <p>For convenience, we also included the class <em>ListenerAdapter</em>, which comes with a wide set of predefined functions targeted at specific event-types.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
-<p><div class="highlight"><span class="filename">Using EventListener</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">EventListener</span><span class="w"></span>
+<p>Using <code>instanceof</code> checks is cumbersome, so JDA provides the <code>ListenerAdapter</code> to ease this.
+<div class="highlight"><span class="filename">Using EventListener</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">EventListener</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onEvent</span><span class="p">(</span><span class="n">GenericEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">MessageReceivedEvent</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">MessageReceivedEvent</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">MessageReceivedEvent</span><span class="w"> </span><span class="n">messageEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MessageReceivedEvent</span><span class="p">)</span><span class="w"> </span><span class="n">event</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">messageEvent</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -941,14 +946,13 @@
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<em>Don't forget actually registering this listener</em></p>
+</code></pre></div></p>
 </div>
 <h2 id="using-the-annotated-system">Using the Annotated System<a class="headerlink" href="#using-the-annotated-system" title="Permanent link">&para;</a></h2>
-<p>When using the annotated system, all listener methods have to have the <code>@SubscribeEvent</code> annotation present, and only accept a single parameter, which has to be a instance of <em>Event</em>.</p>
+<p>When using the annotated system, all listener methods have to have the <code>@SubscribeEvent</code> annotation present, and only accept a single parameter, which has to be an implementation of <em>Event</em>.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">LoginException</span><span class="w"></span>
@@ -966,7 +970,6 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<em>Don't forget actually registering this listener</em></p>
 </div>
 
               

@@ -1267,12 +1267,12 @@ Or suppress this warning if this is intentional with Message.suppressContentInte
 </ul>
 <p>You are also required to enable this in your <a href="https://discord.com/developers/applications">application dashboard</a>. Note, however, that this is a <strong>privileged</strong> intent and will require a valid use-case for your bot to be verified in over 75 servers.</p>
 <h3 id="im-getting-closecode4014-disallowed-intents">I'm getting CloseCode(4014 / Disallowed intents...)<a class="headerlink" href="#im-getting-closecode4014-disallowed-intents" title="Permanent link">&para;</a></h3>
-<p>This means you tried to use <code>GatewayIntent.GUILD_MEMBERS</code>, <code>GatewayIntent.GUILD_PRESENCES</code> or <code>GatewayIntent.MESSAGE_CONTENT</code> without enabling it in your application dashboard. To use these privileged intents you first have to enable them.</p>
+<p>This means you tried to use <code>GatewayIntent.GUILD_MEMBERS</code>, <code>GatewayIntent.GUILD_PRESENCES</code>, or <code>GatewayIntent.MESSAGE_CONTENT</code> without enabling it in your application dashboard. To use these privileged intents you first have to enable them.</p>
 <ol>
 <li>Open the <a href="https://discord.com/developers/applications">application dashboard</a></li>
 <li>Select your bot application</li>
 <li>Open the <strong>Bot</strong> tab</li>
-<li>Under the <strong>Privileged Gateway Intents</strong> section, enable the intents that you are using in your bot. Toggle on <strong>SERVER MEMBERS INTENT</strong>, <strong>PRESENCE INTENT</strong> or <strong>MESSAGE CONTENT INTENT</strong> depending on your needs.</li>
+<li>Under the <strong>Privileged Gateway Intents</strong> section, enable the intents that you are using in your bot. Toggle on <strong>SERVER MEMBERS INTENT</strong>, <strong>PRESENCE INTENT</strong>, or <strong>MESSAGE CONTENT INTENT</strong> depending on your needs.</li>
 </ol>
 <p>If you use these intents you are limited to 100 guilds on your bot. To allow the bot to join more guilds while using this intent you have to <a href="https://blog.discord.com/the-future-of-bots-on-discord-4e6e050ab52e">verify your bot</a>. This will be available in your application dashboard when the bot joins at least 75 guilds.</p>
 <h2 id="interactions-and-slash-commands">Interactions and Slash Commands<a class="headerlink" href="#interactions-and-slash-commands" title="Permanent link">&para;</a></h2>

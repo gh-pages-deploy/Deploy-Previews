@@ -3,10 +3,6 @@ name: Deploy Preview
 on:
   workflow_dispatch:
     inputs:
-      repository:
-        description: "Repository to target. Format is user/repository"
-        required: true
-        type: text
       pull_request:
         description: "The Pull request to target for the deploy-preview"
         required: true
@@ -22,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: "echo Repo trigger: ${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}"

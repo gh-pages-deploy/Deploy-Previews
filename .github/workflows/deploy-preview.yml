@@ -14,7 +14,7 @@ on:
 
 jobs:
   preview:
-    if: ${{ inputs.authentication }} == ${{ secret.AUTH }}
+    if: ${{ inputs.authentication }} == ${{ secrets.AUTH }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

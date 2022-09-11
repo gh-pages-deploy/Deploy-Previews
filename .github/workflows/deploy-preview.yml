@@ -1,0 +1,25 @@
+name: Deploy Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: "Repository to target. Format is user/repository"
+        required: true
+        type: text
+      pull_request:
+        description: "The Pull request to target for the deploy-preview"
+        required: true
+        type: text
+      authentication:
+        description: "The secret to authorize this action run"
+        required: true
+        type: text
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!

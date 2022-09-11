@@ -13,11 +13,18 @@ on:
         type: text
 
 jobs:
-  preview:
+  validate_run:
     runs-on: ubuntu-latest
+    name: Validate run
+    outputs:
+      valid_request: ${{ steps.valid_request.outputs.valid }}
     steps:
       - uses: actions/checkout@v3
       - run: echo "::set-output name=valid::${{ inputs.authentication == secrets.AUTH }}"
         id: valid_request
-      - name: Run a one-line script
-        run: "echo ${{ steps.valid_request.outputs.valid }}"
+  preview:
+    needs: [validate_run]
+    if: needs.validate_run.outputs.valid_request
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo It works!

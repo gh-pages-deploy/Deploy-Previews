@@ -1,0 +1,22 @@
+name: Deploy Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: "The Pull request to target for the deploy-preview"
+        required: true
+        type: text
+      authentication:
+        description: "The secret to authorize this action run"
+        required: true
+        type: text
+
+jobs:
+  preview:
+    if: ${{ inputs.authentication }} == ${{ secrets.AUTH }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: "echo Repo trigger: ${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}"

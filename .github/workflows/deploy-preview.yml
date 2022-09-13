@@ -24,7 +24,7 @@ jobs:
         id: valid_request
   preview:
     needs: [validate_run]
-    if: needs.validate_run.outputs.valid_request == true
+    if: needs.validate_run.outputs.valid_request == "true"
     runs-on: ubuntu-latest
     steps:
     - run: echo It works!

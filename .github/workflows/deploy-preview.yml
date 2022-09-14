@@ -7,6 +7,14 @@ on:
         description: "The Pull request to target for the deploy-preview"
         required: true
         type: text
+      repository:
+        description: "The repository to use as remote source. Format: user/repository"
+        required: true
+        type: text
+      commit:
+        description: "The Commit to use."
+        required: true
+        type: text
       authentication:
         description: "The secret to authorize this action run"
         required: true
@@ -27,4 +35,87 @@ jobs:
     if: needs.validate_run.outputs.valid_request == 'true'
     runs-on: ubuntu-latest
     steps:
-    - run: echo It works!
+    - name: Generate App Token
+      uses: peaceiris/github-app-token@1.0.4
+      id: app-token
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.APP_PEM }}
+    - name: Find comment
+      uses: peter-evans/find-comment@v2
+      id: find-comment
+      with:
+        issue-number: ${{ inputs.pull_request }}
+        repository: ${{ inputs.repository }}
+        body-includes: '## Deploy Preview'
+    - name: Send/Update comment
+      uses: peter-evans/create-or-update-comment@v2
+      id: comment
+      with:
+        body: |-
+          ## Deploy Preview
+          
+          Building Pull request preview. Please wait...
+        comment-id: ${{ steps.find-comment.outputs.comment-id }}
+        issue-number: ${{ inputs.pull_request }}
+        token: ${{ steps.app-token.outputs.token }}
+        edit-mode: replace
+    - name: Checkout remote repository
+      uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.commit }}
+    - name: Prepare Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools
+        python -m pip install -r requirements.txt
+    - name: Build MkDocs
+      run: mkdocs build
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        publish_dir: ./site
+        destination_dir: ./${{ inputs.repository}}/${{ inputs.pull_request }}
+        full_commit_message: Push deploy preview from PR ${{ inputs.pull_request }} in ${{ inputs.repository }}
+    - name: Delay Comment update
+      run: sleep 30s
+      shell: bash
+    - name: Update comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        body: |-
+          ## Deploy Preview
+          
+          Deploy Preview successfull!
+          *Make sure to try again in a few minutes if the below link gives you a 404*
+          
+          | Type    | Link                                                                                                 |
+          | ------- | ---------------------------------------------------------------------------------------------------- |
+          | Commit  | ${{ inputs.commit }}                                                                                 |
+          | Preview | https://gh-pages-deploy.github.io/Deploy-Previews/${{ inputs.repository}}/${{ inputs.pull_request }} |
+          | Logs    | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                  |
+        comment-id: ${{ steps.comment.outputs.comment-id }}
+        token: ${{ steps.app-token.outputs.token }}
+        edit-mode: replace
+    - if: ${{ failure() }}
+      name: Update comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        body: |-
+          ## Deploy Preview
+          
+          Deploy Preview failed!
+          *The Deploy Preview for the Pull request couldn't be made. Please check the logs for details.*
+          
+          | Type    | Link                                                                                                 |
+          | ------- | ---------------------------------------------------------------------------------------------------- |
+          | Commit  | ${{ inputs.commit }}                                                                                 |
+          | Logs    | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                  |
+        comment-id: ${{ steps.comment.outputs.comment-id }}
+        token: ${{ steps.app-token.outputs.token }}
+        edit-mode: replace

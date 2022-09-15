@@ -1,24 +1,8 @@
 name: Deploy Preview
 
 on:
-  workflow_dispatch:
-    inputs:
-      pull_request:
-        description: "The Pull request to target for the deploy-preview"
-        required: true
-        type: text
-      repository:
-        description: "The repository to use as remote source. Format: user/repository"
-        required: true
-        type: text
-      commit:
-        description: "The Commit to use."
-        required: true
-        type: text
-      authentication:
-        description: "The secret to authorize this action run"
-        required: true
-        type: text
+  repository_dispatch:
+    types: [deploy_preview]
 
 jobs:
   validate_run:
@@ -28,7 +12,7 @@ jobs:
       valid_request: ${{ steps.valid_request.outputs.valid }}
     steps:
       - uses: actions/checkout@v3
-      - run: echo "::set-output name=valid::${{ inputs.authentication == secrets.AUTH }}"
+      - run: echo "::set-output name=valid::${{ github.event.client_payload.authentication == secrets.AUTH }}"
         id: valid_request
   preview:
     needs: [validate_run]
@@ -45,8 +29,8 @@ jobs:
       uses: peter-evans/find-comment@v2
       id: find-comment
       with:
-        issue-number: ${{ inputs.pull_request }}
-        repository: ${{ inputs.repository }}
+        issue-number: ${{ github.event.client_payload.pull_request }}
+        repository: ${{ github.event.client_payload.repository }}
         body-includes: '## Deploy Preview'
     - name: Send/Update comment
       uses: peter-evans/create-or-update-comment@v2
@@ -57,14 +41,14 @@ jobs:
           
           Building Pull request preview. Please wait...
         comment-id: ${{ steps.find-comment.outputs.comment-id }}
-        issue-number: ${{ inputs.pull_request }}
+        issue-number: ${{ github.event.client_payload.pull_request }}
         token: ${{ steps.app-token.outputs.token }}
         edit-mode: replace
     - name: Checkout remote repository
       uses: actions/checkout@v3
       with:
-        repository: ${{ inputs.repository }}
-        ref: ${{ inputs.commit }}
+        repository: ${{ github.event.client_payload.repository }}
+        ref: ${{ github.event.client_payload.commit }}
     - name: Prepare Python
       uses: actions/setup-python@v4
       with:
@@ -80,8 +64,8 @@ jobs:
       with:
         personal_token: ${{ steps.app-token.outputs.token }}
         publish_dir: ./site
-        destination_dir: ./${{ inputs.repository}}/${{ inputs.pull_request }}
-        full_commit_message: Push deploy preview from PR ${{ inputs.pull_request }} in ${{ inputs.repository }}
+        destination_dir: ./${{ github.event.client_payload.repository}}/${{ github.event.client_payload.pull_request }}
+        full_commit_message: Push deploy preview from PR ${{ github.event.client_payload.pull_request }} in ${{ github.event.client_payload.repository }}
     - name: Delay Comment update
       run: sleep 30s
       shell: bash
@@ -94,16 +78,16 @@ jobs:
           Deploy Preview successfull!
           *Make sure to try again in a few minutes if the below link gives you a 404*
           
-          | Type    | Link                                                                                                 |
-          | ------- | ---------------------------------------------------------------------------------------------------- |
-          | Commit  | ${{ inputs.commit }}                                                                                 |
-          | Preview | https://gh-pages-deploy.github.io/Deploy-Previews/${{ inputs.repository}}/${{ inputs.pull_request }} |
-          | Logs    | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                  |
+          | Type    | Link                                                                                                                                           |
+          | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+          | Commit  | ${{ github.event.client_payload.commit }}                                                                                                      |
+          | Preview | https://gh-pages-deploy.github.io/Deploy-Previews/${{ github.event.client_payload.repository}}/${{ github.event.client_payload.pull_request }} |
+          | Logs    | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                                                            |
         comment-id: ${{ steps.comment.outputs.comment-id }}
         token: ${{ steps.app-token.outputs.token }}
         edit-mode: replace
     - if: ${{ failure() }}
-      name: Update comment
+      name: Update comment (Failed)
       uses: peter-evans/create-or-update-comment@v2
       with:
         body: |-
@@ -114,7 +98,7 @@ jobs:
           
           | Type    | Link                                                                                                 |
           | ------- | ---------------------------------------------------------------------------------------------------- |
-          | Commit  | ${{ inputs.commit }}                                                                                 |
+          | Commit  | ${{ github.event.client_payload.commit }}                                                            |
           | Logs    | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                  |
         comment-id: ${{ steps.comment.outputs.comment-id }}
         token: ${{ steps.app-token.outputs.token }}

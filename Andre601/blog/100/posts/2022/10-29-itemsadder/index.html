@@ -1,0 +1,1399 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A detailed guide on understanding how to create custom items for the plugin ItemsAdder.">
+      
+      
+        <meta name="author" content="Andre_601">
+      
+      
+        <link rel="canonical" href="https://www.andre601.ch/blog/posts/2022/10-29-itemsadder/">
+      
+      <link rel="icon" href="../../../assets/img/icon.jpg">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+  
+    <title>Understand and create custom ItemsAdder Items - Andre's Blog</title>
+  
+
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+
+    
+    <link rel="stylesheet" href="../../../css/lightgallery.min.css">
+
+    
+    
+    <script src="../../../js/lightgallery.min.js"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    <meta property="og:title" content="Understand and create custom ItemsAdder Items - Andre's Blog" />
+    <meta name="twitter:title" content="Understand and create custom ItemsAdder Items - Andre's Blog" />
+  
+  
+  
+    <meta property="og:description" content="A detailed guide on understanding how to create custom items for the plugin ItemsAdder." />
+    <meta name="twitter:description" content="A detailed guide on understanding how to create custom items for the plugin ItemsAdder." />
+  
+  <meta name="theme-color" content="#757575">
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.andre601.ch/blog/posts/2022/10-29-itemsadder/" />
+  <meta property="og:image" content="https://www.andre601.ch/blog/assets/img/icon.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="Andre_601" />
+  <meta name="twitter:image" content="https://www.andre601.ch/blog/assets/img/icon.jpg" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-structure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Andre&#39;s Blog" class="md-header__button md-logo" aria-label="Andre's Blog" data-md-component="logo">
+      
+  <img src="../../../assets/img/icon.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Andre's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Understand and create custom ItemsAdder Items
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Andre601/blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 2.75A2.75 2.75 0 0 1 5.75 0h14.5a.75.75 0 0 1 .75.75v20.5a.75.75 0 0 1-.75.75h-6a.75.75 0 0 1 0-1.5h5.25v-4H6A1.5 1.5 0 0 0 4.5 18v.75c0 .716.43 1.334 1.05 1.605a.75.75 0 0 1-.6 1.374A3.25 3.25 0 0 1 3 18.75v-16zM19.5 1.5V15H6c-.546 0-1.059.146-1.5.401V2.75c0-.69.56-1.25 1.25-1.25H19.5z"/><path d="M7 18.25a.25.25 0 0 1 .25-.25h5a.25.25 0 0 1 .25.25v5.01a.25.25 0 0 1-.397.201l-2.206-1.604a.25.25 0 0 0-.294 0L7.397 23.46a.25.25 0 0 1-.397-.2v-5.01z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Andre601/blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Posts
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../reviews/" class="md-tabs__link">
+        Reviews
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Andre&#39;s Blog" class="md-nav__button md-logo" aria-label="Andre's Blog" data-md-component="logo">
+      
+  <img src="../../../assets/img/icon.jpg" alt="logo">
+
+    </a>
+    Andre's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Andre601/blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 2.75A2.75 2.75 0 0 1 5.75 0h14.5a.75.75 0 0 1 .75.75v20.5a.75.75 0 0 1-.75.75h-6a.75.75 0 0 1 0-1.5h5.25v-4H6A1.5 1.5 0 0 0 4.5 18v.75c0 .716.43 1.334 1.05 1.605a.75.75 0 0 1-.6 1.374A3.25 3.25 0 0 1 3 18.75v-16zM19.5 1.5V15H6c-.546 0-1.059.146-1.5.401V2.75c0-.69.56-1.25 1.25-1.25H19.5z"/><path d="M7 18.25a.25.25 0 0 1 .25-.25h5a.25.25 0 0 1 .25.25v5.01a.25.25 0 0 1-.397.201l-2.206-1.604a.25.25 0 0 0-.294 0L7.397 23.46a.25.25 0 0 1-.397-.2v-5.01z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Andre601/blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Posts</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2020" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2020/12-20-in-defense-of-spigotmc/" class="md-nav__link">
+        In Defense of SpigotMC.org
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2020/12-24-truth-and-lies/" class="md-nav__link">
+        Truth & Lies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          2021
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2021" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          2021
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/02-07-pros-and-cons-of-spigot/" class="md-nav__link">
+        The Pros and Cons of SpigotMC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/06-13-jda-utilities-alternatives/" class="md-nav__link">
+        Alternatives for JDA-Utilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/06-26-critique-vs-hate/" class="md-nav__link">
+        Critique versus Hate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/09-28-bots-and-admin/" class="md-nav__link">
+        Why you shouldn't give bots Administrator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/10-20-lets-talk-about-verification/" class="md-nav__link">
+        Let's talk about your verification system Discord...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2021/11-22-dont-trust-kangarko/" class="md-nav__link">
+        Why you can't believe Kangarko
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2022" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-14-discord-achievements/" class="md-nav__link">
+        How to obtain all Discord Achievements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Understand and create custom ItemsAdder Items
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Understand and create custom ItemsAdder Items
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-structure" class="md-nav__link">
+    General Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="General Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items_packs" class="md-nav__link">
+    items_packs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource_pack" class="md-nav__link">
+    resource_pack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-item" class="md-nav__link">
+    Creating a basic Item (2D Item)
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a basic Item (2D Item)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-models" class="md-nav__link">
+    Custom models (i.e. for furniture)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        Tags
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../reviews/">Reviews</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Reviews" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reviews
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2022" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reviews/2022/05-02-server-reviews/" class="md-nav__link">
+        Server reviews available
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reviews/apply/" class="md-nav__link">
+        How to apply
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reviews/tags/" class="md-nav__link">
+        Tags
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-structure" class="md-nav__link">
+    General Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="General Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items_packs" class="md-nav__link">
+    items_packs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource_pack" class="md-nav__link">
+    resource_pack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-item" class="md-nav__link">
+    Creating a basic Item (2D Item)
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a basic Item (2D Item)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-models" class="md-nav__link">
+    Custom models (i.e. for furniture)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Edit button -->
+
+<a
+  href="https://github.com/Andre601/blog/edit/master/docs/posts/2022/10-29-itemsadder.md"
+  title="Edit this page"
+  class="md-content__button md-icon"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 0 1-.699.409l-5.523 1.68a.75.75 0 0 1-.935-.935l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371-10.28 9.813a.25.25 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 0 0 .1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5 19 8.44z"/></svg>
+</a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>Understand and create custom ItemsAdder Items</h1>
+
+
+<!-- Markdown content -->
+<div class="blogging-tags-grid">
+
+        <a href="https://www.andre601.ch/blog/posts/tags#minecraft" class="blogging-tag"><code>#minecraft</code></a>
+
+        <a href="https://www.andre601.ch/blog/posts/tags#resource-packs" class="blogging-tag"><code>#resource-packs</code></a>
+
+        <a href="https://www.andre601.ch/blog/posts/tags#itemsadder" class="blogging-tag"><code>#itemsadder</code></a>
+
+    </div>
+
+<style>
+    .md-typeset .blogging-tags-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 5px;
+    }
+
+    .md-typeset .blogging-tag {
+        color: var(--md-typeset-color);
+        background-color: var(--md-typeset-code-color);
+    }
+
+    .md-typeset .blogging-tag code {
+        border-radius: 5px;
+    }
+</style>
+<p>In this blog post will I try my very best to teach you how to understand the general structure of ItemsAdder and how you can add your own custom Items (Either only by with texture or with custom models).</p>
+<p>I want to mention that I will only cover the very basics of how to make items and blocks. I will <strong>not</strong> cover how to add custom durability, effects, sounds, etc. Refer to the ItemsAdder Wiki<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> for more info.</p>
+<h2 id="general-structure">General Structure<a class="headerlink" href="#general-structure" title="Permanent link">&para;</a></h2>
+<p>First things firs, what is the general structure of ItemsAdder?<br />
+All important stuff is handled inside <code>/plugins/ItemsAdder/</code>. When opening that folder is it first overwhelming given the amount of folders and files present. For our purposes will only the <code>data/</code> folder be of importance to us, so you can discard the other folders and files for now.</p>
+<p>When opening the folder you will find two folders in it: <code>items_packs/</code> and <code>resource_pack</code></p>
+<h3 id="items_packs"><code>items_packs</code><a class="headerlink" href="#items_packs" title="Permanent link">&para;</a></h3>
+<p>This folder contains all the YAML files used to create custom items, blocks, furniture and similar. It's the main place for configuration that doesn't require altering of Model files.</p>
+<p>The general structure of this folder is as follows:  </p>
+<div class="codehilite"><pre><span></span><code>items_packs/
+ |
+ |- :namespace # This can be any name
+ |   |
+ |   |- some_file.yml
+ |   |- folder/ # additional folders are allowed
+ |       |
+ |       |- other_file.yml
+ |
+ |- z_iainternal/
+     |
+     |- ... # Internal stuff used by ItemsAdder itself
+</code></pre></div>
+
+<p>The structure is fairly simple, as its only purpose is to hold the configuration files and nothing more.</p>
+<h3 id="resource_pack"><code>resource_pack</code><a class="headerlink" href="#resource_pack" title="Permanent link">&para;</a></h3>
+<p>This folder contains all the necessary files to create a valid resource pack to use, including the final <code>pack.zip</code> file when using <code>/iazip</code>.<br />
+You'll notice that this folder has a <code>assets/</code> folder.</p>
+<p>Looking into said folder may reveal a structure similar to this one:  </p>
+<div class="codehilite"><pre><span></span><code>resource_pack/
+ |
+ |- assets/
+ |   |
+ |   |- minecraft/
+ |   |   |
+ |   |   |- ... # This contains Minecraft-related files
+ |   |
+ |   |- z_iainternal/
+ |       |
+ |       |- ... # Internal stuff used by ItemsAdder itself
+ |
+ |- index.html
+ |- pack.mcmeta
+</code></pre></div>
+
+<p>If you ever worked with a resource pack before should the structure of <code>resource_pack</code> look familiar to use, especially with the <code>pack.mcmeta</code> present.<br />
+This is because this folder basically is the final resource pack structure inside the Zip file, meaning that the structure in it mimics Minecraft's main structure.</p>
+<h2 id="creating-an-item">Creating a basic Item (2D Item)<a class="headerlink" href="#creating-an-item" title="Permanent link">&para;</a></h2>
+<p>Let's quickly create a new item. It should just be a normal item with a special texture and no real feature.</p>
+<p>It's a good idea to first create the necessary folders for the textures and files to use.<br />
+In my example will I use the name <code>myitem</code> as the namespace to use. This means that the folder structures may look like this:  </p>
+<div class="codehilite"><pre><span></span><code>data/
+ |
+ |- items_packs/
+ |   |
+ |   |- myitem/
+ |
+ |- resource_pack/
+     |
+     |- assets/
+         |
+         |- myitem/
+</code></pre></div>
+
+<p>As you can see do we create new folders called <code>myitem</code> inside <code>items_packs</code> and <code>resource_pack/assets/</code>.<br />
+The reason why <code>resource_pack</code> has it inside the <code>assets</code> folder is, that MC is always checking <code>assets/:namespace/</code> for textures, models and similar.</p>
+<p>The next step I usually do is to first add the assets. In our case would it just be a PNG file of the item.<br />
+In this example am I calling it <code>dummy.png</code>.</p>
+<p>Since it is a texture will we need to add a <code>textures</code> folder inside the <code>assets/myitem/</code> directory, as MC checks <code>assets/:namespace/textures/</code> for any texture file. For better organisation will I also add an extra <code>item/</code> folder to it.<br />
+This means, that the new structure is like this:  </p>
+<div class="codehilite"><pre><span></span><code>data/
+ |
+ |- items_packs/
+ |   |
+ |   |- myitem/
+ |
+ |- resource_pack/
+     |
+     |- assets/
+         |
+         |- myitem/
+             |
+             |- textures/
+                 |
+                 |- item/
+                     |
+                     |- dummy.png
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Pro-tips</p>
+<ul>
+<li>Keep file and folder names lowercased. Minecraft doesn't like uppercased names that much.</li>
+<li>You can always use extra folders inside the textures folder to further organize your files. Just make sure to also adjust any texture paths used.</li>
+</ul>
+</div>
+<p>Now with this completed is the next step to actually tell ItemsAdder to add it as a new item.<br />
+To do this, I create a new YAML file inside <code>items_packs/myitem/</code>. Any name for the file works, but it should be kept lowercase and not contain any spaces or weird characters.</p>
+<p>To keep it simple will I name it <code>dummy.yml</code> and fill it with the following:<br />
+```yaml title="dummy.yml"
+info:
+  namespace: myitem # (1)
+items:
+  dummy: # (2)
+    display_name: "Dummy Item" # (3)
+    resource:
+      material: PAPER # (4)
+      generate: true # (5)
+      textures: # (6)
+      - 'item/dummy.png'</p>
+<div class="codehilite"><pre><span></span><code>1.  This is used as the custom namespace for ItemsAdder commands such as `/iaget` but also other things
+2.  This can be any name. Just make sure it&#39;s lowercased. It will be used as identifier for the custom item (i.e. `myitem:dummy`)
+3.  The name that will be displayed when obtaining the item.
+4.  The Base item that is used. ItemsAdder will assign a custom model data for the item to override the texture/model. This has to be a valid Minecraft item.
+5.  `generate: true` tells ItemsAdder to auto-generate the necessary model file for this item. This should be used if you&#39;re not using a custom model.
+6.  This sets the textures to use. For a normal item is only one texture needed, but blocks can have up to 6 (One for each side). The path is relative to `assets/:namespace/textures/`.
+
+With this setup am I telling ItemsAdder to create a new entry for the item PAPER with the texture located at `assets/myitem/textures/`.  
+After saving the changes can I now run `/iazip` to update the resource pack. Afterwards should I be able to get the item using `/iaget myitem:dummy`
+
+## Creating a Block
+
+Creating a block is for the most part the same as [creating an item](#creating-an-item) so please read that part first.
+
+In this example am I using the same folder structure, with the difference that the PNG files for the block are inside `assets/myitem/textures/block/` and that I&#39;m using multiple ones.
+
+All we need to do now is add some extra stuff to it:  
+```yaml title=&quot;dummy_block.yml
+info:
+  namespace: myitem
+items:
+  dummy_block:
+    display_name: &quot;Dummy Block&quot;
+    resource:
+      material: PAPER # (1)
+      generate: true
+      textures: # (2)
+      - &#39;block/dummy_down.png&#39;
+      - &#39;block/dummy_east.png&#39;
+      - &#39;block/dummy_north.png&#39;
+      - &#39;block/dummy_south.png&#39;
+      - &#39;block/dummy_up.png&#39;
+      - &#39;block/dummy_west.png&#39;
+    specific_properties:
+      block: # (3)
+        type: REAL_NOTE # (4)
+        break_particle: ITEM # (5)
+</code></pre></div>
+
+<ol>
+<li>It's recommended to use an item and not a block here, to avoid glitchy placement behaviour. The item will look like a block in the inventory.</li>
+<li>In this example am I setting individual textures for each side of the block. The order is actually important and the names should tell it. If each side has the same texture will you only need one texture to be set here.</li>
+<li>This tells ItemsAdder that this item should be placable like an actual block. This will also change the texture displayed in the Inventory to that of a full block.</li>
+<li>The <code>type</code> defines what Vanilla block should be used. Recommended is to use <code>REAL_NOTE</code>. What types are available can be found in the [Wiki][ia_block_types]</li>
+<li>Sets the particle to use for when the block is broken. <code>ITEM</code> tells ItemsAdder to use the textures set for the item.</li>
+</ol>
+<p>This is already enough to create a custom block to use. All that is left is to update the resource pack (<code>/iazip</code>) and obtaining the item (<code>/iaget myitem:dummy_block</code>)</p>
+<h3 id="custom-models">Custom models (i.e. for furniture)<a class="headerlink" href="#custom-models" title="Permanent link">&para;</a></h3>
+<p>There are cases where you want to create your own models for an item or a block<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.<br />
+Let's say we want to use a custom model for our <code>dummy</code> item.</p>
+<p>In order to do this will we first need to create the actual Model file to use. A recommended software to use for this is Blockbench<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> as it allows a relatively easy creation of MC block/item models.</p>
+<p>To not make this guide too long will I skip the entire model creation process.<br />
+Just assume we still have the same Texture file in the same directory (<code>assets/myitem/textures/dummy.png</code>) and that we create a JSON model file which may look something similar to this:<br />
+```json5 title="dumy_model.json"
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "myitem:item/dummy",
+    "particle": "myitem:item/dummy"
+  },
+  "elements": [
+    {
+      // Here would be all the element parts of our model
+    }
+  ]
+}</p>
+<div class="codehilite"><pre><span></span><code>!!! note &quot;Important&quot;
+    Model files follow the same structure with textures as MC does, meaning that you need to prefix the texture path with your namespace (in my case `myitem:`) and also provide a path relative to `assets/:namespace/textures/`.  
+    Additionally do you **not** have to append a `.png` extension to the paths. MC automatically assumes PNG files being used.
+
+    Blockbench should deal with those things by itself, as long as you&#39;re using a proper folder structure for the textures.
+
+We would put this file into a new folder called `models`. To add more structure am I adding an extra folder called `item`, so the current structure would look similar to this:  
+</code></pre></div>
+
+<p>data/
+ |
+ |- items_packs/
+ |   |
+ |   |- myitem/
+ |       |
+ |       |- dummy_item.yml
+ |       |- dummy_block.yml
+ |
+ |- resource_pack/
+     |
+     |- assets/
+         |
+         |- myitem/
+             |
+             |- models/ # Newly added folder
+             |   |
+             |   |- item/
+             |       |
+             |       |- dummy_model.json
+             |
+             |- textures/
+                 |
+                 |- item/
+                 |   |
+                 |   |- dummy.png
+                 |
+                 |- block/
+                     |
+                     |- dummy_down.png
+                     |- dummy_east.png
+                     |- dummy_north.png
+                     |- dummy_south.png
+                     |- dummy_up.png
+                     |- dummy_west.png</p>
+<div class="codehilite"><pre><span></span><code>Since we just edit an existing item can we open the `dummy_item.yml` file and adjust a few things:  
+```yaml title=&quot;dummy_item.yml
+info:
+  namespace: myitem
+items:
+  dummy:
+    display_name: &quot;Dummy Item&quot;
+    resource:
+      material: PAPER
+      generate: false
+      model_path: &quot;item/dummy_model&quot;
+</code></pre></div>
+
+<p>What you may have noticed is, that <code>generate</code> is set to <code>false</code>. This is important since we want to use our own model file and keeping this option set to true would cause ItemsAdder to still auto-generate and use its own mode file.<br />
+Additionally have I removed the <code>textures</code> option and instead added the <code>model_path</code> one. This is due to the model file containing all the texture settings to use, so we don't have to provide them here again.</p>
+<p>If you've done everything correctly can you now run <code>/iazip</code> and the item should use the actual model you set (You may require to clear the cache tho).</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://itemsadder.devs.beer/">https://itemsadder.devs.beer/</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Custom blocks are bound to certain limits. As an example will <code>REAL_NOTE</code> blocks not allow transparent textures or open sides that would expose a covered block face, as MC won't render those usually covered, resulting in an X-Ray effect.<br />
+<code>REAL_TRANSPARENT</code> is a workaround for this case.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://blockbench.net">https://blockbench.net</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+<!-- Source file information -->
+
+  
+
+<hr />
+<div class="md-source-file">
+  <small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 0 1-.699.409l-5.523 1.68a.75.75 0 0 1-.935-.935l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371-10.28 9.813a.25.25 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 0 0 .1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5 19 8.44z"/></svg>
+      </span>
+      Last update:
+      29. October 2022 (<span class="timeago" datetime="2022-10-29T01:23:24+02:00" locale="en"></span>)
+      
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+  </small>
+</div>
+
+                
+  
+  <h2 id="__comments">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 0 0 0 2.75v9.5C0 13.216.784 14 1.75 14H3v1.543a1.457 1.457 0 0 0 2.487 1.03L8.061 14h6.189A1.75 1.75 0 0 0 16 12.25v-9.5A1.75 1.75 0 0 0 14.25 1H1.75zM1.5 2.75a.25.25 0 0 1 .25-.25h12.5a.25.25 0 0 1 .25.25v9.5a.25.25 0 0 1-.25.25h-6.5a.75.75 0 0 0-.53.22L4.5 15.44v-2.19a.75.75 0 0 0-.75-.75h-2a.25.25 0 0 1-.25-.25v-9.5z"/><path d="M22.5 8.75a.25.25 0 0 0-.25-.25h-3.5a.75.75 0 0 1 0-1.5h3.5c.966 0 1.75.784 1.75 1.75v9.5A1.75 1.75 0 0 1 22.25 20H21v1.543a1.457 1.457 0 0 1-2.487 1.03L15.939 20H10.75A1.75 1.75 0 0 1 9 18.25v-1.465a.75.75 0 0 1 1.5 0v1.465c0 .138.112.25.25.25h5.5a.75.75 0 0 1 .53.22l2.72 2.72v-2.19a.75.75 0 0 1 .75-.75h2a.25.25 0 0 0 .25-.25v-9.5z"/></svg>
+    </span>
+    Comments
+  </h2>
+  
+  <div class="giscus"></div>
+  
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="Andre601/blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkzMjMxMjM0MjQ="
+    data-category="Comments"
+    data-category-id="DIC_kwDOE0J44M4B_2e-"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="https://www.andre601.ch/blog/assets/css/style/giscus.css"
+    crossorigin="anonymous"
+    async
+  >
+  </script>
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Andre_601
+
+    </div>
+  
+
+      <!-- Copyright and theme information -->
+  Built using <a href="https://www.mkdocs.org/?utm_source=andre601.ch" target="_blank" rel="noopener">MkDocs</a>, 
+  <a href="https://squidfunk.github.io/mkdocs-material/?utm_source=andre601.ch" target="_blank" rel="noopener">Material for MkDocs</a> 
+  and <a href="https://facelessuser.github.io/pymdown-extensions/?utm_source=andre601.ch" target="_blank" rel="noopener">PyMdown Extensions</a>.<br>
+  Comment system powered by <a href="https://giscus.app/?utm_source=andre601.ch" target="_blank" rel="nofollow noopener noreferrer">Giscus</a>.
+</div>
+
+      <!-- Social links -->
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Andre601" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://andre601.ch" target="_blank" rel="noopener" title="andre601.ch" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+    
+      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+        <script src="../../../assets/js/timeago.min.js"></script>
+      
+        <script src="../../../assets/js/timeago_mkdocs_material.js"></script>
+      
+    
+    <script>
+    var elements = document.getElementsByClassName("lightgallery");
+    for(var i=0; i<elements.length; i++) {
+       lightGallery(elements[i]);
+    }
+    </script>
+
+  </body>
+</html>

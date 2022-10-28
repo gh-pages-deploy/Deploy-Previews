@@ -1018,10 +1018,10 @@
         border-radius: 5px;
     }
 </style>
-<p>In this blog post will I try my very best to teach you how to understand the general structure of ItemsAdder and how you can add your own custom Items (Either only by with texture or with custom models).</p>
+<p>In this blog post will I try my very best to teach you how to understand the general structure of ItemsAdder and how you can add your own custom Items (Either only with textures or with custom models).</p>
 <p>I want to mention that I will only cover the very basics of how to make items and blocks. I will <strong>not</strong> cover how to add custom durability, effects, sounds, etc. Refer to the ItemsAdder Wiki<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> for more info.</p>
 <h2 id="general-structure">General Structure<a class="headerlink" href="#general-structure" title="Permanent link">&para;</a></h2>
-<p>First things firs, what is the general structure of ItemsAdder?<br />
+<p>First things first, what is the general structure of ItemsAdder?<br />
 All important stuff is handled inside <code>/plugins/ItemsAdder/</code>. When opening that folder is it first overwhelming given the amount of folders and files present. For our purposes will only the <code>data/</code> folder be of importance to us, so you can discard the other folders and files for now.</p>
 <p>When opening the folder you will find two folders in it: <code>items_packs/</code> and <code>resource_pack</code></p>
 <h3 id="items_packs"><code>items_packs</code><a class="headerlink" href="#items_packs" title="Permanent link">&para;</a></h3>
@@ -1062,8 +1062,8 @@ You'll notice that this folder has a <code>assets/</code> folder.</p>
  |- pack.mcmeta
 </code></pre></div>
 
-<p>If you ever worked with a resource pack before should the structure of <code>resource_pack</code> look familiar to use, especially with the <code>pack.mcmeta</code> present.<br />
-This is because this folder basically is the final resource pack structure inside the Zip file, meaning that the structure in it mimics Minecraft's main structure.</p>
+<p>If you ever worked with a resource pack before should the structure of <code>resource_pack</code> look familiar to you, especially with the <code>pack.mcmeta</code> present.<br />
+This is because this folder is the final resource pack structure inside the Zip file, meaning that the structure in it mimics Minecraft's main structure.</p>
 <h2 id="creating-an-item">Creating a basic Item (2D Item)<a class="headerlink" href="#creating-an-item" title="Permanent link">&para;</a></h2>
 <p>Let's quickly create a new item. It should just be a normal item with a special texture and no real feature.</p>
 <p>It's a good idea to first create the necessary folders for the textures and files to use.<br />
@@ -1082,7 +1082,7 @@ In my example will I use the name <code>myitem</code> as the namespace to use. T
 </code></pre></div>
 
 <p>As you can see do we create new folders called <code>myitem</code> inside <code>items_packs</code> and <code>resource_pack/assets/</code>.<br />
-The reason why <code>resource_pack</code> has it inside the <code>assets</code> folder is, that MC is always checking <code>assets/:namespace/</code> for textures, models and similar.</p>
+The reason why <code>resource_pack</code> has it inside the <code>assets</code> folder is, that MC is always checking <code>assets/:namespace/</code> for textures, models and similar when any given path is prefixed with a namespace (i.e. <code>myitem:some/path</code>).</p>
 <p>The next step I usually do is to first add the assets. In our case would it just be a PNG file of the item.<br />
 In this example am I calling it <code>dummy.png</code>.</p>
 <p>Since it is a texture will we need to add a <code>textures</code> folder inside the <code>assets/myitem/</code> directory, as MC checks <code>assets/:namespace/textures/</code> for any texture file. For better organisation will I also add an extra <code>item/</code> folder to it.<br />
@@ -1144,7 +1144,7 @@ Creating a block is for the most part the same as [creating an item](#creating-a
 In this example am I using the same folder structure, with the difference that the PNG files for the block are inside `assets/myitem/textures/block/` and that I&#39;m using multiple ones.
 
 All we need to do now is add some extra stuff to it:  
-```yaml title=&quot;dummy_block.yml
+```yaml title=&quot;dummy_block.yml&quot;
 info:
   namespace: myitem
 items:
@@ -1238,7 +1238,7 @@ We would put this file into a new folder called `models`. To add more structure 
                      |- dummy_up.png
                      |- dummy_west.png</p>
 <div class="codehilite"><pre><span></span><code>Since we just edit an existing item can we open the `dummy_item.yml` file and adjust a few things:  
-```yaml title=&quot;dummy_item.yml
+```yaml title=&quot;dummy_item.yml&quot;
 info:
   namespace: myitem
 items:
@@ -1283,7 +1283,7 @@ Additionally have I removed the <code>textures</code> option and instead added t
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 0 1-.699.409l-5.523 1.68a.75.75 0 0 1-.935-.935l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371-10.28 9.813a.25.25 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 0 0 .1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5 19 8.44z"/></svg>
       </span>
       Last update:
-      29. October 2022 (<span class="timeago" datetime="2022-10-29T01:23:24+02:00" locale="en"></span>)
+      29. October 2022 (<span class="timeago" datetime="2022-10-29T01:36:49+02:00" locale="en"></span>)
       
 
     <!-- mkdocs-git-revision-date-plugin -->

@@ -1240,9 +1240,10 @@ Additionally do you <strong>not</strong> have to append a <code>.png</code> exte
 <span class="w">      </span><span class="nt">generate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <span class="w">      </span><span class="nt">model_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;item/dummy_model&quot;</span><span class="w"></span>
 </code></pre></div>
-<p>What you may have noticed is, that <code>generate</code> is set to <code>false</code>. This is important since we want to use our own model file and keeping this option set to true would cause ItemsAdder to still auto-generate and use its own mode file.<br />
-Additionally have I removed the <code>textures</code> option and instead added the <code>model_path</code> one. This is due to the model file containing all the texture settings to use, so we don't have to provide them here again.</p>
-<p>If you've done everything correctly can you now run <code>/iazip</code> and the item should use the actual model you set (You may require to clear the cache tho).</p>
+<p>What you may have noticed is, that <code>generate</code> is set to <code>false</code>. This is important since we want to use our own model file and keeping this option set to true would cause ItemsAdder to still auto-generate and use its own model file, resulting in issues.<br />
+Additionally, have I removed the <code>textures</code> option and instead added the <code>model_path</code> one. This is required to actually tell ItemsAdder where the model file is located. And since the model file already defines textures is this option no longer needed in the YAML file.</p>
+<p>You should now be able to update the resource pack with <code>/iazip</code> and get the newly modelled item.<br />
+If the item is still the old one, clear the cache using the <code>/iacleancache</code> command.</p>
 <hr />
 <h2 id="__footnotes">Footnotes</h2>
 
@@ -1255,8 +1256,8 @@ Additionally have I removed the <code>textures</code> option and instead added t
 <p><a href="https://itemsadder.devs.beer/">https://itemsadder.devs.beer/</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Custom blocks are bound to certain limits. As an example will <code>REAL_NOTE</code> blocks not allow transparent textures or open sides that would expose a covered block face, as MC won't render those usually covered, resulting in an X-Ray effect.<br />
-<code>REAL_TRANSPARENT</code> is a workaround for this case.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Custom blocks are bound to certain limitations. As an example can you not have open sites or transparent textures with <code>REAL_NOTE</code> or <code>REAL</code> blocks. This is due to Minecraft not rendering block faces that are covered by other blocks. And since MC doesn't know that our block isn't covering the full side will this result in an X-Ray effect.<br />
+The usage of <code>REAL_TRANSPARENT</code> to bypass this effect is recommended. Tho it only allows fully opaque and fully transparent textures. No semi-transparent ones (So no custom coloured glass as an example).&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
 <p><a href="https://blockbench.net">https://blockbench.net</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
@@ -1278,7 +1279,7 @@ Additionally have I removed the <code>textures</code> option and instead added t
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 0 1-.699.409l-5.523 1.68a.75.75 0 0 1-.935-.935l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371-10.28 9.813a.25.25 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 0 0 .1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5 19 8.44z"/></svg>
       </span>
       Last update:
-      29. October 2022 (<span class="timeago" datetime="2022-10-29T02:13:45+02:00" locale="en"></span>)
+      29. October 2022 (<span class="timeago" datetime="2022-10-29T02:28:33+02:00" locale="en"></span>)
       
 
     <!-- mkdocs-git-revision-date-plugin -->

@@ -29,10 +29,6 @@
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
-          
-          
-          <meta name="theme-color" content="#757575">
-        
       
       
 
@@ -91,7 +87,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="" data-md-color-accent="blue">
   
     
     
@@ -677,7 +673,14 @@
     Creating a basic Item (2D Item)
   </a>
   
-    <nav class="md-nav" aria-label="Creating a basic Item (2D Item)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-block" class="md-nav__link">
+    Creating a Block
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a Block">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -919,7 +922,14 @@
     Creating a basic Item (2D Item)
   </a>
   
-    <nav class="md-nav" aria-label="Creating a basic Item (2D Item)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-block" class="md-nav__link">
+    Creating a Block
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a Block">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1026,8 +1036,8 @@ All important stuff is handled inside <code>/plugins/ItemsAdder/</code>. When op
 <p>When opening the folder you will find two folders in it: <code>items_packs/</code> and <code>resource_pack</code></p>
 <h3 id="items_packs"><code>items_packs</code><a class="headerlink" href="#items_packs" title="Permanent link">&para;</a></h3>
 <p>This folder contains all the YAML files used to create custom items, blocks, furniture and similar. It's the main place for configuration that doesn't require altering of Model files.</p>
-<p>The general structure of this folder is as follows:  </p>
-<div class="codehilite"><pre><span></span><code>items_packs/
+<p>The general structure of this folder is as follows:</p>
+<div class="highlight"><pre><span></span><code>items_packs/
  |
  |- :namespace # This can be any name
  |   |
@@ -1040,13 +1050,12 @@ All important stuff is handled inside <code>/plugins/ItemsAdder/</code>. When op
      |
      |- ... # Internal stuff used by ItemsAdder itself
 </code></pre></div>
-
 <p>The structure is fairly simple, as its only purpose is to hold the configuration files and nothing more.</p>
 <h3 id="resource_pack"><code>resource_pack</code><a class="headerlink" href="#resource_pack" title="Permanent link">&para;</a></h3>
 <p>This folder contains all the necessary files to create a valid resource pack to use, including the final <code>pack.zip</code> file when using <code>/iazip</code>.<br />
 You'll notice that this folder has a <code>assets/</code> folder.</p>
-<p>Looking into said folder may reveal a structure similar to this one:  </p>
-<div class="codehilite"><pre><span></span><code>resource_pack/
+<p>Looking into said folder may reveal a structure similar to this one:</p>
+<div class="highlight"><pre><span></span><code>resource_pack/
  |
  |- assets/
  |   |
@@ -1061,14 +1070,13 @@ You'll notice that this folder has a <code>assets/</code> folder.</p>
  |- index.html
  |- pack.mcmeta
 </code></pre></div>
-
 <p>If you ever worked with a resource pack before should the structure of <code>resource_pack</code> look familiar to you, especially with the <code>pack.mcmeta</code> present.<br />
 This is because this folder is the final resource pack structure inside the Zip file, meaning that the structure in it mimics Minecraft's main structure.</p>
 <h2 id="creating-an-item">Creating a basic Item (2D Item)<a class="headerlink" href="#creating-an-item" title="Permanent link">&para;</a></h2>
 <p>Let's quickly create a new item. It should just be a normal item with a special texture and no real feature.</p>
 <p>It's a good idea to first create the necessary folders for the textures and files to use.<br />
-In my example will I use the name <code>myitem</code> as the namespace to use. This means that the folder structures may look like this:  </p>
-<div class="codehilite"><pre><span></span><code>data/
+In my example will I use the name <code>myitem</code> as the namespace to use. This means that the folder structures may look like this:</p>
+<div class="highlight"><pre><span></span><code>data/
  |
  |- items_packs/
  |   |
@@ -1080,14 +1088,13 @@ In my example will I use the name <code>myitem</code> as the namespace to use. T
          |
          |- myitem/
 </code></pre></div>
-
 <p>As you can see do we create new folders called <code>myitem</code> inside <code>items_packs</code> and <code>resource_pack/assets/</code>.<br />
 The reason why <code>resource_pack</code> has it inside the <code>assets</code> folder is, that MC is always checking <code>assets/:namespace/</code> for textures, models and similar when any given path is prefixed with a namespace (i.e. <code>myitem:some/path</code>).</p>
 <p>The next step I usually do is to first add the assets. In our case would it just be a PNG file of the item.<br />
 In this example am I calling it <code>dummy.png</code>.</p>
 <p>Since it is a texture will we need to add a <code>textures</code> folder inside the <code>assets/myitem/</code> directory, as MC checks <code>assets/:namespace/textures/</code> for any texture file. For better organisation will I also add an extra <code>item/</code> folder to it.<br />
-This means, that the new structure is like this:  </p>
-<div class="codehilite"><pre><span></span><code>data/
+This means, that the new structure is like this:</p>
+<div class="highlight"><pre><span></span><code>data/
  |
  |- items_packs/
  |   |
@@ -1105,7 +1112,6 @@ This means, that the new structure is like this:  </p>
                      |
                      |- dummy.png
 </code></pre></div>
-
 <div class="admonition tip">
 <p class="admonition-title">Pro-tips</p>
 <ul>
@@ -1115,62 +1121,57 @@ This means, that the new structure is like this:  </p>
 </div>
 <p>Now with this completed is the next step to actually tell ItemsAdder to add it as a new item.<br />
 To do this, I create a new YAML file inside <code>items_packs/myitem/</code>. Any name for the file works, but it should be kept lowercase and not contain any spaces or weird characters.</p>
-<p>To keep it simple will I name it <code>dummy.yml</code> and fill it with the following:<br />
-```yaml title="dummy.yml"
-info:
-  namespace: myitem # (1)
-items:
-  dummy: # (2)
-    display_name: "Dummy Item" # (3)
-    resource:
-      material: PAPER # (4)
-      generate: true # (5)
-      textures: # (6)
-      - 'item/dummy.png'</p>
-<div class="codehilite"><pre><span></span><code>1.  This is used as the custom namespace for ItemsAdder commands such as `/iaget` but also other things
-2.  This can be any name. Just make sure it&#39;s lowercased. It will be used as identifier for the custom item (i.e. `myitem:dummy`)
-3.  The name that will be displayed when obtaining the item.
-4.  The Base item that is used. ItemsAdder will assign a custom model data for the item to override the texture/model. This has to be a valid Minecraft item.
-5.  `generate: true` tells ItemsAdder to auto-generate the necessary model file for this item. This should be used if you&#39;re not using a custom model.
-6.  This sets the textures to use. For a normal item is only one texture needed, but blocks can have up to 6 (One for each side). The path is relative to `assets/:namespace/textures/`.
-
-With this setup am I telling ItemsAdder to create a new entry for the item PAPER with the texture located at `assets/myitem/textures/`.  
-After saving the changes can I now run `/iazip` to update the resource pack. Afterwards should I be able to get the item using `/iaget myitem:dummy`
-
-## Creating a Block
-
-Creating a block is for the most part the same as [creating an item](#creating-an-item) so please read that part first.
-
-In this example am I using the same folder structure, with the difference that the PNG files for the block are inside `assets/myitem/textures/block/` and that I&#39;m using multiple ones.
-
-All we need to do now is add some extra stuff to it:  
-```yaml title=&quot;dummy_block.yml&quot;
-info:
-  namespace: myitem
-items:
-  dummy_block:
-    display_name: &quot;Dummy Block&quot;
-    resource:
-      material: PAPER # (1)
-      generate: true
-      textures: # (2)
-      - &#39;block/dummy_down.png&#39;
-      - &#39;block/dummy_east.png&#39;
-      - &#39;block/dummy_north.png&#39;
-      - &#39;block/dummy_south.png&#39;
-      - &#39;block/dummy_up.png&#39;
-      - &#39;block/dummy_west.png&#39;
-    specific_properties:
-      block: # (3)
-        type: REAL_NOTE # (4)
-        break_particle: ITEM # (5)
+<p>To keep it simple will I name it <code>dummy.yml</code> and fill it with the following:</p>
+<div class="highlight"><span class="filename">dummy.yml</span><pre><span></span><code><span class="nt">info</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myitem</span><span class="w"> </span><span class="c1"># (1)</span><span class="w"></span>
+<span class="nt">items</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dummy</span><span class="p">:</span><span class="w"> </span><span class="c1"># (2)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Dummy</span><span class="nv"> </span><span class="s">Item&quot;</span><span class="w"> </span><span class="c1"># (3)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">material</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PAPER</span><span class="w"> </span><span class="c1"># (4)</span><span class="w"></span>
+<span class="w">      </span><span class="nt">generate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># (5)</span><span class="w"></span>
+<span class="w">      </span><span class="nt">textures</span><span class="p">:</span><span class="w"> </span><span class="c1"># (6)</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;item/dummy.png&#39;</span><span class="w"></span>
 </code></pre></div>
-
+<ol>
+<li>This is used as the custom namespace for ItemsAdder commands such as <code>/iaget</code> but also other things</li>
+<li>This can be any name. Just make sure it's lowercased. It will be used as identifier for the custom item (i.e. <code>myitem:dummy</code>)</li>
+<li>The name that will be displayed when obtaining the item.</li>
+<li>The Base item that is used. ItemsAdder will assign a custom model data for the item to override the texture/model. This has to be a valid Minecraft item.</li>
+<li><code>generate: true</code> tells ItemsAdder to auto-generate the necessary model file for this item. This should be used if you're not using a custom model.</li>
+<li>This sets the textures to use. For a normal item is only one texture needed, but blocks can have up to 6 (One for each side). The path is relative to <code>assets/:namespace/textures/</code>.</li>
+</ol>
+<p>With this setup am I telling ItemsAdder to create a new entry for the item PAPER with the texture located at <code>assets/myitem/textures/</code>.<br />
+After saving the changes can I now run <code>/iazip</code> to update the resource pack. Afterwards should I be able to get the item using <code>/iaget myitem:dummy</code></p>
+<h2 id="creating-a-block">Creating a Block<a class="headerlink" href="#creating-a-block" title="Permanent link">&para;</a></h2>
+<p>Creating a block is for the most part the same as <a href="#creating-an-item">creating an item</a> so please read that part first.</p>
+<p>In this example am I using the same folder structure, with the difference that the PNG files for the block are inside <code>assets/myitem/textures/block/</code> and that I'm using multiple ones.</p>
+<p>All we need to do now is add some extra stuff to it:</p>
+<div class="highlight"><span class="filename">dummy_block.yml</span><pre><span></span><code><span class="nt">info</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myitem</span><span class="w"></span>
+<span class="nt">items</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dummy_block</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Dummy</span><span class="nv"> </span><span class="s">Block&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">material</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PAPER</span><span class="w"> </span><span class="c1"># (1)</span><span class="w"></span>
+<span class="w">      </span><span class="nt">generate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">textures</span><span class="p">:</span><span class="w"> </span><span class="c1"># (2)</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_down.png&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_east.png&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_north.png&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_south.png&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_up.png&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;block/dummy_west.png&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">specific_properties</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="c1"># (3)</span><span class="w"></span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REAL_NOTE</span><span class="w"> </span><span class="c1"># (4)</span><span class="w"></span>
+<span class="w">        </span><span class="nt">break_particle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ITEM</span><span class="w"> </span><span class="c1"># (5)</span><span class="w"></span>
+</code></pre></div>
 <ol>
 <li>It's recommended to use an item and not a block here, to avoid glitchy placement behaviour. The item will look like a block in the inventory.</li>
 <li>In this example am I setting individual textures for each side of the block. The order is actually important and the names should tell it. If each side has the same texture will you only need one texture to be set here.</li>
 <li>This tells ItemsAdder that this item should be placable like an actual block. This will also change the texture displayed in the Inventory to that of a full block.</li>
-<li>The <code>type</code> defines what Vanilla block should be used. Recommended is to use <code>REAL_NOTE</code>. What types are available can be found in the [Wiki][ia_block_types]</li>
+<li>The <code>type</code> defines what Vanilla block should be used. Recommended is to use <code>REAL_NOTE</code>. What types are available can be found in the <a href="https://itemsadder.devs.beer/plugin-usage/adding-content/item-properties/blocks#type">Wiki</a></li>
 <li>Sets the particle to use for when the block is broken. <code>ITEM</code> tells ItemsAdder to use the textures set for the item.</li>
 </ol>
 <p>This is already enough to create a custom block to use. All that is left is to update the resource pack (<code>/iazip</code>) and obtaining the item (<code>/iaget myitem:dummy_block</code>)</p>
@@ -1179,30 +1180,28 @@ items:
 Let's say we want to use a custom model for our <code>dummy</code> item.</p>
 <p>In order to do this will we first need to create the actual Model file to use. A recommended software to use for this is Blockbench<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> as it allows a relatively easy creation of MC block/item models.</p>
 <p>To not make this guide too long will I skip the entire model creation process.<br />
-Just assume we still have the same Texture file in the same directory (<code>assets/myitem/textures/dummy.png</code>) and that we create a JSON model file which may look something similar to this:<br />
-```json5 title="dumy_model.json"
-{
-  "credit": "Made with Blockbench",
-  "textures": {
-    "0": "myitem:item/dummy",
-    "particle": "myitem:item/dummy"
+Just assume we still have the same Texture file in the same directory (<code>assets/myitem/textures/dummy.png</code>) and that we create a JSON model file which may look something similar to this:</p>
+<div class="highlight"><span class="filename">dumy_model.json</span><pre><span></span><code>{
+  &quot;credit&quot;: &quot;Made with Blockbench&quot;,
+  &quot;textures&quot;: {
+    &quot;0&quot;: &quot;myitem:item/dummy&quot;,
+    &quot;particle&quot;: &quot;myitem:item/dummy&quot;
   },
-  "elements": [
+  &quot;elements&quot;: [
     {
       // Here would be all the element parts of our model
     }
   ]
-}</p>
-<div class="codehilite"><pre><span></span><code>!!! note &quot;Important&quot;
-    Model files follow the same structure with textures as MC does, meaning that you need to prefix the texture path with your namespace (in my case `myitem:`) and also provide a path relative to `assets/:namespace/textures/`.  
-    Additionally do you **not** have to append a `.png` extension to the paths. MC automatically assumes PNG files being used.
-
-    Blockbench should deal with those things by itself, as long as you&#39;re using a proper folder structure for the textures.
-
-We would put this file into a new folder called `models`. To add more structure am I adding an extra folder called `item`, so the current structure would look similar to this:  
+}
 </code></pre></div>
-
-<p>data/
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Model files follow the same structure with textures as MC does, meaning that you need to prefix the texture path with your namespace (in my case <code>myitem:</code>) and also provide a path relative to <code>assets/:namespace/textures/</code>.<br />
+Additionally do you <strong>not</strong> have to append a <code>.png</code> extension to the paths. MC automatically assumes PNG files being used.</p>
+<p>Blockbench should deal with those things by itself, as long as you're using a proper folder structure for the textures.</p>
+</div>
+<p>We would put this file into a new folder called <code>models</code>. To add more structure am I adding an extra folder called <code>item</code>, so the current structure would look similar to this:</p>
+<div class="highlight"><pre><span></span><code>data/
  |
  |- items_packs/
  |   |
@@ -1236,23 +1235,27 @@ We would put this file into a new folder called `models`. To add more structure 
                      |- dummy_north.png
                      |- dummy_south.png
                      |- dummy_up.png
-                     |- dummy_west.png</p>
-<div class="codehilite"><pre><span></span><code>Since we just edit an existing item can we open the `dummy_item.yml` file and adjust a few things:  
-```yaml title=&quot;dummy_item.yml&quot;
-info:
-  namespace: myitem
-items:
-  dummy:
-    display_name: &quot;Dummy Item&quot;
-    resource:
-      material: PAPER
-      generate: false
-      model_path: &quot;item/dummy_model&quot;
+                     |- dummy_west.png
 </code></pre></div>
-
+<p>Since we just edit an existing item can we open the <code>dummy_item.yml</code> file and adjust a few things:</p>
+<div class="highlight"><span class="filename">dummy_item.yml</span><pre><span></span><code><span class="nt">info</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myitem</span><span class="w"></span>
+<span class="nt">items</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dummy</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Dummy</span><span class="nv"> </span><span class="s">Item&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">material</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PAPER</span><span class="w"></span>
+<span class="w">      </span><span class="nt">generate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">      </span><span class="nt">model_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;item/dummy_model&quot;</span><span class="w"></span>
+</code></pre></div>
 <p>What you may have noticed is, that <code>generate</code> is set to <code>false</code>. This is important since we want to use our own model file and keeping this option set to true would cause ItemsAdder to still auto-generate and use its own mode file.<br />
 Additionally have I removed the <code>textures</code> option and instead added the <code>model_path</code> one. This is due to the model file containing all the texture settings to use, so we don't have to provide them here again.</p>
 <p>If you've done everything correctly can you now run <code>/iazip</code> and the item should use the actual model you set (You may require to clear the cache tho).</p>
+<hr />
+<h2 id="__footnotes">Footnotes</h2>
+
+<!-- Footnotes -->
+
 <div class="footnote">
 <hr />
 <ol>
@@ -1283,7 +1286,7 @@ Additionally have I removed the <code>textures</code> option and instead added t
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 0 1-.699.409l-5.523 1.68a.75.75 0 0 1-.935-.935l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371-10.28 9.813a.25.25 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 0 0 .1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5 19 8.44z"/></svg>
       </span>
       Last update:
-      29. October 2022 (<span class="timeago" datetime="2022-10-29T01:36:49+02:00" locale="en"></span>)
+      29. October 2022 (<span class="timeago" datetime="2022-10-29T02:07:43+02:00" locale="en"></span>)
       
 
     <!-- mkdocs-git-revision-date-plugin -->
@@ -1377,7 +1380,7 @@ Additionally have I removed the <code>textures</code> option and instead added t
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
     

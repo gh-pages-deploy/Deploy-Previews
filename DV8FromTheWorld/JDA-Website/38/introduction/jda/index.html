@@ -898,16 +898,21 @@
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReadyListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">EventListener</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">LoginException</span><span class="w"></span>
+<span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">jda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyListener</span><span class="p">()).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Note: It is important to register your ReadyListener before building</span><span class="w"></span>
+<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">jda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyListener</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// optionally block until JDA is ready</span><span class="w"></span>
+<span class="w">        </span><span class="n">jda</span><span class="p">.</span><span class="na">awaitReady</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onEvent</span><span class="p">(</span><span class="n">GenericEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">)</span><span class="w"></span>
 <span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;API is ready!&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -915,23 +920,29 @@
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MessageListener</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ListenerAdapter</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">LoginException</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">jda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">jda</span><span class="p">.</span><span class="na">addEventListeners</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MessageListener</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="n">JDA</span><span class="w"> </span><span class="n">jda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JDABuilder</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableIntents</span><span class="p">(</span><span class="n">GatewayIntent</span><span class="p">.</span><span class="na">MESSAGE_CONTENT</span><span class="p">)</span><span class="w"> </span><span class="c1">// enables explicit access to message.getContentDisplay()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//You can also add event listeners to the already built JDA instance</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Note that some events may not be received if the listener is added after calling build()</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// This includes events such as the ReadyEvent</span><span class="w"></span>
+<span class="w">        </span><span class="n">jda</span><span class="p">.</span><span class="na">addEventListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MessageListener</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMessageReceived</span><span class="p">(</span><span class="n">MessageReceivedEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">isFromType</span><span class="p">(</span><span class="n">ChannelType</span><span class="p">.</span><span class="na">TEXT</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">isFromType</span><span class="p">(</span><span class="n">ChannelType</span><span class="p">.</span><span class="na">PRIVATE</span><span class="p">))</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[%s][%s] %#s: %s%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getGuild</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"></span>
-<span class="w">                </span><span class="n">event</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getAuthor</span><span class="p">(),</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[PM] %s: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getAuthor</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[PM] %#s: %s%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getAuthor</span><span class="p">(),</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[%s][%s] %s: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getGuild</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"></span>
+<span class="w">                        </span><span class="n">event</span><span class="p">.</span><span class="na">getTextChannel</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getMember</span><span class="p">().</span><span class="na">getEffectiveName</span><span class="p">(),</span><span class="w"></span>
+<span class="w">                        </span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">getContentDisplay</span><span class="p">());</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -950,8 +961,8 @@ build pages of the <a href="https://ci.dv8tion.net/job/JDA/">legacy v4 Downloads
 <br>
 The web format allows for viewing of the <a href="https://ci.dv8tion.net/job/JDA5/javadoc/">Latest Docs</a> or <a href="https://ci.dv8tion.net/job/JDA/javadoc/">legacy Docs</a> 
 and also viewing of each individual build's javadoc. To view the javadoc for a specific build, you will need to go to that build's page
-on <a href="https://ci.dv8tion.net/job/JDA/">the build server</a> and download the javadoc jar for the specific build.<br>
-A shortcut would be: <code>https://ci.dv8tion.net/job/JDA/BUILD_NUMBER_GOES_HERE</code>, you just need to replace the 
+on <a href="https://ci.dv8tion.net/job/JDA5/">the build server</a> and download the javadoc jar for the specific build.<br>
+A shortcut would be: <code>https://ci.dv8tion.net/job/JDA5/BUILD_NUMBER_GOES_HERE</code>, you just need to replace the 
 "BUILD_NUMBER_GOES_HERE" with the build you want.<br>
 Once you have the jar extract the files with the zip tool of your preference (winrar or 7zip, etc.) and open the <code>index.html</code> file with your internet browser.</p>
 <h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>

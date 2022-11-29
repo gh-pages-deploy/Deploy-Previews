@@ -832,7 +832,7 @@
 
 
 <h1 id="eclipse-setup">Eclipse Setup<a class="headerlink" href="#eclipse-setup" title="Permanent link">&para;</a></h1>
-<p><a href="https://ci.dv8tion.net/job/JDA/lastSuccessfulBuild/"> <img alt="Download" src="https://shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fm2.dv8tion.net%2Freleases%2Fnet%2Fdv8tion%2FJDA%2Fmaven-metadata.xml&amp;color=informational&amp;label=Download&amp;style=for-the-badge" /> </a></p>
+<p><a href="https://mvnrepository.com/artifact/net.dv8tion/JDA/latest"> <img alt="Download" src="https://img.shields.io/maven-central/v/net.dv8tion/JDA?color=blue" /> </a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Gradle Setup</label><label for="__tabbed_1_2">Maven Setup</label><label for="__tabbed_1_3">Jar Setup</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -881,9 +881,6 @@
 
 <span class="n">repositories</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>
-<span class="w">        </span><span class="n">url</span><span class="w"> </span><span class="s2">&quot;https://m2.dv8tion.net/releases&quot;</span><span class="w"> </span><span class="c1">// (1)</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
@@ -892,9 +889,6 @@
 
 <span class="n">compileJava</span><span class="o">.</span><span class="na">options</span><span class="o">.</span><span class="na">encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>On Kotlin DSL use <code>maven("https://m2.dv8tion.net/releases")</code> instead</li>
-</ol>
 </li>
 <li>
 <p>Adjust the version of JDA you want to use (see dependencies-section of file) and fill in your Main-Class as soon as you have one (the one containing your <code>public static void main(String[] args)</code> method)</p>
@@ -938,23 +932,12 @@
 <p>This will make your project support UTF-8 characters (So you can have it on Japanese servers for example) and also force Java 8, which is needed.</p>
 </li>
 <li>
-<p>Now let's add JDA's repository, so we can fetch the jar (Place this after <code>&lt;/properties&gt;</code>)
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;repositories&gt;</span>
-    <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>dv8tion<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;name&gt;</span>m2-dv8tion<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;url&gt;</span>https://m2.dv8tion.net/releases<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
-<span class="nt">&lt;/repositories&gt;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>Now, add the dependency, make sure you change <code>X.X.X_XXX</code> to the latest version number (Check out at https://ci.dv8tion.net/job/JDA/)
+<p>Now, add the dependency, make sure you change <code>X.Y.Z-beta.W</code> to the latest version number (You can find it in the releases: https://github.com/DV8FromTheWorld/JDA/releases)
     <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>net.dv8tion<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>JDA<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>X.X.X_XXX<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>X.Y.Z-beta.W<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div></p>
@@ -1017,7 +1000,7 @@
 <ol>
 <li>Download the latest (Binary) version of JDA (with Dependencies):<ul>
 <li>(Recommended) <a href="https://github.com/DV8FromTheWorld/JDA/releases/">https://github.com/DV8FromTheWorld/JDA/releases/</a></li>
-<li>(Latest/Dev) <a href="https://ci.dv8tion.net/job/JDA/">https://ci.dv8tion.net/job/JDA/</a></li>
+<li>(Latest/Dev) <a href="https://ci.dv8tion.net/job/JDA5/">https://ci.dv8tion.net/job/JDA5/</a></li>
 </ul>
 </li>
 <li>
@@ -1054,7 +1037,7 @@
 <p><img alt="Javadoc" src="https://raw.githubusercontent.com/DV8FromTheWorld/JDA/assets/assets/wiki/setup/eclipse/25-javaDocs.png" /></p>
 </li>
 <li>
-<p>Here, add your <strong>JDA-x.x.x_xxx-javadoc.jar</strong> and click on <strong>OK</strong></p>
+<p>Here, add your <strong>JDA-x.y.z-www.p-javadoc.jar</strong> and click on <strong>OK</strong></p>
 </li>
 <li><a href="../logging/">Setup Logback</a></li>
 <li>Continue with <a href="../../using-jda/getting-started/">Getting Started</a></li>

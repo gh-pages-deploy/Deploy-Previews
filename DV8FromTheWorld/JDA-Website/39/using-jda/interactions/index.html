@@ -1538,6 +1538,10 @@ There can be multiple options selected and set as default.</p>
 such as <code>User</code>s, <code>Channel</code>s, etc.</p>
 <p>You can specify which entity types you wish to appear as choices by specifying the <code>SelectTarget</code>s in <code>EntitySelectMenu.create</code>.</p>
 <p>You can specify which channel types you wish to appear as channel choices by using the <code>setChannelTypes</code> method on <code>EntitySelectMenu.Builder</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can only specify the entity and channel types to be shown as entity select options. Further customization is not supported.</p>
+</div>
 <h5 id="handling-entityselectinteractionevent">Handling EntitySelectInteractionEvent<a class="headerlink" href="#handling-entityselectinteractionevent" title="Permanent link">&para;</a></h5>
 <p>When a user submits their choices from an Entity Select Menu, you will receive an <code>EntitySelectInteractionEvent</code> for the respective interaction with the selected values.</p>
 <div class="admonition example">

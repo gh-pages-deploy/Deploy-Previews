@@ -1456,7 +1456,7 @@ There can be multiple options selected and set as default.</p>
 <p>Entity Select Menus do not support custom choices. Instead, they derive their choices from mentionable Discord entities
 such as <code>User</code>s, <code>Channel</code>s, etc.</p>
 <p><img alt="Example Entity Select Menu for Roles" src="../../assets/images/entity_select_example.png" /></p>
-<p>You can specify which entity types you wish to appear as choices by specifying the <code>SelectTarget</code>s in <code>EntitySelectMenu.create</code>.</p>
+<p>You can specify which entity types you wish to appear as choices by specifying the <code>SelectTarget</code>s in <code>EntitySelectMenu.create</code>. If you create an entity select menu with channel type targets, the same menu may not utilize user or role select targets, and vice versa.</p>
 <p>You can limit channel selections to specific channel types by using the <code>setChannelTypes</code> method on <code>EntitySelectMenu.Builder</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>

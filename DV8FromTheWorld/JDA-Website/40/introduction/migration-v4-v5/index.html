@@ -488,6 +488,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#channel-rework" class="md-nav__link">
+    Channel Rework
+  </a>
+  
+    <nav class="md-nav" aria-label="Channel Rework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-channel-attribute-interfaces" class="md-nav__link">
+    New Channel Attribute Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#independant-stage-channel-and-news-channel-entities" class="md-nav__link">
+    Independant Stage Channel and News Channel Entities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-changes" class="md-nav__link">
+    Permission Changes
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -889,6 +923,31 @@ The ones that are not checked do not support it yet. You should check that every
 </ul>
 </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/JDA-Applications/JDA-Utilities">JDA-Utilities</a></li>
+</ul>
+<h2 id="channel-rework">Channel Rework<a class="headerlink" href="#channel-rework" title="Permanent link">&para;</a></h2>
+<p>There are several breaking changes to <code>GuildChannel</code> and <code>ChannelManager</code></p>
+<h3 id="new-channel-attribute-interfaces">New Channel Attribute Interfaces<a class="headerlink" href="#new-channel-attribute-interfaces" title="Permanent link">&para;</a></h3>
+<p><code>GuildChannel</code> now implements <code>getGuild</code> and <code>getManager</code> <em>only</em>. It's meant to serve as a generic type to hold channels from guilds.</p>
+<p>Specific channel attributes, such as slow mode, permissions, etc have been split into several interfaces. These interfaces can be found in <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/attribute/package-summary.html">the <code>net.dv8tion.jda.api.entities.channel.attribute</code> package</a>. Each interface in this package extends <code>GuildChannel</code>.</p>
+<h3 id="independant-stage-channel-and-news-channel-entities">Independant Stage Channel and News Channel Entities<a class="headerlink" href="#independant-stage-channel-and-news-channel-entities" title="Permanent link">&para;</a></h3>
+<p><a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/concrete/StageChannel.html"><code>StageChannel</code></a> and <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/concrete/NewsChannel.html"><code>NewsChannel</code></a> were previously variants of <code>VoiceChannel</code> and <code>TextChannel</code>. These are now their own independant entities. This comes with a number of changes:</p>
+<ul>
+<li><code>ChannelAction#setNews</code> has been removed in favor of <code>ChannelAction.setType</code></li>
+<li><code>ChannelManager#getType</code> was removed in favor of <code>ChannelManager#getChannel()#getType</code></li>
+<li><code>ChannelManager#setNews</code> has been removed in favor of <code>ChannelManager#setType</code></li>
+<li><code>TextChannel#crosspostMessage</code> was removed in favor of <code>NewsChannel#crosspostMessage</code></li>
+<li><code>TextChannel#follow</code> has been removed in favor of <code>NewsChannel#follow</code></li>
+<li><code>TextChannel#isNews</code> has been removed</li>
+</ul>
+<h2 id="permission-changes">Permission Changes<a class="headerlink" href="#permission-changes" title="Permanent link">&para;</a></h2>
+<p>A number of permissions have been renamed, with one permission being removed entirely.</p>
+<ul>
+<li><code>Permission.MANAGE_EMOTES</code> was renamed to <code>Permission.MANAGE_EMOTES_AND_STICKERS</code></li>
+<li><code>Permission.MESSAGE_READ</code> has been removed in favor of <code>Permission.VIEW_CHANNEL</code></li>
+<li><code>Permission.MESSAGE_WRITE</code> was renamed to <code>Permission.MESSAGE_SEND</code></li>
+<li><code>Permission.USE_SLASH_COMMANDS</code> was renamed to <code>Permission.USE_APPLICATION_COMMANDS</code></li>
+<li><code>Permission.USE_PUBLIC_THREADS</code> was renamed to <code>Permission.CREATE_PUBLIC_THREADS</code></li>
+<li><code>Permission.USE_PRIVATE_THREADS</code> was renamed to <code>Permission.CREATE_PRIVATE_THREADS</code></li>
 </ul>
 
               

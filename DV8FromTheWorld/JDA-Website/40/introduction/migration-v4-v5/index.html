@@ -504,8 +504,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#permission-access-changes" class="md-nav__link">
+    Permission Access Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-trimmed-channel-managers" class="md-nav__link">
+    Type-Trimmed Channel Managers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#independant-stage-channel-and-news-channel-entities" class="md-nav__link">
     Independant Stage Channel and News Channel Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-changes" class="md-nav__link">
+    Other Changes
   </a>
   
 </li>
@@ -916,10 +937,10 @@
 <p>Here is a list of known extensions that support 5.X.
 The ones that are not checked do not support it yet. You should check that everything used in your project supports 5.X before starting migration.</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/MinnDevelopment/jda-reactor">jda-reactor</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/sedmelluq/lavaplayer">LavaPlayer</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/sedmelluq/jda-nas">jda-nas</a><ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/MinnDevelopment/udpqueue.rs">udpqueue.rs</a> (for minimal Rust bindings)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/MinnDevelopment/jda-reactor">jda-reactor</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/sedmelluq/lavaplayer">LavaPlayer</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/sedmelluq/jda-nas">jda-nas</a><ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/MinnDevelopment/udpqueue.rs">udpqueue.rs</a> (for minimal Rust bindings)</li>
 </ul>
 </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/JDA-Applications/JDA-Utilities">JDA-Utilities</a></li>
@@ -929,6 +950,12 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="new-channel-attribute-interfaces">New Channel Attribute Interfaces<a class="headerlink" href="#new-channel-attribute-interfaces" title="Permanent link">&para;</a></h3>
 <p><code>GuildChannel</code> now implements <code>getGuild</code> and <code>getManager</code> <em>only</em>. It's meant to serve as a generic type to hold channels from guilds.</p>
 <p>Specific channel attributes, such as slow mode, permissions, etc have been split into several interfaces. These interfaces can be found in <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/attribute/package-summary.html">the <code>net.dv8tion.jda.api.entities.channel.attribute</code> package</a>. Each interface in this package extends <code>GuildChannel</code>.</p>
+<h3 id="permission-access-changes">Permission Access Changes<a class="headerlink" href="#permission-access-changes" title="Permanent link">&para;</a></h3>
+<p>With JDA v5 introducing a more butchered down <code>GuildChannel</code> interface, <code>GuildChannel#getPermissionContainer() : IPermissionContainer</code> has been introduced to make accessing permissions easier. This allows for users to confidently access the entity that dictates the permissions for a given channel without having to check whether the channel actually supports permissions, such as in the case of threads.</p>
+<p>Of course, if you have a channel type that already supports <code>IPermissionContainer</code>, you don't need this getter.</p>
+<h3 id="type-trimmed-channel-managers">Type-Trimmed Channel Managers<a class="headerlink" href="#type-trimmed-channel-managers" title="Permanent link">&para;</a></h3>
+<p>In JDA v4, <code>GuildChannel#getManager</code> returned a <code>ChannelManager</code> that gave every possible setter for every channel type. This caused for <code>UnsupportedOperationException</code> or <code>IllegalStateException</code> to be thrown in some cases, such as calling <code>setBitrate</code> on a <code>TextChannel</code>.</p>
+<p>JDA v5 provides type-trimmed channel managers, which provide only the setters that we know <em>for sure</em> can work on the given channel. Each of these managers can be found in <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/managers/channel/package-summary.html">the <code>net.dv8tion.jda.api.managers.channel</code> package</a>. These all follow the same implement/extension hierarchy as the channels do and map 1:1.</p>
 <h3 id="independant-stage-channel-and-news-channel-entities">Independant Stage Channel and News Channel Entities<a class="headerlink" href="#independant-stage-channel-and-news-channel-entities" title="Permanent link">&para;</a></h3>
 <p><a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/concrete/StageChannel.html"><code>StageChannel</code></a> and <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/concrete/NewsChannel.html"><code>NewsChannel</code></a> were previously variants of <code>VoiceChannel</code> and <code>TextChannel</code>. These are now their own independant entities. This comes with a number of changes:</p>
 <ul>
@@ -938,6 +965,12 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>TextChannel#crosspostMessage</code> was removed in favor of <code>NewsChannel#crosspostMessage</code></li>
 <li><code>TextChannel#follow</code> has been removed in favor of <code>NewsChannel#follow</code></li>
 <li><code>TextChannel#isNews</code> has been removed</li>
+</ul>
+<h3 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>StoreChannel</code> has been removed</li>
+<li><code>PrivateChannel#getUser</code> is now nullable</li>
+<li><code>MessageChannel#getLatestMessageId</code> and <code>MessageChannel#getLatestMessageIdLong</code> no longer change to null if the message was deleted</li>
 </ul>
 <h2 id="permission-changes">Permission Changes<a class="headerlink" href="#permission-changes" title="Permanent link">&para;</a></h2>
 <p>A number of permissions have been renamed, with one permission being removed entirely.</p>

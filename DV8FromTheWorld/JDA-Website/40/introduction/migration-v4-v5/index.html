@@ -652,6 +652,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#message-sendedit-rework" class="md-nav__link">
+    Message Send/Edit Rework
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Send/Edit Rework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-renames" class="md-nav__link">
+    Method Renames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unifying-message-requests" class="md-nav__link">
+    Unifying Message Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-sending" class="md-nav__link">
+    File Sending
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-splitting" class="md-nav__link">
+    Message Splitting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1193,6 +1234,61 @@ The ones that are not checked do not support it yet. You should check that every
     Parses emoji instances from markdown such as <code>"&lt;:minn:12345581261712671&gt;"</code> and also supports unicode such as <code>"😃"</code> or codepoint notation <code>"U+1F602"</code>. This returns a <code>EmojiUnion</code> instance, which can be either custom or unicode.</li>
 </ul>
 <p>You can see the full list of breaking changes in <a href="https://github.com/DV8FromTheWorld/JDA/pull/2117">#2117</a>.</p>
+<h2 id="message-sendedit-rework">Message Send/Edit Rework<a class="headerlink" href="#message-sendedit-rework" title="Permanent link">&para;</a></h2>
+<p>In JDA 5 we are separating the handling of message sending and editing, while also unifying all send and edit functionality in the API. The old <code>MessageBuilder</code> and <code>MessageAction</code> have been split up:</p>
+<ul>
+<li><code>MessageCreateBuilder</code></li>
+<li><code>MessageCreateAction</code></li>
+<li><code>MessageEditBuilder</code></li>
+<li><code>MessageEditAction</code></li>
+</ul>
+<p>This change should only affect few people who made use of <code>MessageBuilder</code> in the past. You need to update your code to either the edit or create builders. If you don't know whether the resulting operation is an edit or send request, you can simply always use <code>MessageEditBuilder</code> and then use <code>MessageCreateData.fromEdit(MessageEditData)</code> to convert it at call-site. You can also use similar factory methods to create a sendable message from the <code>Message</code> interface (<code>MessageCreateData.fromMessage(message)</code>).</p>
+<p>Previously, edit requests had a method called <code>override(boolean)</code> to <em>replace</em> the entire message. This was used to remove content or embeds from a message. You can now simply use <code>setEmbeds(emptyList())</code> or <code>setContent("")</code> to remove specific parts of the message, or use <code>setReplace(true)</code> to achieve the same functionality of replacing everything.</p>
+<h3 id="method-renames">Method Renames<a class="headerlink" href="#method-renames" title="Permanent link">&para;</a></h3>
+<p>Some methods were renamed to allow for consistency between all requests.</p>
+<ul>
+<li><code>setActionRows</code>/<code>addActionRows</code> renamed to <code>setComponents</code>/<code>addComponents</code></li>
+<li><code>MessageAction#tts</code> renamed to <code>MessageCreateRequest#setTTS</code></li>
+<li><code>MessageAction#content</code> renamed to <code>MessageCreateRequest#setContent</code></li>
+<li><code>MessageAction#allowedMentions</code> renamed to <code>MessageRequest#setAllowedMentions</code></li>
+<li><code>addFile</code> removed in favor of <code>addFiles</code> and <code>setAttachments</code> (see <strong>File Sending</strong> section below)</li>
+</ul>
+<h3 id="unifying-message-requests">Unifying Message Requests<a class="headerlink" href="#unifying-message-requests" title="Permanent link">&para;</a></h3>
+<p>All message send and edit requests now use a unified <code>MessageRequest</code> interface. This allows you to make very abstracted implementations that use high level interfaces.</p>
+<p><img alt="Message Rework Hierarchy" src="https://cdn.discordapp.com/attachments/875797959072161843/1009139444772782130/unknown.png" /></p>
+<p>This also means that all methods from <code>message.editMessage(...)</code> are consistent with the methods from <code>interaction.editMessage(...)</code>, and analogously for sending. You can now use <code>addActionRow</code> when sending a message to a channel.</p>
+<h3 id="file-sending">File Sending<a class="headerlink" href="#file-sending" title="Permanent link">&para;</a></h3>
+<p>The old <code>sendFile(...)</code>/<code>replyFile(...)</code> overloads available on <code>MessageChannel</code> and interactions has been replaced by a single <code>sendFiles(...)</code> method. This new method accepts the <code>FileUpload</code> type, which also supports file descriptions (alt text) via <code>setDescription(...)</code>. For example, old code such as <code>sendFile(data, name, AttachmentOption.SPOILER)</code> is replaced with <code>sendFiles(FileUpload.fromData(data, name).asSpoiler())</code>.</p>
+<p>Due to changes in the Discord API v10, you can no longer add files to messages without replacing all existing attachments. We could previously support methods such as <code>MessageAction#addFile</code> for editing messages, which is no longer possible in API v10. Instead you <strong>must</strong> replace the entire list of attachments, using <code>MessageEditAction#setAttachments</code>. Here is an example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Here &quot;message&quot; is an instance of the Message interface</span>
+
+<span class="w"> </span><span class="c1">// Take the first attachment of the message, all others will be removed</span>
+<span class="w"> </span><span class="n">AttachedFile</span><span class="w"> </span><span class="n">attachment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="na">getAttachments</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w"> </span><span class="c1">// The name here will be &quot;cat.png&quot; to discord, what the file is called on your computer is irrelevant and only used to read the data of the image.</span>
+<span class="w"> </span><span class="n">FileUpload</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUpload</span><span class="p">.</span><span class="na">fromData</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;mycat-final-copy.png&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;cat.png&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Opens the file called &quot;cat.png&quot; and provides the data used for sending</span>
+
+<span class="w"> </span><span class="c1">// Edit request to keep the first attachment, and add one more file to the message</span>
+<span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="na">editMessage</span><span class="p">(</span><span class="s">&quot;New content&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setAttachments</span><span class="p">(</span><span class="n">attachment</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
+</code></pre></div>
+<h3 id="message-splitting">Message Splitting<a class="headerlink" href="#message-splitting" title="Permanent link">&para;</a></h3>
+<p>The old <code>MessageBuilder#buildAll</code> has been removed from the builder classes. Instead you can now use the new <code>SplitUtil</code> utility class to split any string. For example:</p>
+<p><strong>Old:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MessageBuilder</span><span class="p">().</span><span class="na">setContent</span><span class="p">(</span><span class="n">someLargeString</span><span class="p">).</span><span class="na">buildAll</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>New:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SplitUtil</span><span class="p">.</span><span class="na">split</span><span class="p">(</span>
+<span class="w">    </span><span class="n">someLargeString</span><span class="p">,</span><span class="w">  </span><span class="c1">// input string of arbitrary length</span>
+<span class="w">    </span><span class="mi">2000</span><span class="p">,</span><span class="w">             </span><span class="c1">// the split limit, can be arbitrary (&gt;0)</span>
+<span class="w">    </span><span class="kc">true</span><span class="p">,</span><span class="w">             </span><span class="c1">// whether to trim the strings (empty will be discarded)</span>
+<span class="w">    </span><span class="n">Strategy</span><span class="p">.</span><span class="na">NEWLINE</span><span class="p">,</span><span class="w"> </span><span class="c1">// split on &#39;\n&#39; characters if possible</span>
+<span class="w">    </span><span class="n">Strategy</span><span class="p">.</span><span class="na">ANYWHERE</span><span class="w"> </span><span class="c1">// otherwise split on the limit</span>
+<span class="p">);</span>
+<span class="c1">// Convert to instance of MessageCreateData (optional, you can just send strings directly!)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">MessageCreateData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contents</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">MessageCreateData</span><span class="p">::</span><span class="n">fromContent</span><span class="p">).</span><span class="na">toList</span><span class="p">();</span>
+</code></pre></div>
 
               
             </article>

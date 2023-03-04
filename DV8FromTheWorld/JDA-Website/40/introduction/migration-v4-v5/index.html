@@ -504,6 +504,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#channel-return-types" class="md-nav__link">
+    Channel Return Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#new-channel-attribute-interfaces" class="md-nav__link">
     New Channel Attribute Interfaces
   </a>
@@ -1073,6 +1080,8 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>net.dv8tion.jda.api.entities.channel.unions</code><br>
     Interfaces used for return values, allowing for downcasting into specific types. They also provided shared features of the specific interface they extend.</li>
 </ul>
+<h3 id="channel-return-types">Channel Return Types<a class="headerlink" href="#channel-return-types" title="Permanent link">&para;</a></h3>
+<p>A lot of classes in JDA used to have specific getters for each channel type, for instance messages had <code>getTextChannel()</code> and <code>getPrivateChannel()</code>. The goal was to allow easy conversion to concrete types that have more functionality than their abstract counterpart (such as <code>MessageChannel</code>). We've introduced new <strong>Channel Union</strong> interfaces to deal with this problem in a more elegant way. Instead of using <code>foo.getTextChannel()</code>, you now use <code>foo.getChannel().asTextChannel()</code>. The <code>getChannel()</code> method now often returns a specific <strong>Union</strong> type such as <code>MessageChannelUnion</code>, which doubles as the abstract implementation for <code>MessageChannel</code> (allows to send messages) and also downcasting via various <code>asX()</code> methods.</p>
 <h3 id="new-channel-attribute-interfaces">New Channel Attribute Interfaces<a class="headerlink" href="#new-channel-attribute-interfaces" title="Permanent link">&para;</a></h3>
 <p><code>GuildChannel</code> now implements <code>getGuild</code> and <code>getManager</code> <em>only</em>. It's meant to serve as a generic type to hold channels from guilds.</p>
 <p>Specific channel attributes, such as slowmode and permissions, have been split into several interfaces. These interfaces can be found in <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/entities/channel/attribute/package-summary.html">the <code>net.dv8tion.jda.api.entities.channel.attribute</code> package</a>. Each interface in this package extends <code>GuildChannel</code>.</p>
@@ -1181,7 +1190,7 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>Emoji.fromCustom</code><br>
     Creates a <code>CustomEmoji</code> instance from the provided name and id.</li>
 <li><code>Emoji.fromFormatted</code><br>
-    parses emoji instances from markdown such as <code>"&lt;:minn:12345581261712671&gt;"</code> and also supports unicode such as <code>"😃"</code> or codepoint notation <code>"U+1F602"</code>. This returns a <code>EmojiUnion</code> instance, which can be either custom or unicode.</li>
+    Parses emoji instances from markdown such as <code>"&lt;:minn:12345581261712671&gt;"</code> and also supports unicode such as <code>"😃"</code> or codepoint notation <code>"U+1F602"</code>. This returns a <code>EmojiUnion</code> instance, which can be either custom or unicode.</li>
 </ul>
 <p>You can see the full list of breaking changes in <a href="https://github.com/DV8FromTheWorld/JDA/pull/2117">#2117</a>.</p>
 

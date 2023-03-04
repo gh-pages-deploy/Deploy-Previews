@@ -734,6 +734,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usersnowflake-type" class="md-nav__link">
+    UserSnowflake Type
+  </a>
+  
+    <nav class="md-nav" aria-label="UserSnowflake Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ban-precision" class="md-nav__link">
+    Ban Precision
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1389,6 +1409,33 @@ The ones that are not checked do not support it yet. You should check that every
 <span class="p">)</span>
 </code></pre></div>
 <p>You can also limit it to administrators with <code>DefaultMemberPermissions.DISABLED</code>.</p>
+<h2 id="usersnowflake-type">UserSnowflake Type<a class="headerlink" href="#usersnowflake-type" title="Permanent link">&para;</a></h2>
+<p>We have started to cut down on overloads which accept 3 different inputs to specify a user. Previously methods like <code>Guild#ban</code> had many overloads to account for different types such as <code>String</code>/<code>long</code>/<code>User</code>/<code>Member</code>. We removed all of these in favor of a single <code>UserSnowflake</code> input, which can be constructed with <code>User.fromId(long/String)</code>. Both <code>User</code> and <code>Member</code> also implement this interface. This is a far more elegant handling and reduces the number of overloads in various parts of the API drastically.</p>
+<p>This applies to the following methods:</p>
+<ul>
+<li><code>Guild#ban(long/String)</code>, <code>Guild#ban(long/String, int)</code>, <code>Guild#ban(long/String, int, String)</code><br>
+    Now just <code>Guild#ban(UserSnowflake, int, TimeUnit)</code></li>
+<li><code>Guild#kick(long/String)</code>, <code>Guild#kick(long/String, String)</code><br>
+    Now just <code>Guild#kick(UserSnowflake)</code></li>
+<li><code>Guild#unban(long/String)</code> is now <code>Guild#unban(UserSnowflake)</code></li>
+<li><code>Guild#retrieveBanById(long/String)</code> is now <code>Guild#retrieveBan(UserSnowflake)</code></li>
+<li><code>Guild#addMember(String, long/String)</code> is now <code>Guild#addMember(UserSnowflake)</code></li>
+<li><code>Guild#timeoutForById(long/String, Duration)</code> is now <code>Guild#timeoutFor(UserSnowflake, Duration)</code></li>
+<li><code>Guild#timeoutUntilById(long/String, TemporalAccessor)</code> is now <code>Guild#timeoutUntil(UserSnowflake, TemporalAccessor)</code></li>
+<li><code>Guild#removeTimeoutById(long/String)</code> is now <code>Guild#removeTimeout(UserSnowflake)</code></li>
+<li><code>Guild#addRoleToMember(long/String, Role)</code> is now <code>Guild#addRoleToMember(UserSnowflake)</code></li>
+<li><code>Guild#removeRoleFromMember(long/String, Role)</code> is now <code>Guild#removeRoleFromMember(UserSnowflake)</code></li>
+<li><code>AuditLogPaginationAction#user(long/String)</code> is now <code>AuditLogPaginationAction#user(UserSnowflake)</code></li>
+</ul>
+<h3 id="ban-precision">Ban Precision<a class="headerlink" href="#ban-precision" title="Permanent link">&para;</a></h3>
+<p>You can now specify the age of messages to delete in seconds precision. To adjust your code simply add <code>TimeUnit.DAYS</code> to the end and move the ban reason into the <code>reason(...)</code> method:</p>
+<p><strong>Old:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">guild</span><span class="p">.</span><span class="na">ban</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Naughty words&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>New:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">guild</span><span class="p">.</span><span class="na">ban</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">).</span><span class="na">reason</span><span class="p">(</span><span class="s">&quot;Naughty words&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
+</code></pre></div>
+<p>Kick reasons have also been moved into the <code>reason(...)</code> method, for example <code>guild.kick(user, reason)</code> turns into <code>guild.kick(user).reason(reason)</code>.</p>
 
               
             </article>

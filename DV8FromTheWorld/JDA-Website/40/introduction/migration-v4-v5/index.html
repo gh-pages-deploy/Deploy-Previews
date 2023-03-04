@@ -591,6 +591,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#intent-and-member-cache-changes" class="md-nav__link">
+    Intent and Member Cache Changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Intent and Member Cache Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renamed-intents" class="md-nav__link">
+    Renamed Intents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunking-and-caching" class="md-nav__link">
+    Chunking and Caching
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1090,6 +1117,16 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="voice-state-events">Voice State Events<a class="headerlink" href="#voice-state-events" title="Permanent link">&para;</a></h3>
 <p><code>GuildVoiceJoinEvent</code> and <code>GuildVoiceLeaveEvent</code> have both been removed in favor of the unified <a href="https://javadoc.io/doc/net.dv8tion/JDA/latest/net/dv8tion/jda/api/events/guild/voice/GuildVoiceUpdateEvent.html"><code>GuildVoiceUpdateEvent</code></a>.</p>
 <p>As an example, to detect when a user leaves a voice channel, you can use <code>GuildVoiceUpdateEvent#getChannelLeft</code>. This method will return the channel that the user left, or <code>null</code> if the user joined a channel instead.</p>
+<h2 id="intent-and-member-cache-changes">Intent and Member Cache Changes<a class="headerlink" href="#intent-and-member-cache-changes" title="Permanent link">&para;</a></h2>
+<p>A few changes to intents and member caching were also made to improve the user experience.</p>
+<h3 id="renamed-intents">Renamed Intents<a class="headerlink" href="#renamed-intents" title="Permanent link">&para;</a></h3>
+<p>The following intents have been renamed to align with the API name convention:</p>
+<ul>
+<li><code>GatewayIntent.GUILD_BANS</code> renamed to <code>GatewayIntent.GUILD_MODERATION</code></li>
+<li><code>GatewayIntent.GUILD_EMOJIS</code> renamed to <code>GatewayIntent.GUILD_EMOJIS_AND_STICKERS</code></li>
+</ul>
+<h3 id="chunking-and-caching">Chunking and Caching<a class="headerlink" href="#chunking-and-caching" title="Permanent link">&para;</a></h3>
+<p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would atomatically also cache all those members it chunked. However, this is not a very flexible rule and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
 
               
             </article>

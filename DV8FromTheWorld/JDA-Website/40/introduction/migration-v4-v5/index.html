@@ -486,26 +486,6 @@
     Dependency Installation
   </a>
   
-    <nav class="md-nav" aria-label="Dependency Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gradle" class="md-nav__link">
-    Gradle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#maven" class="md-nav__link">
-    Maven
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1179,25 +1159,30 @@
 <h1 id="migration-guide-4x-to-5x">Migration Guide 4.X to 5.X<a class="headerlink" href="#migration-guide-4x-to-5x" title="Permanent link">&para;</a></h1>
 <p>This version utilizes Discord API v10, and includes several breaking changes and improvements.</p>
 <h2 id="dependency-installation">Dependency Installation<a class="headerlink" href="#dependency-installation" title="Permanent link">&para;</a></h2>
-<p>Before continuing, we should mention that JDA versions are now distributed via <a href="https://mvnrepository.com/artifact/net.dv8tion/JDA/5.0.0-beta.5">Maven Central</a>. You can remove the old <code>m2.dv8tion.net</code> resolver from your build files.</p>
-<h3 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
-<p>Replace <code>$latest</code> with this version <img alt="Maven Version" src="https://img.shields.io/maven-central/v/net.dv8tion/JDA?color=blue" /></p>
-<div class="highlight"><pre><span></span><code>repositories {
-    mavenCentral()
-}
+<p>Before continuing, we should mention that JDA versions are now distributed via <a href="https://mvnrepository.com/artifact/net.dv8tion/JDA/latest">Maven Central</a>. You can remove the old <code>m2.dv8tion.net</code> resolver from your build files.</p>
+<p>Replace <code>VERSION</code> with the latest version <img alt="Maven Version" src="https://img.shields.io/maven-central/v/net.dv8tion/JDA?color=blue" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Gradle</label><label for="__tabbed_1_2">Maven</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
 
-dependencies {
-    implementation(&quot;net.dv8tion:JDA:$latest&quot;)
-}
+<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">implementation</span><span class="o">(</span><span class="s2">&quot;net.dv8tion:JDA:VERSION&quot;</span><span class="o">)</span>
+<span class="o">}</span>
 </code></pre></div>
-<h3 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h3>
-<p>Replace <code>$latest</code> with this version <img alt="Maven Version" src="https://img.shields.io/maven-central/v/net.dv8tion/JDA?color=blue" /></p>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>net.dv8tion<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>JDA<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>$latest<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>net.dv8tion<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>JDA<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>VERSION<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>This migration guide does not include every single detail and does not focus on any new features available in JDA 5, such as <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/ThreadChannel.html">ThreadChannels</a>. Here are some useful resources to learn more if you are curious about all the new things we added:</p>
 <ul>

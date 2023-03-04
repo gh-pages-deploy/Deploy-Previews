@@ -694,6 +694,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mentions-rework" class="md-nav__link">
+    Mentions Rework
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interaction-rework" class="md-nav__link">
     Interaction Rework
   </a>
@@ -1323,6 +1330,20 @@ The ones that are not checked do not support it yet. You should check that every
 <span class="c1">// Convert to instance of MessageCreateData (optional, you can just send strings directly!)</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">MessageCreateData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contents</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">MessageCreateData</span><span class="p">::</span><span class="n">fromContent</span><span class="p">).</span><span class="na">toList</span><span class="p">();</span>
 </code></pre></div>
+<h2 id="mentions-rework">Mentions Rework<a class="headerlink" href="#mentions-rework" title="Permanent link">&para;</a></h2>
+<p>We made the handling of mentions consistent across both messages and interactions. You can now access mentions inside string options of slash commands through <code>OptionMapping#getMentions</code>. The old methods on <code>Message</code> have also been moved to a new <code>Mentions</code> interface, accessible via <code>Message#getMentions</code>.</p>
+<ul>
+<li><code>Message#getMentionedUsers</code> moved to <code>Mentions#getUsers</code></li>
+<li><code>Message#getMentionedMembers</code> moved to <code>Mentions#getMembers</code></li>
+<li><code>Message#getMentionedChannels</code> moved to <code>Mentions#getChannels</code></li>
+<li><code>Message#getEmotes</code> moved to <code>Mentions#getCustomEmojis</code></li>
+<li><code>Message#getMentions(MentionType...)</code> moved to <code>Mentions#getMentions(MentionType...)</code></li>
+<li><code>Message#isMentioned</code> moved to <code>Mentions#isMentioned</code></li>
+<li><code>Message#getMentionedMembers(Guild)</code> has been removed with no replacement</li>
+<li><code>Message#mentionsEveryone</code> moved to <code>Mentions#mentionsEveryone</code></li>
+<li>Analogously for all bag getters.</li>
+</ul>
+<p>Additionally, the return type of <code>Mentions#getChannels</code> has been adjusted to return <code>List&lt;GuildChannel&gt;</code> since all channel types can now be mentioned. You can use <code>Mentions#getChannels(Class)</code> to limit it to specific types, for example <code>List&lt;TextChannel&gt; channels = mentions.getChannels(TextChannel.class)</code>.</p>
 <h2 id="interaction-rework">Interaction Rework<a class="headerlink" href="#interaction-rework" title="Permanent link">&para;</a></h2>
 <p>To properly handle <strong>Context Menu</strong> and <strong>Auto-complete</strong> interactions, we reworked some of the interaction types. This includes numerous breaking changes to naming conventions and package layouts.</p>
 <h3 id="naming-changes">Naming Changes<a class="headerlink" href="#naming-changes" title="Permanent link">&para;</a></h3>

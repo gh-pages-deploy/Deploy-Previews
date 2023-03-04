@@ -693,6 +693,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#interaction-rework" class="md-nav__link">
+    Interaction Rework
+  </a>
+  
+    <nav class="md-nav" aria-label="Interaction Rework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-changes" class="md-nav__link">
+    Naming Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-handling-commands" class="md-nav__link">
+    Creating and Handling Commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1289,6 +1316,35 @@ The ones that are not checked do not support it yet. You should check that every
 <span class="c1">// Convert to instance of MessageCreateData (optional, you can just send strings directly!)</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">MessageCreateData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contents</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">MessageCreateData</span><span class="p">::</span><span class="n">fromContent</span><span class="p">).</span><span class="na">toList</span><span class="p">();</span>
 </code></pre></div>
+<h2 id="interaction-rework">Interaction Rework<a class="headerlink" href="#interaction-rework" title="Permanent link">&para;</a></h2>
+<p>To properly handle <strong>Context Menu</strong> and <strong>Auto-complete</strong> interactions, we reworked some of the interaction types. This includes numerous breaking changes to naming conventions and package layouts.</p>
+<h3 id="naming-changes">Naming Changes<a class="headerlink" href="#naming-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>SlashCommandEvent</code> renamed to <code>SlashCommandInteractionEvent</code></li>
+<li><code>ButtonClickEvent</code> renamed to <code>ButtonInteractionEvent</code></li>
+<li><code>SelectionMenu</code> renamed to <code>StringSelectMenu</code></li>
+<li><code>SelectionMenuEvent</code> renamed to <code>StringSelectEvent</code></li>
+<li><code>Component</code> renamed to <code>ActionComponent</code> and <code>ItemComponent</code> (abstraction for things like <code>Button</code>)</li>
+<li><code>ComponentLayout</code> renamed to <code>LayoutComponent</code> (abstraction for things like <code>ActionRow</code>)</li>
+<li>Introduced <strong>new</strong> <code>Component</code> interface to abstract both layouts and items.</li>
+<li><code>MessageType.APPLICATION_COMMAND</code> renamed to <code>MessageType.SLASH_COMMAND</code> (we now also have <code>MessageType.CONTEXT_COMMAND</code>)</li>
+<li><code>InteractionType.SLASH_COMMAND</code> renamed to <code>InteractionType.COMMAND</code> (we now also have <code>InteractionType.COMMAND_AUTOCOMPLETE</code>)</li>
+</ul>
+<h3 id="creating-and-handling-commands">Creating and Handling Commands<a class="headerlink" href="#creating-and-handling-commands" title="Permanent link">&para;</a></h3>
+<p>With the introduction of <strong>Context Menu Commands</strong>, we changed how commands are created. Instead of <code>new CommandData(...)</code>, you now create a slash command using the factory method <code>Commands.slash(...)</code>, which returns a <code>SlashCommandData</code> instance that has the familiar methods. You can now also use <code>Commands.user(...)</code> and <code>Commands.message(...)</code> to create new context menu commands which appear in the right-click menu option named <strong>Apps</strong> in the Discord Client.</p>
+<p>Handling commands only changed slightly with regards to the way you reply. Previously, all <code>Interaction</code> types had a <code>reply(...)</code> or <code>deferReply(...)</code> method. This has been changed due to new interaction types like <strong>AutoCompleteInteraction</strong> and <strong>ModalInteraction</strong>. Now, each concrete interaction type implements specific <strong>callback</strong> interfaces such as:</p>
+<ul>
+<li><code>IReplyCallback</code><br>
+    Which supports direct message replies and deferred message replies via <code>reply(String)</code> and <code>deferReply()</code></li>
+<li><code>IMessageEditCallback</code><br>
+    Which supports direct message edits and deferred message edits (or no-operation) via <code>editMessage(String)</code> and <code>deferEdit()</code></li>
+<li><code>IModalCallback</code><br>
+    Which supports choice suggestions for auto-complete interactions via <code>replyChoices(Command.Choice...)</code></li>
+<li><code>IAutoCompleteCallback</code><br>
+    Which supports replying using a Modal via <code>replyModal(Modal)</code></li>
+</ul>
+<p>If you relied on the abstract <code>Interaction</code> type to provide any of these methods, you will have to adjust your code to use these new interfaces instead.</p>
+<p>You can find more explanations and examples in the dedicated <a href="/using-jda/interactions/">Interactions Wiki Page</a>.</p>
 
               
             </article>

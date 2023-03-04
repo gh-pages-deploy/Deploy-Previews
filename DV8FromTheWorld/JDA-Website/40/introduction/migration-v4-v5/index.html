@@ -618,6 +618,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sticker-and-emoji-rework" class="md-nav__link">
+    Sticker and Emoji Rework
+  </a>
+  
+    <nav class="md-nav" aria-label="Sticker and Emoji Rework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sticker-changes" class="md-nav__link">
+    Sticker Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emoteemoji-changes" class="md-nav__link">
+    Emote/Emoji Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1127,6 +1154,36 @@ The ones that are not checked do not support it yet. You should check that every
 </ul>
 <h3 id="chunking-and-caching">Chunking and Caching<a class="headerlink" href="#chunking-and-caching" title="Permanent link">&para;</a></h3>
 <p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would atomatically also cache all those members it chunked. However, this is not a very flexible rule and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
+<h2 id="sticker-and-emoji-rework">Sticker and Emoji Rework<a class="headerlink" href="#sticker-and-emoji-rework" title="Permanent link">&para;</a></h2>
+<p>We now fully support the sticker API in JDA. You can send up to 3 stickers in messages and receive both guild and nitro-only stickers. To improve the user experience with emotes/emoji we also changed this API.</p>
+<h3 id="sticker-changes">Sticker Changes<a class="headerlink" href="#sticker-changes" title="Permanent link">&para;</a></h3>
+<p>The old <code>MessageSticker</code> class has been removed in favor of an assortment of new interfaces located in <code>net.dv8tion.api.entities.sticker</code>. Instead, <code>Message#getStickers</code> now returns the new <code>StickerItem</code> interface. You can create a sendable sticker instance with <code>Sticker.fromId(stickerId)</code> and then pass it to <code>GuildMessageChannel#sendStickers</code>.</p>
+<h3 id="emoteemoji-changes">Emote/Emoji Changes<a class="headerlink" href="#emoteemoji-changes" title="Permanent link">&para;</a></h3>
+<p>In old versions we always made a distinction between <strong>Emote</strong> and <strong>Emoji</strong> to differentiate <strong>Custom Emoji</strong> from <strong>Unicode Emoji</strong>. This naming scheme was not ideal and caused a bit of confusion. In our redesign we instead simplify this to the names <code>CustomEmoji</code> and <code>UnicodeEmoji</code>. Some classes/interfaces had to be renamed for this new design:</p>
+<ul>
+<li><code>Emote</code> renamed to <code>RichCustomEmoji</code></li>
+<li><code>EmoteManager</code> renamed to <code>CustomEmojiManager</code></li>
+<li><code>MessageReactionRemoveEmoteEvent</code> renamed to <code>MessageReactionRemoveEmojiEvent</code></li>
+</ul>
+<p>All methods/enums/types using <code>emote</code> have also been adjusted to say <code>emoji</code>, for example <code>Guild#retrieveEmotes</code> is now <code>Guild#retrieveEmojis</code> and <code>CacheFlag.EMOTE</code> is now <code>CacheFlag.EMOJI</code>.</p>
+<p>This new design also had the goal to unify all usages of emoji in the API, allowing you to use them for anything that makes use of emoji. For instance, previously there was a distinction between reaction emoji (<code>MessageReaction.ReactionEmote</code>) and buttom emoji (<code>Emoji</code>), which now both use the same <code>Emoji</code> type:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMessageReactionAdd</span><span class="p">(</span><span class="n">MessageReactionAddEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">event</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;User reacted&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">setActionRow</span><span class="p">(</span><span class="n">Button</span><span class="p">.</span><span class="na">primary</span><span class="p">(</span><span class="s">&quot;buttonid&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getEmoji</span><span class="p">()))</span>
+<span class="w">    </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To check which emoji was used in a reaction, you can use <code>emoji.equals(otherEmoji)</code> instead of checking for id/name. This has the advantage for also checking the correct type for you. For example: <code>event.getEmoji().equals(Emoji.fromFormatted("😃"))</code>.</p>
+<p>You also now use <code>Emoji</code> instances for reactions. What was previously <code>message.addReaction("...")</code> is now <code>message.addReaction(Emoji.fromFormatted("..."))</code>. And in general you can use the following factory methods to create emoji instances:</p>
+<ul>
+<li><code>Emoji.fromUnicode</code><br>
+    Parses codepoint notation like <code>"U+1F602"</code> or simply uses the provided unicode characters <code>"😃"</code>. This returns a concrete <code>UnicodeEmoji</code> type instance.</li>
+<li><code>Emoji.fromCustom</code><br>
+    Creates a <code>CustomEmoji</code> instance from the provided name and id.</li>
+<li><code>Emoji.fromFormatted</code><br>
+    parses emoji instances from markdown such as <code>"&lt;:minn:12345581261712671&gt;"</code> and also supports unicode such as <code>"😃"</code> or codepoint notation <code>"U+1F602"</code>. This returns a <code>EmojiUnion</code> instance, which can be either custom or unicode.</li>
+</ul>
+<p>You can see the full list of breaking changes in <a href="https://github.com/DV8FromTheWorld/JDA/pull/2117">#2117</a>.</p>
 
               
             </article>

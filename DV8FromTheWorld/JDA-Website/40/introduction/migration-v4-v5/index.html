@@ -1336,6 +1336,7 @@ The ones that are not checked do not support it yet. You should check that every
 <li>Introduced <strong>new</strong> <code>Component</code> interface to abstract both layouts and items.</li>
 <li><code>MessageType.APPLICATION_COMMAND</code> renamed to <code>MessageType.SLASH_COMMAND</code> (we now also have <code>MessageType.CONTEXT_COMMAND</code>)</li>
 <li><code>InteractionType.SLASH_COMMAND</code> renamed to <code>InteractionType.COMMAND</code> (we now also have <code>InteractionType.COMMAND_AUTOCOMPLETE</code>)</li>
+<li><code>SlashCommandEvent#getCommandPath</code> renamed to <code>CommandInteractionPayload#getFullCommandName</code> (it also now uses spaces instead of slashes, e.g. <code>mod/ban</code> is now <code>mod ban</code>)</li>
 </ul>
 <h3 id="creating-and-handling-commands">Creating and Handling Commands<a class="headerlink" href="#creating-and-handling-commands" title="Permanent link">&para;</a></h3>
 <p>With the introduction of <strong>Context Menu Commands</strong>, we changed how commands are created. Instead of <code>new CommandData(...)</code>, you now create a slash command using the factory method <code>Commands.slash(...)</code>, which returns a <code>SlashCommandData</code> instance that has the familiar methods. You can now also use <code>Commands.user(...)</code> and <code>Commands.message(...)</code> to create new context menu commands which appear in the right-click menu option named <strong>Apps</strong> in the Discord Client.</p>

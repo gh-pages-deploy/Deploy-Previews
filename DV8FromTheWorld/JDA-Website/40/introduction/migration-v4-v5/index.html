@@ -1230,12 +1230,12 @@ The ones that are not checked do not support it yet. You should check that every
     Interfaces used for return values, allowing for downcasting into specific types. They also provided shared features of the specific interface they extend.</li>
 </ul>
 <h3 id="channel-return-types">Channel Return Types<a class="headerlink" href="#channel-return-types" title="Permanent link">&para;</a></h3>
-<p>A lot of classes in JDA used to have specific getters for each channel type, for instance messages had <code>getTextChannel()</code> and <code>getPrivateChannel()</code>. The goal was to allow easy conversion to concrete types that have more functionality than their abstract counterpart (such as <code>MessageChannel</code>). We've introduced new <strong>Channel Union</strong> interfaces to deal with this problem in a more elegant way. Instead of using <code>foo.getTextChannel()</code>, you now use <code>foo.getChannel().asTextChannel()</code>. The <code>getChannel()</code> method now often returns a specific <strong>Union</strong> type such as <code>MessageChannelUnion</code>, which doubles as the abstract implementation for <code>MessageChannel</code> (allows to send messages) and also downcasting via various <code>asX()</code> methods.</p>
+<p>Many classes in JDA had specific getters for each channel type. For example, messages had <code>getTextChannel()</code> and <code>getPrivateChannel()</code>. The goal was to allow easy conversion to concrete types that have more functionality than their abstract counterpart (such as <code>MessageChannel</code>). In JDA v5, we've introduced new <strong>Channel Union</strong> interfaces to deal with this problem in a more elegant way. Instead of using <code>foo.getTextChannel()</code>, you now use <code>foo.getChannel().asTextChannel()</code>. The <code>getChannel()</code> method now often returns a specific <strong>Union</strong> type such as <code>MessageChannelUnion</code>, which doubles as the abstract implementation for <code>MessageChannel</code> (allows to send messages) and also downcasting via various <code>asX()</code> methods.</p>
 <h3 id="new-channel-attribute-interfaces">New Channel Attribute Interfaces<a class="headerlink" href="#new-channel-attribute-interfaces" title="Permanent link">&para;</a></h3>
 <p><code>GuildChannel</code> now implements <code>getGuild</code> and <code>getManager</code> <em>only</em>. It's meant to serve as a generic type to hold channels from guilds.</p>
 <p>Specific channel attributes, such as slowmode and permissions, have been split into several interfaces. These interfaces can be found in <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/attribute/package-summary.html">the <code>net.dv8tion.jda.api.entities.channel.attribute</code> package</a>. Each interface in this package extends <code>GuildChannel</code>.</p>
 <h3 id="permission-access-changes">Permission Access Changes<a class="headerlink" href="#permission-access-changes" title="Permanent link">&para;</a></h3>
-<p>With JDA v5 introducing a more butchered down <code>GuildChannel</code> interface, <code>GuildChannel#getPermissionContainer() : IPermissionContainer</code> has been introduced to make accessing permissions easier. This allows for users to confidently access the entity that dictates the permissions for a given channel without having to check whether the channel actually supports permissions, such as in the case of threads.</p>
+<p>With JDA v5 we reduced the capabilities of the <code>GuildChannel</code> interface. The method <code>GuildChannel#getPermissionContainer</code> has been introduced to make accessing permissions easier. This allows for users to confidently access the entity that dictates the permissions for a given channel without having to check whether the channel actually supports permissions, such as in the case of threads.</p>
 <p>Of course, if you have a channel type that already supports <code>IPermissionContainer</code>, you don't need this getter.</p>
 <h3 id="type-trimmed-channel-managers">Type-Trimmed Channel Managers<a class="headerlink" href="#type-trimmed-channel-managers" title="Permanent link">&para;</a></h3>
 <p>In JDA v4, <code>GuildChannel#getManager</code> returned a <code>ChannelManager</code> that gave every possible setter for every channel type. This caused for <code>UnsupportedOperationException</code> or <code>IllegalStateException</code> to be thrown in some cases, such as calling <code>setBitrate</code> on a <code>TextChannel</code>.</p>
@@ -1243,28 +1243,28 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="independant-stage-channel-and-news-channel-entities">Independant Stage Channel and News Channel Entities<a class="headerlink" href="#independant-stage-channel-and-news-channel-entities" title="Permanent link">&para;</a></h3>
 <p><a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/StageChannel.html"><code>StageChannel</code></a> and <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/NewsChannel.html"><code>NewsChannel</code></a> were previously variants of <code>VoiceChannel</code> and <code>TextChannel</code>. These are now their own independant entities. This comes with a number of changes:</p>
 <ul>
-<li><code>ChannelAction#setNews</code> has been removed in favor of <code>ChannelAction.setType</code></li>
-<li><code>ChannelManager#getType</code> was removed in favor of <code>ChannelManager#getChannel()#getType</code></li>
-<li><code>ChannelManager#setNews</code> has been removed in favor of <code>ChannelManager#setType</code></li>
-<li><code>TextChannel#crosspostMessage</code> was removed in favor of <code>NewsChannel#crosspostMessage</code></li>
-<li><code>TextChannel#follow</code> has been removed in favor of <code>NewsChannel#follow</code></li>
-<li><code>TextChannel#isNews</code> has been removed</li>
+<li><code>ChannelAction#setNews</code> is replaced by <code>ChannelAction.setType</code></li>
+<li><code>ChannelManager#getType</code> is replaced by <code>ChannelManager#getChannel()#getType</code></li>
+<li><code>ChannelManager#setNews</code> is replaced by <code>ChannelManager#setType</code></li>
+<li><code>TextChannel#crosspostMessage</code> is replaced by <code>NewsChannel#crosspostMessage</code></li>
+<li><code>TextChannel#follow</code> is replaced by <code>NewsChannel#follow</code></li>
+<li><code>TextChannel#isNews</code> was removed</li>
 </ul>
 <h3 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>StoreChannel</code> has been removed</li>
+<li><code>StoreChannel</code> was removed</li>
 <li><code>PrivateChannel#getUser</code> is now nullable</li>
 <li><code>MessageChannel#getLatestMessageId</code> and <code>MessageChannel#getLatestMessageIdLong</code> no longer change to null if the message was deleted</li>
 </ul>
 <h2 id="permission-changes">Permission Changes<a class="headerlink" href="#permission-changes" title="Permanent link">&para;</a></h2>
 <p>A number of permissions have been renamed, with one permission being removed entirely.</p>
 <ul>
-<li><code>Permission.MANAGE_EMOTES</code> was renamed to <code>Permission.MANAGE_EMOTES_AND_STICKERS</code></li>
-<li><code>Permission.MESSAGE_READ</code> has been removed in favor of <code>Permission.VIEW_CHANNEL</code></li>
-<li><code>Permission.MESSAGE_WRITE</code> was renamed to <code>Permission.MESSAGE_SEND</code></li>
-<li><code>Permission.USE_SLASH_COMMANDS</code> was renamed to <code>Permission.USE_APPLICATION_COMMANDS</code></li>
-<li><code>Permission.USE_PUBLIC_THREADS</code> was renamed to <code>Permission.CREATE_PUBLIC_THREADS</code></li>
-<li><code>Permission.USE_PRIVATE_THREADS</code> was renamed to <code>Permission.CREATE_PRIVATE_THREADS</code></li>
+<li><code>Permission.MANAGE_EMOTES</code> renamed to <code>Permission.MANAGE_EMOTES_AND_STICKERS</code></li>
+<li><code>Permission.MESSAGE_WRITE</code> renamed to <code>Permission.MESSAGE_SEND</code></li>
+<li><code>Permission.USE_SLASH_COMMANDS</code> renamed to <code>Permission.USE_APPLICATION_COMMANDS</code></li>
+<li><code>Permission.USE_PUBLIC_THREADS</code> renamed to <code>Permission.CREATE_PUBLIC_THREADS</code></li>
+<li><code>Permission.USE_PRIVATE_THREADS</code> renamed to <code>Permission.CREATE_PRIVATE_THREADS</code></li>
+<li><code>Permission.MESSAGE_READ</code> was removed in favor of <code>Permission.VIEW_CHANNEL</code></li>
 </ul>
 <h2 id="event-changes">Event Changes<a class="headerlink" href="#event-changes" title="Permanent link">&para;</a></h2>
 <p>There are several changes related to events.</p>
@@ -1277,7 +1277,6 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>&lt;Context&gt;MessageDeleteEvent</code> (ex: <code>GuildMessageDeleteEvent</code>)</li>
 <li><code>&lt;Context&gt;MessageEmbedEvent</code> (ex: <code>GuildMessageEmbedEvent</code>)</li>
 <li><code>&lt;Context&gt;MessageReaction&lt;X&gt;Event</code> (ex: <code>GuildMessageReactionAddEvent</code>)</li>
-<li>etc</li>
 </ul>
 <p>Instead, you should use the unified versions of these events:</p>
 <ul>
@@ -1286,18 +1285,17 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>MessageUpdatedEvent</code></li>
 <li><code>MessageDeletedEvent</code></li>
 <li><code>MessageReaction&lt;X&gt;Event</code> (ex: <code>MessageReactionAddEvent</code>)</li>
-<li>etc</li>
 </ul>
-<p>You can check if a message is from a <code>Guild</code> by using <code>Message#isFromGuild()</code>.</p>
+<p>You can check if a message is from a <code>Guild</code> by using <code>Message#isFromGuild</code>.</p>
 <h3 id="changes-to-specifying-gatewayintents-from-event-types">Changes to Specifying GatewayIntents from Event Types<a class="headerlink" href="#changes-to-specifying-gatewayintents-from-event-types" title="Permanent link">&para;</a></h3>
 <p>With context-specific events being removed (such as <code>GuildMessageReceivedEvent</code>), you can no longer use these events to specify <code>GatewayIntent.GUILD_MESSAGES</code> or <code>GatewayIntent.DIRECT_MESSAGE_REACTIONS</code>. You may supply any of the unified message events, but the functionality will be slightly different. It is not recommended to use <code>GatewayIntent#fromEvents</code> if you wish to have finer grain control around intents for messages.</p>
 <h3 id="session-events">Session Events<a class="headerlink" href="#session-events" title="Permanent link">&para;</a></h3>
 <p>All events that update the gateway session of a bot now extend a common <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/GenericSessionEvent.html"><code>GenericSessionEvent</code></a>. Such events are located within <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/package-summary.html">the <code>net.dv8tion.jda.api.events.session</code> package</a>. This also includes <code>ReadyEvent</code> and <code>ShutdownEvent</code>.</p>
 <p>Some events relating to sessions have been renamed:</p>
 <ul>
-<li><code>DisconnectEvent</code> has been renamed to <code>SessionDisconnectEvent</code></li>
-<li><code>ReconnectedEvent</code> has been renamed to <code>SessionRecreateEvent</code></li>
-<li><code>ResumedEvent</code> has been renamed to <code>SessionResumeEvent</code></li>
+<li><code>DisconnectEvent</code> renamed to <code>SessionDisconnectEvent</code></li>
+<li><code>ReconnectedEvent</code> renamed to <code>SessionRecreateEvent</code></li>
+<li><code>ResumedEvent</code> renamed to <code>SessionResumeEvent</code></li>
 </ul>
 <h3 id="voice-state-events">Voice State Events<a class="headerlink" href="#voice-state-events" title="Permanent link">&para;</a></h3>
 <p><code>GuildVoiceJoinEvent</code> and <code>GuildVoiceLeaveEvent</code> have both been removed in favor of the unified <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/guild/voice/GuildVoiceUpdateEvent.html"><code>GuildVoiceUpdateEvent</code></a>.</p>
@@ -1435,9 +1433,9 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>IMessageEditCallback</code><br>
     Which supports direct message edits and deferred message edits (or no-operation) via <code>editMessage(String)</code> and <code>deferEdit()</code></li>
 <li><code>IModalCallback</code><br>
-    Which supports choice suggestions for auto-complete interactions via <code>replyChoices(Command.Choice...)</code></li>
-<li><code>IAutoCompleteCallback</code><br>
     Which supports replying using a Modal via <code>replyModal(Modal)</code></li>
+<li><code>IAutoCompleteCallback</code><br>
+    Which supports choice suggestions for auto-complete interactions via <code>replyChoices(Command.Choice...)</code></li>
 </ul>
 <p>If you relied on the abstract <code>Interaction</code> type to provide any of these methods, you will have to adjust your code to use these new interfaces instead.</p>
 <p>You can find more explanations and examples in the dedicated <a href="/using-jda/interactions/">Interactions Wiki Page</a>.</p>

@@ -1122,21 +1122,21 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="removal-of-guild-context-message-events">Removal of Guild Context Message Events<a class="headerlink" href="#removal-of-guild-context-message-events" title="Permanent link">&para;</a></h3>
 <p>All message event types for guild messages have been removed. Examples of these are:</p>
 <ul>
-<li>Generic<Context>MessageEvent (ex: GenericGuildMessageEvent)</li>
-<li><Context>MessageReceivedEvent (ex: GuildMessageReceivedEvent)</li>
-<li><Context>MessageUpdateEvent (ex: GuildMessageUpdateEvent)</li>
-<li><Context>MessageDeleteEvent (ex: GuildMessageDeleteEvent)</li>
-<li><Context>MessageEmbedEvent (ex: GuildMessageEmbedEvent)</li>
-<li><Context>MessageReaction<X>Event (ex: GuildMessageReactionAddEvent)</li>
+<li><code>Generic&lt;Context&gt;MessageEvent</code> (ex: <code>GenericGuildMessageEvent</code>)</li>
+<li><code>&lt;Context&gt;MessageReceivedEvent</code> (ex: <code>GuildMessageReceivedEvent</code>)</li>
+<li><code>&lt;Context&gt;MessageUpdateEvent</code> (ex: <code>GuildMessageUpdateEvent</code>)</li>
+<li><code>&lt;Context&gt;MessageDeleteEvent</code> (ex: <code>GuildMessageDeleteEvent</code>)</li>
+<li><code>&lt;Context&gt;MessageEmbedEvent</code> (ex: <code>GuildMessageEmbedEvent</code>)</li>
+<li><code>&lt;Context&gt;MessageReaction&lt;X&gt;Event</code> (ex: <code>GuildMessageReactionAddEvent</code>)</li>
 <li>etc</li>
 </ul>
 <p>Instead, you should use the unified versions of these events:</p>
 <ul>
-<li>GenericMessageEvent</li>
-<li>MessageReceivedEvent</li>
-<li>MessageUpdatedEvent</li>
-<li>MessageDeletedEvent</li>
-<li>MessageReaction<X>Event (ex: MessageReactionAddEvent)</li>
+<li><code>GenericMessageEvent</code></li>
+<li><code>MessageReceivedEvent</code></li>
+<li><code>MessageUpdatedEvent</code></li>
+<li><code>MessageDeletedEvent</code></li>
+<li><code>MessageReaction&lt;X&gt;Event</code> (ex: <code>MessageReactionAddEvent</code>)</li>
 <li>etc</li>
 </ul>
 <p>You can check if a message is from a <code>Guild</code> by using <code>Message#isFromGuild()</code>.</p>

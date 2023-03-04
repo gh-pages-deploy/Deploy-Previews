@@ -1182,7 +1182,7 @@
 <p>Before continuing, we should mention that JDA versions are now distributed via <a href="https://mvnrepository.com/artifact/net.dv8tion/JDA/5.0.0-beta.5">Maven Central</a>. You can remove the old <code>m2.dv8tion.net</code> resolver from your build files.</p>
 <h3 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
 <p>Replace <code>$latest</code> with this version <img alt="Maven Version" src="https://img.shields.io/maven-central/v/net.dv8tion/JDA?color=blue" /></p>
-<div class="highlight"><pre><span></span><code>repositores {
+<div class="highlight"><pre><span></span><code>repositories {
     mavenCentral()
 }
 
@@ -1307,7 +1307,7 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="changes-to-specifying-gatewayintents-from-event-types">Changes to Specifying GatewayIntents from Event Types<a class="headerlink" href="#changes-to-specifying-gatewayintents-from-event-types" title="Permanent link">&para;</a></h3>
 <p>With context-specific events being removed (such as <code>GuildMessageReceivedEvent</code>), you can no longer use these events to specify <code>GatewayIntent.GUILD_MESSAGES</code> or <code>GatewayIntent.DIRECT_MESSAGE_REACTIONS</code>. You may supply any of the unified message events, but the functionality will be slightly different. It is not recommended to use <code>GatewayIntent#fromEvents</code> if you wish to have finer grain control around intents for messages.</p>
 <h3 id="session-events">Session Events<a class="headerlink" href="#session-events" title="Permanent link">&para;</a></h3>
-<p>All events that update the gateway session of a bot now extend a common <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/GenericSessionEvent.html"><code>GenericSessionEvent</code></a>. Such events are located within <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/package-summary.html">the <code>net.dv8tion.jda.api.events.session</code> pakage</a>. This also includes <code>ReadyEvent</code> and <code>ShutdownEvent</code>.</p>
+<p>All events that update the gateway session of a bot now extend a common <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/GenericSessionEvent.html"><code>GenericSessionEvent</code></a>. Such events are located within <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/events/session/package-summary.html">the <code>net.dv8tion.jda.api.events.session</code> package</a>. This also includes <code>ReadyEvent</code> and <code>ShutdownEvent</code>.</p>
 <p>Some events relating to sessions have been renamed:</p>
 <ul>
 <li><code>DisconnectEvent</code> has been renamed to <code>SessionDisconnectEvent</code></li>
@@ -1326,7 +1326,7 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>GatewayIntent.GUILD_EMOJIS</code> renamed to <code>GatewayIntent.GUILD_EMOJIS_AND_STICKERS</code></li>
 </ul>
 <h3 id="chunking-and-caching">Chunking and Caching<a class="headerlink" href="#chunking-and-caching" title="Permanent link">&para;</a></h3>
-<p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would atomatically also cache all those members it chunked. However, this is not a very flexible rule and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
+<p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would automatically also cache all those members it chunked. However, this is not a very flexible rule and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
 <h2 id="sticker-and-emoji-rework">Sticker and Emoji Rework<a class="headerlink" href="#sticker-and-emoji-rework" title="Permanent link">&para;</a></h2>
 <p>We now fully support the sticker API in JDA. You can send up to 3 stickers in messages and receive both guild and nitro-only stickers. To improve the user experience with emotes/emoji we also changed this API.</p>
 <h3 id="sticker-changes">Sticker Changes<a class="headerlink" href="#sticker-changes" title="Permanent link">&para;</a></h3>
@@ -1339,7 +1339,7 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>MessageReactionRemoveEmoteEvent</code> renamed to <code>MessageReactionRemoveEmojiEvent</code></li>
 </ul>
 <p>All methods/enums/types using <code>emote</code> have also been adjusted to say <code>emoji</code>, for example <code>Guild#retrieveEmotes</code> is now <code>Guild#retrieveEmojis</code> and <code>CacheFlag.EMOTE</code> is now <code>CacheFlag.EMOJI</code>.</p>
-<p>This new design also had the goal to unify all usages of emoji in the API, allowing you to use them for anything that makes use of emoji. For instance, previously there was a distinction between reaction emoji (<code>MessageReaction.ReactionEmote</code>) and buttom emoji (<code>Emoji</code>), which now both use the same <code>Emoji</code> type:</p>
+<p>This new design also had the goal to unify all usages of emoji in the API, allowing you to use them for anything that makes use of emoji. For instance, previously there was a distinction between reaction emoji (<code>MessageReaction.ReactionEmote</code>) and button emoji (<code>Emoji</code>), which now both use the same <code>Emoji</code> type:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMessageReactionAdd</span><span class="p">(</span><span class="n">MessageReactionAddEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">event</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;User reacted&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">setActionRow</span><span class="p">(</span><span class="n">Button</span><span class="p">.</span><span class="na">primary</span><span class="p">(</span><span class="s">&quot;buttonid&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getEmoji</span><span class="p">()))</span>

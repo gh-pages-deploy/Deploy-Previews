@@ -1316,7 +1316,7 @@ The ones that are not checked do not support it yet. You should check that every
 <li><code>GatewayIntent.GUILD_EMOJIS</code> renamed to <code>GatewayIntent.GUILD_EMOJIS_AND_STICKERS</code></li>
 </ul>
 <h3 id="chunking-and-caching">Chunking and Caching<a class="headerlink" href="#chunking-and-caching" title="Permanent link">&para;</a></h3>
-<p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would automatically also cache all those members it chunked. However, this is not a very flexible rule and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
+<p>If you used <code>ChunkingFilter.ALL</code> in the past, JDA would automatically also cache all those members it chunked. However, this is not a very flexible rule, and we changed this behavior. Instead, the <code>MemberCachePolicy</code> will control which members to keep cached after chunking.</p>
 <h2 id="sticker-and-emoji-rework">Sticker and Emoji Rework<a class="headerlink" href="#sticker-and-emoji-rework" title="Permanent link">&para;</a></h2>
 <p>We now fully support the sticker API in JDA. You can send up to 3 stickers in messages and receive both guild and nitro-only stickers. To improve the user experience with emotes/emoji we also changed this API.</p>
 <h3 id="sticker-changes">Sticker Changes<a class="headerlink" href="#sticker-changes" title="Permanent link">&para;</a></h3>
@@ -1372,7 +1372,7 @@ The ones that are not checked do not support it yet. You should check that every
 <p>This also means that all methods from <code>message.editMessage(...)</code> are consistent with the methods from <code>interaction.editMessage(...)</code>, and analogously for sending. You can now use <code>addActionRow</code> when sending a message to a channel.</p>
 <h3 id="file-sending">File Sending<a class="headerlink" href="#file-sending" title="Permanent link">&para;</a></h3>
 <p>The old <code>sendFile(...)</code>/<code>replyFile(...)</code> overloads available on <code>MessageChannel</code> and interactions has been replaced by a single <code>sendFiles(...)</code> method. This new method accepts the <code>FileUpload</code> type, which also supports file descriptions (alt text) via <code>setDescription(...)</code>. For example, old code such as <code>sendFile(data, name, AttachmentOption.SPOILER)</code> is replaced with <code>sendFiles(FileUpload.fromData(data, name).asSpoiler())</code>.</p>
-<p>Due to changes in the Discord API v10, you can no longer add files to messages without replacing all existing attachments. We could previously support methods such as <code>MessageAction#addFile</code> for editing messages, which is no longer possible in API v10. Instead you <strong>must</strong> replace the entire list of attachments, using <code>MessageEditAction#setAttachments</code>. Here is an example:</p>
+<p>Due to changes in the Discord API v10, you can no longer add files to messages without replacing all existing attachments. We could previously support methods such as <code>MessageAction#addFile</code> for editing messages, which is no longer possible in API v10. Instead, you <strong>must</strong> replace the entire list of attachments, using <code>MessageEditAction#setAttachments</code>. Here is an example:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Here &quot;message&quot; is an instance of the Message interface</span>
 
 <span class="c1">// Take the first attachment of the message, all others will be removed</span>
@@ -1387,7 +1387,7 @@ The ones that are not checked do not support it yet. You should check that every
 <span class="w">       </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
 </code></pre></div>
 <h3 id="message-splitting">Message Splitting<a class="headerlink" href="#message-splitting" title="Permanent link">&para;</a></h3>
-<p>The old <code>MessageBuilder#buildAll</code> has been removed from the builder classes. Instead you can now use the new <code>SplitUtil</code> utility class to split any string. For example:</p>
+<p>The old <code>MessageBuilder#buildAll</code> has been removed from the builder classes. Instead, you can now use the new <code>SplitUtil</code> utility class to split any string. For example:</p>
 <p><strong>Old:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MessageBuilder</span><span class="p">().</span><span class="na">setContent</span><span class="p">(</span><span class="n">someLargeString</span><span class="p">).</span><span class="na">buildAll</span><span class="p">();</span>
 </code></pre></div>
@@ -1417,7 +1417,7 @@ The ones that are not checked do not support it yet. You should check that every
 </ul>
 <p>Additionally, the return type of <code>Mentions#getChannels</code> has been adjusted to return <code>List&lt;GuildChannel&gt;</code> since all channel types can now be mentioned. You can use <code>Mentions#getChannels(Class)</code> to limit it to specific types, for example <code>List&lt;TextChannel&gt; channels = mentions.getChannels(TextChannel.class)</code>.</p>
 <h2 id="interaction-rework">Interaction Rework<a class="headerlink" href="#interaction-rework" title="Permanent link">&para;</a></h2>
-<p>To properly handle <strong>Context Menu</strong> and <strong>Auto-complete</strong> interactions, we reworked some of the interaction types. This includes numerous breaking changes to naming conventions and package layouts.</p>
+<p>To properly handle <strong>Context Menu</strong> and <strong>Auto-complete</strong> interactions, we reworked some interaction types. This includes numerous breaking changes to naming conventions and package layouts.</p>
 <h3 id="naming-changes">Naming Changes<a class="headerlink" href="#naming-changes" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>SlashCommandEvent</code> renamed to <code>SlashCommandInteractionEvent</code></li>
@@ -1433,7 +1433,7 @@ The ones that are not checked do not support it yet. You should check that every
 </ul>
 <h3 id="creating-and-handling-commands">Creating and Handling Commands<a class="headerlink" href="#creating-and-handling-commands" title="Permanent link">&para;</a></h3>
 <p>With the introduction of <strong>Context Menu Commands</strong>, we changed how commands are created. Instead of <code>new CommandData(...)</code>, you now create a slash command using the factory method <code>Commands.slash(...)</code>, which returns a <code>SlashCommandData</code> instance that has the familiar methods. You can now also use <code>Commands.user(...)</code> and <code>Commands.message(...)</code> to create new context menu commands which appear in the right-click menu option named <strong>Apps</strong> in the Discord Client.</p>
-<p>Handling commands only changed slightly with regards to the way you reply. Previously, all <code>Interaction</code> types had a <code>reply(...)</code> or <code>deferReply(...)</code> method. This has been changed due to new interaction types like <strong>AutoCompleteInteraction</strong> and <strong>ModalInteraction</strong>. Now, each concrete interaction type implements specific <strong>callback</strong> interfaces such as:</p>
+<p>Handling commands only changed slightly with regard to the way you reply. Previously, all <code>Interaction</code> types had a <code>reply(...)</code> or <code>deferReply(...)</code> method. This has been changed due to new interaction types like <strong>AutoCompleteInteraction</strong> and <strong>ModalInteraction</strong>. Now, each concrete interaction type implements specific <strong>callback</strong> interfaces such as:</p>
 <ul>
 <li><code>IReplyCallback</code><br>
     Which supports direct message replies and deferred message replies via <code>reply(String)</code> and <code>deferReply()</code></li>
@@ -1489,7 +1489,7 @@ The ones that are not checked do not support it yet. You should check that every
 </code></pre></div>
 <p>Kick reasons have also been moved into the <code>reason(...)</code> method, for example <code>guild.kick(user, reason)</code> turns into <code>guild.kick(user).reason(reason)</code>.</p>
 <h2 id="managers-are-no-longer-persistent">Managers are no longer persistent<a class="headerlink" href="#managers-are-no-longer-persistent" title="Permanent link">&para;</a></h2>
-<p>All getters for managers in JDA used to be lazy-idempotent, such that calling <code>getManager()</code> twice would return the same instance. This has been removed to reduce memory usage an complexity. If you previously relied on this behavior, you will need to adjust your code.</p>
+<p>All getters for managers in JDA used to be lazy-idempotent, such that calling <code>getManager()</code> twice would return the same instance. This has been removed to reduce memory usage and complexity. If you previously relied on this behavior, you will need to adjust your code.</p>
 <p><strong>Old:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">().</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;new-name&quot;</span><span class="p">);</span>
 <span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">().</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;here is my title&quot;</span><span class="p">);</span>

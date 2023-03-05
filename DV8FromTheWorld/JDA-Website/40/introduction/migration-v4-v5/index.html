@@ -546,8 +546,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#independant-stage-channel-and-news-channel-entities" class="md-nav__link">
-    Independant Stage Channel and News Channel Entities
+  <a href="#independent-stage-channel-and-news-channel-entities" class="md-nav__link">
+    Independent Stage Channel and News Channel Entities
   </a>
   
 </li>
@@ -765,6 +765,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managers-are-no-longer-persistent" class="md-nav__link">
+    Managers are no longer persistent
+  </a>
   
 </li>
       
@@ -1240,8 +1247,8 @@ The ones that are not checked do not support it yet. You should check that every
 <h3 id="type-trimmed-channel-managers">Type-Trimmed Channel Managers<a class="headerlink" href="#type-trimmed-channel-managers" title="Permanent link">&para;</a></h3>
 <p>In JDA v4, <code>GuildChannel#getManager</code> returned a <code>ChannelManager</code> that gave every possible setter for every channel type. This caused for <code>UnsupportedOperationException</code> or <code>IllegalStateException</code> to be thrown in some cases, such as calling <code>setBitrate</code> on a <code>TextChannel</code>.</p>
 <p>JDA v5 provides type-trimmed channel managers, which provide only the setters that we know <em>for sure</em> can work on the given channel. Each of these managers can be found in <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/managers/channel/package-summary.html">the <code>net.dv8tion.jda.api.managers.channel</code> package</a>. These all follow the same implement/extension hierarchy as the channels do and map 1:1.</p>
-<h3 id="independant-stage-channel-and-news-channel-entities">Independant Stage Channel and News Channel Entities<a class="headerlink" href="#independant-stage-channel-and-news-channel-entities" title="Permanent link">&para;</a></h3>
-<p><a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/StageChannel.html"><code>StageChannel</code></a> and <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/NewsChannel.html"><code>NewsChannel</code></a> were previously variants of <code>VoiceChannel</code> and <code>TextChannel</code>. These are now their own independant entities. This comes with a number of changes:</p>
+<h3 id="independent-stage-channel-and-news-channel-entities">Independent Stage Channel and News Channel Entities<a class="headerlink" href="#independent-stage-channel-and-news-channel-entities" title="Permanent link">&para;</a></h3>
+<p><a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/StageChannel.html"><code>StageChannel</code></a> and <a href="https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/channel/concrete/NewsChannel.html"><code>NewsChannel</code></a> were previously variants of <code>VoiceChannel</code> and <code>TextChannel</code>. These are now their own independent entities. This comes with a number of changes:</p>
 <ul>
 <li><code>ChannelAction#setNews</code> is replaced by <code>ChannelAction.setType</code></li>
 <li><code>ChannelManager#getType</code> is replaced by <code>ChannelManager#getChannel()#getType</code></li>
@@ -1481,6 +1488,20 @@ The ones that are not checked do not support it yet. You should check that every
 <div class="highlight"><pre><span></span><code><span class="n">guild</span><span class="p">.</span><span class="na">ban</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">).</span><span class="na">reason</span><span class="p">(</span><span class="s">&quot;Naughty words&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
 </code></pre></div>
 <p>Kick reasons have also been moved into the <code>reason(...)</code> method, for example <code>guild.kick(user, reason)</code> turns into <code>guild.kick(user).reason(reason)</code>.</p>
+<h2 id="managers-are-no-longer-persistent">Managers are no longer persistent<a class="headerlink" href="#managers-are-no-longer-persistent" title="Permanent link">&para;</a></h2>
+<p>All getters for managers in JDA used to be lazy-idempotent, such that calling <code>getManager()</code> twice would return the same instance. This has been removed to reduce memory usage an complexity. If you previously relied on this behavior, you will need to adjust your code.</p>
+<p><strong>Old:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">().</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;new-name&quot;</span><span class="p">);</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">().</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;here is my title&quot;</span><span class="p">);</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">().</span><span class="na">queue</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>New:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Use method chaining or declare a variable to re-use the manager</span>
+<span class="n">channel</span><span class="p">.</span><span class="na">getManager</span><span class="p">()</span>
+<span class="w">       </span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;new-name&quot;</span><span class="p">)</span>
+<span class="w">       </span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;here is my title&quot;</span><span class="p">)</span>
+<span class="w">       </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
+</code></pre></div>
 
               
             </article>

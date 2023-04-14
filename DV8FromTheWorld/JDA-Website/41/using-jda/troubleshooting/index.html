@@ -1221,6 +1221,7 @@ This is because both <code>sendMessage(...)</code> as well as <code>delete()</co
 <span class="p">}</span>
 </code></pre></div>
 <p>Alternatively, you can also use <code>shutdownNow()</code> immediately and then use <code>awaitShutdown()</code>. This will prevent any currently queued requests from executing and immediately stop the threads.</p>
+<p>In general, using <code>/reload</code> is frowned upon due to its unsafe and buggy nature. It is recommended to use alternative measures to reload your plugin, as recommended in <a href="https://madelinemiller.dev/blog/problem-with-reload/">this article by the WorldEdit author</a>.</p>
 <h3 id="i-cant-get-the-previous-message-content-from-deleteupdate">I can't get the previous message content from delete/update<a class="headerlink" href="#i-cant-get-the-previous-message-content-from-deleteupdate" title="Permanent link">&para;</a></h3>
 <p>When Discord emits a <code>message_delete</code> or <code>message_update</code> they only provide the new content of the message. Since JDA does not keep a cache of messages it is unable to provide the previous content. Instead you will have to track content of messages yourself.</p>
 <h3 id="preventing-use-of-complete-in-callback-threads">Preventing use of complete() in callback threads<a class="headerlink" href="#preventing-use-of-complete-in-callback-threads" title="Permanent link">&para;</a></h3>

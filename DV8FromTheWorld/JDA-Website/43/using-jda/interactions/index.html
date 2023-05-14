@@ -1245,7 +1245,7 @@ Since some commands may take longer than 3 seconds you may want to use <code>def
 <h3 id="slash-command-autocomplete">Slash Command Autocomplete<a class="headerlink" href="#slash-command-autocomplete" title="Permanent link">&para;</a></h3>
 <p>Slash command autocompletion is a feature that allows users to begin typing arguments to a command, and suggestions from the bot will be displayed to the user, in-client.</p>
 <p>Any slash command arguments using the <code>String</code>, <code>Integer</code> or <code>Number</code> types can be autocompleted.  By default, options are not autocompleted.  In order to make an option autocompleted, <code>OptionData#setAutoComplete(true)</code> may be used.</p>
-<p><img alt="Example Autocomplete" src="../../assets/images/autocomplete_example.png" /></p>
+<p><img alt="Example Autocomplete" src="../../assets/images/interactions/autocomplete_example.png" /></p>
 <h4 id="handling-autocomplete">Handling Autocomplete<a class="headerlink" href="#handling-autocomplete" title="Permanent link">&para;</a></h4>
 <p>As the user is typing an argument that has autocomplete enabled for it, the bot will receive an <code>CommandAutoCompleteInteractionEvent</code>.
 This event isn't fired for each keystroke, but is sent when Discord determines the user has paused typing for a bit.</p>
@@ -1311,8 +1311,8 @@ This event isn't fired for each keystroke, but is sent when Discord determines t
 <h3 id="context-menus">Context Menus<a class="headerlink" href="#context-menus" title="Permanent link">&para;</a></h3>
 <p>Context Menu commands are a special type of command that can be invoked on a user or message by right-clicking on them.
 These commands take no arguments, and are useful for providing a quick way to perform actions on a user or message.</p>
-<p><img alt="Example User Context Menu" src="../../assets/images/user_context_menu_example.png" /></p>
-<p><img alt="Example Message Context Menu" src="../../assets/images/message_context_menu_example.png" /></p>
+<p><img alt="Example User Context Menu" src="../../assets/images/interactions/user_context_menu_example.png" /></p>
+<p><img alt="Example Message Context Menu" src="../../assets/images/interactions/message_context_menu_example.png" /></p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Creating the commands:
@@ -1467,11 +1467,11 @@ This ID can also be used to then <em>identify</em> which component was pressed b
 <p>String Select Menus support up to 25 options.</p>
 <p>Each option can have its own label, description, and emoji.
 There can be multiple options selected and set as default.</p>
-<p><img alt="Example Select Menu With A Default Value" src="../../assets/images/string_select_menu_example.png" /></p>
+<p><img alt="Example Select Menu With A Default Value" src="../../assets/images/interactions/string_select_menu_example.png" /></p>
 <h4 id="entity-select-menus">Entity Select Menus<a class="headerlink" href="#entity-select-menus" title="Permanent link">&para;</a></h4>
 <p>Entity Select Menus do not support custom choices. Instead, they derive their choices from mentionable Discord entities
 such as <code>User</code>s, <code>Channel</code>s, etc.</p>
-<p><img alt="Example Entity Select Menu for Roles" src="../../assets/images/entity_select_example.png" /></p>
+<p><img alt="Example Entity Select Menu for Roles" src="../../assets/images/interactions/entity_select_example.png" /></p>
 <p>You can specify which entity types you wish to appear as choices by specifying the <code>SelectTarget</code>s in <code>EntitySelectMenu.create</code>. If you create an entity select menu with channel type targets, the same menu may not utilize user or role select targets, and vice versa.</p>
 <p>You can limit channel selections to specific channel types by using the <code>setChannelTypes</code> method on <code>EntitySelectMenu.Builder</code>.</p>
 <div class="admonition info">
@@ -1601,7 +1601,7 @@ such as <code>User</code>s, <code>Channel</code>s, etc.</p>
 </div>
 <h2 id="modals">Modals<a class="headerlink" href="#modals" title="Permanent link">&para;</a></h2>
 <p>Modals are pop-ups that appear in a user's Discord client.</p>
-<p><img alt="Example Modal" src="../../assets/images/modal_example.png" /></p>
+<p><img alt="Example Modal" src="../../assets/images/interactions/modal_example.png" /></p>
 <p>Similarly to messages, Modals can contain up to <strong>5</strong> ActionRows, although the only component that can be put inside Modals at the moment (<code>TextInput</code>) takes up a whole ActionRow. </p>
 <h3 id="replying-with-a-modal">Replying with a Modal<a class="headerlink" href="#replying-with-a-modal" title="Permanent link">&para;</a></h3>
 <div class="admonition example">

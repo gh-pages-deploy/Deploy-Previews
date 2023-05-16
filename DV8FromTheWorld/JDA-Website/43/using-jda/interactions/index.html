@@ -1069,13 +1069,13 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><img alt="EphemeralMessage" src="https://raw.githubusercontent.com/DV8FromTheWorld/JDA/assets/assets/wiki/interactions/EphemeralMessage.png" /></p>
+<p><img alt="EphemeralMessage" src="../../assets/images/interactions/EphemeralMessage.png" /></p>
 </div>
 <p>You can only create ephemeral messages with interactions. For example with <code>deferReply(true)</code>, <code>reply(content).setEphemeral(true)</code>, or <code>getHook().sendMessage(content).setEphemeral(true)</code>. For convenience, you can also configure the <code>InteractionHook</code> to default to ephemeral messages with <code>hook.setEphemeral(true)</code>.</p>
 <h2 id="command-interactions">Command Interactions<a class="headerlink" href="#command-interactions" title="Permanent link">&para;</a></h2>
 <h3 id="slash-commands">Slash Commands<a class="headerlink" href="#slash-commands" title="Permanent link">&para;</a></h3>
 <p>A slash command is something you might already be familiar with from the olden times of Discord. Commands such as <code>/shrug</code> or <code>/me</code> have existed for quite a long time. With Slash Command interactions you can now make your very own commands like this! But these commands come with some limitations, which I have explained in this gist: <a href="https://gist.github.com/MinnDevelopment/b883b078fdb69d0e568249cc8bf37fe9">Slash Command Limitations</a></p>
-<p><img alt="Example Slash Commands" src="https://raw.githubusercontent.com/DV8FromTheWorld/JDA/52377f69d1f3bfba909c51a449ac6b258f606956/assets/wiki/interactions/SlashCommands.png" /></p>
+<p><img alt="Example Slash Commands" src="../../assets/images/interactions/SlashCommands.png" /></p>
 <p>All of these commands are used through the interactions API. They do not require the user to send an actual message in the channel and you don't have to do string parsing either.</p>
 <p>To create commands you need to make some API requests. There are 2 types of commands you can create called <strong>global commands</strong> and <strong>guild commands</strong>.</p>
 <ul>
@@ -1143,7 +1143,7 @@ The flow of a slash command response is as follows:</p>
 <p>Acknowledge the command</p>
 <p>This means you need to either <strong>reply</strong> or <strong>deferReply</strong>. You only have <strong><em>3 SECONDS</em></strong> to acknowledge a command.
 Since some commands may take longer than 3 seconds you may want to use <code>deferReply</code> to have more time for handling. This will instead send a <code>Thinking...</code> message to channel which is later updated by a followup message (see step 2).</p>
-<p><img alt="Example Thinking" src="https://raw.githubusercontent.com/DV8FromTheWorld/JDA/52377f69d1f3bfba909c51a449ac6b258f606956/assets/wiki/interactions/DeferredReply.gif" /></p>
+<p><img alt="Example Thinking" src="../../assets/images/interactions/DeferredReply.gif" /></p>
 </li>
 <li>
 <p>Send followup messages</p>
@@ -1385,7 +1385,7 @@ This ID can also be used to then <em>identify</em> which component was pressed b
 <p>Keep in mind that these Component IDs <strong>must be unique across all components in one message</strong>.</p>
 <h3 id="buttons">Buttons<a class="headerlink" href="#buttons" title="Permanent link">&para;</a></h3>
 <p>Each button can be enabled or disabled, have a specific style, label, and emoji:</p>
-<p><img alt="Example Button Styles" src="https://raw.githubusercontent.com/DV8FromTheWorld/JDA/52377f69d1f3bfba909c51a449ac6b258f606956/assets/wiki/interactions/ButtonExamples.png" /></p>
+<p><img alt="Example Button Styles" src="../../assets/images/interactions/ButtonExamples.png" /></p>
 <h4 id="handling-buttoninteractionevent">Handling ButtonInteractionEvent<a class="headerlink" href="#handling-buttoninteractionevent" title="Permanent link">&para;</a></h4>
 <p>When a user presses one of these buttons, you will receive a <code>ButtonInteractionEvent</code> for the respective interaction.</p>
 <p>Each non-link button requires such an ID in order to be used.</p>

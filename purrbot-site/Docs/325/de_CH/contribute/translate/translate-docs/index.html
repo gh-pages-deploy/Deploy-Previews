@@ -1426,7 +1426,12 @@ Die einfachste Struktur sieht ähnlich wie diese aus (<code>de-CH</code> (Schwei
 <span class="w">            </span><span class="no">&lt;img alt=&quot;❤&quot; class=&quot;twemoji heart-anim md-footer-custom-text&quot; src=&quot;https://twemoji.maxcdn.com/v/latest/svg/2764.svg&quot; title=&quot;Liebe&quot;&gt; </span>
 <span class="w">            </span><span class="no">gemacht und unter der</span>
 <span class="w">            </span><span class="no">&lt;a href=&quot;https://github.com/purrbot-site/Docs/blob/master/LICENSE&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;MIT-Lizenz&lt;/a&gt; geteilt.</span>
-<span class="w">          </span><span class="nt">extra</span><span class="p">:</span><span class="w"> </span><span class="c1"># (4)</span>
+<span class="w">          </span><span class="nt">extra</span><span class="p">:</span><span class="w"> </span><span class="c1"># (4):</span>
+<span class="w">            </span><span class="nt">consent</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cookie Zustimmung</span>
+<span class="w">              </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">                </span><span class="no">Wir verwenden cookies um deine wiederholten Besuche und Einstellungen zu erkennen, aber auch um die Wirksamkeit unserer Dokumentation und ob Benutzer finden nach was sie suchen zu messen.</span>
+<span class="w">                </span><span class="no">Mit deiner Zustimmung hilfst du uns, unsere Dokumentation zu verbessern.</span>
 <span class="w">            </span><span class="nt">translate</span><span class="p">:</span>
 <span class="w">              </span><span class="nt">missing_translation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Diese</span><span class="nv"> </span><span class="s">Seite</span><span class="nv"> </span><span class="s">wurde</span><span class="nv"> </span><span class="s">noch</span><span class="nv"> </span><span class="s">nicht</span><span class="nv"> </span><span class="s">übersetzt.&#39;</span>
 <span class="w">              </span><span class="nt">not_translatable</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Diese</span><span class="nv"> </span><span class="s">Seite</span><span class="nv"> </span><span class="s">kann</span><span class="nv"> </span><span class="s">nicht</span><span class="nv"> </span><span class="s">übersetzt</span><span class="nv"> </span><span class="s">werden</span><span class="nv"> </span><span class="s">und</span><span class="nv"> </span><span class="s">ist</span><span class="nv"> </span><span class="s">darum</span><span class="nv"> </span><span class="s">nur</span><span class="nv"> </span><span class="s">auf</span><span class="nv"> </span><span class="s">Englisch</span><span class="nv"> </span><span class="s">verfügbar.&#39;</span>
@@ -1450,6 +1455,7 @@ Die einfachste Struktur sieht ähnlich wie diese aus (<code>de-CH</code> (Schwei
 <li>
 <p>Dies wird verwendet um Zeilen im "extra" Abschnitt der Config zu übersetzen.  </p>
 <ul>
+<li><code>consent</code> enthält Titel und Beschreibung der Cookie-Zustimmung welche as banner beim ersten Besuch der Webseite angezeigt wird.</li>
 <li><code>missing_translation</code> wird auf Seiten angezeigt, welche noch nicht für diese Sprache existieren.</li>
 <li><code>not_translatable</code> wird auf Seiten angezeigt, welche nicht übersetzt werden können (Seiten mit <code>not_translatable: true</code> im Frontmatter).</li>
 <li><code>footer</code> ändert den <code>Erstellt mit ...</code> text im Footer der Seite.</li>

@@ -1,0 +1,3660 @@
+
+<!doctype html>
+<html lang="de_ch" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Liste an Befehlen welche der Bot aktuell anbietet.">
+      
+      
+        <meta name="author" content="Andre_601">
+      
+      
+        <link rel="canonical" href="https://docs.purrbot.site/de_CH/bot/commands/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+      <link rel="icon" href="../../../assets/img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+  
+    <title>Befehle - PurrBot Dokumentation</title>
+  
+
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5.75 7.5h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5Zm0 5h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5Zm-4-10h6.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10.314-3.082L11.07 2.417A.25.25 0 0 1 11.256 2h4.488a.25.25 0 0 1 .186.417l-2.244 2.5a.25.25 0 0 1-.372 0Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 2.75C1 1.784 1.784 1 2.75 1h10.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0 1 13.25 12H9.06l-2.573 2.573A1.458 1.458 0 0 1 4 13.543V12H2.75A1.75 1.75 0 0 1 1 10.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h4.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    <meta property="og:title" content="Befehle - PurrBot Dokumentation" />
+    <meta name="twitter:title" content="Befehle - PurrBot Dokumentation" />
+  
+  
+  
+    <meta property="og:description" content="Liste an Befehlen welche der Bot aktuell anbietet." />
+    <meta name="twitter:description" content="Liste an Befehlen welche der Bot aktuell anbietet." />
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.purrbot.site/de_CH/bot/commands/" />
+  <meta property="og:image" content="https://docs.purrbot.site/assets/img/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="Andre_601" />
+  <meta name="twitter:image" content="https://docs.purrbot.site/assets/img/logo.png" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#befehle" class="md-skip">
+          Zu Inhalt springen
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../../" title="PurrBot Dokumentation" class="md-header__button md-logo" aria-label="PurrBot Dokumentation" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PurrBot Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Befehle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="blue"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11Zm-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0ZM3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06ZM12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0ZM4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12Zm8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20Zm12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12Zm-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061Zm2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96v.001l-.002-.005a9.08 9.08 0 0 0-.218-.779c-.13-.394.21-.8.602-.67.29.096.575.205.855.328l.01.005A10.002 10.002 0 0 1 12 22a10.002 10.002 0 0 1-9.162-5.985l-.004-.01a9.722 9.722 0 0 1-.329-.855c-.13-.392.277-.732.67-.602.257.084.517.157.78.218l.004.002A9 9 0 0 0 14.999 6a9.09 9.09 0 0 0-.231-2.04ZM16.5 6c0 5.799-4.701 10.5-10.5 10.5-.426 0-.847-.026-1.26-.075A8.5 8.5 0 1 0 16.425 4.74c.05.413.075.833.075 1.259Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sprache wählen">
+      <img alt="🇨🇭" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1e8-1f1ed.svg" title=":flag_ch:">
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../bot/commands/" hreflang="en" class="md-select__link">
+              <img alt="🇬🇧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1ec-1f1e7.svg" title=":flag_gb:"> English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="de_CH" class="md-select__link">
+              <img alt="🇨🇭" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1e8-1f1ed.svg" title=":flag_ch:"> Deutsch (Schweiz)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizialisiere Suche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/purrbot-site/PurrBot" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96zM265.8 407.7c0-1.8 0-6 .1-11.6.1-11.4.1-28.8.1-43.7 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6s-28.4 1.9-41.6 5.6c0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 9 .1 21.7.1 30.6 0 4.8.1 8.6.1 10 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3-8.4 1.5-11.5-3.7-11.5-8zm-90.5-54.8c-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3-1.9.4-3.7-.4-3.9-1.7zm-9.1 3.2c-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4 0 1.3-1.5 2.4-3.5 2.4zm-14.3-2.2c-1.9-.4-3.2-1.9-2.8-3.2s2.4-1.9 4.1-1.5c2 .6 3.3 2.1 2.8 3.4-.4 1.3-2.4 1.9-4.1 1.3zm-12.5-7.3c-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1-.9 1.1-2.8.9-4.3-.6zm-8.5-10c-1.1-1.5-1.1-3.2 0-3.9 1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1-.9.6-2.6 0-3.7-1.5zm-6.3-8.8c-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5-.9.9-2.4.4-3.5-.6zm-6-6.4c-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6-.4.9-1.7 1.1-2.8.4z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    purrbot-site/PurrBot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Haubtnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  Willkommen
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/" class="md-tabs__link">
+          
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Bot
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contribute/" class="md-tabs__link">
+          
+  
+    
+  
+  Mitmachen
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../credits/" class="md-tabs__link">
+        
+  
+    
+  
+  Credits
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../legal/" class="md-tabs__link">
+          
+  
+    
+  
+  Rechtliches
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="PurrBot Dokumentation" class="md-nav__button md-logo" aria-label="PurrBot Dokumentation" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    PurrBot Dokumentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/purrbot-site/PurrBot" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96zM265.8 407.7c0-1.8 0-6 .1-11.6.1-11.4.1-28.8.1-43.7 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6s-28.4 1.9-41.6 5.6c0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 9 .1 21.7.1 30.6 0 4.8.1 8.6.1 10 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3-8.4 1.5-11.5-3.7-11.5-8zm-90.5-54.8c-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3-1.9.4-3.7-.4-3.9-1.7zm-9.1 3.2c-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4 0 1.3-1.5 2.4-3.5 2.4zm-14.3-2.2c-1.9-.4-3.2-1.9-2.8-3.2s2.4-1.9 4.1-1.5c2 .6 3.3 2.1 2.8 3.4-.4 1.3-2.4 1.9-4.1 1.3zm-12.5-7.3c-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1-.9 1.1-2.8.9-4.3-.6zm-8.5-10c-1.1-1.5-1.1-3.2 0-3.9 1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1-.9.6-2.6 0-3.7-1.5zm-6.3-8.8c-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5-.9.9-2.4.4-3.5-.6zm-6-6.4c-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6-.4.9-1.7 1.1-2.8.4z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    purrbot-site/PurrBot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Willkommen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../api/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Bot
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Befehle
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Befehle
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gilde
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsfw" class="md-nav__link">
+    <span class="md-ellipsis">
+      NSFW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blush" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blush
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comfy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comfy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuddle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuddle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eevee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eevee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#holo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Holo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hug
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kiss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kitsune" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kitsune
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neko" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senko" class="md-nav__link">
+    <span class="md-ellipsis">
+      Senko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ship
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shiro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tickle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tickle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-guild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gilde
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gilde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Welcome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platzhalter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#donate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guild_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guild
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      User
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsfw_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      NSFW
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NSFW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blowjob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blowjob
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fuck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neko-nsfw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pussylick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pussylick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threesome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threesome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></svg>
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selfhosting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selbsthosting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Willkommenssystem
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Willkommenssystem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../welcome-channel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Einrichten
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../welcome-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bilder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../contribute/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Mitmachen
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Mitmachen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/formatting-help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Formatierungshilfe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../contribute/translate/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Übersetzungen
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Übersetzungen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/translate/translate-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dokumentation übersetzen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../credits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../legal/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Rechtliches
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Rechtliches
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/bot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bot ToS and Privacy Policy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API ToS and Privacy Policy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/website/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Website Legal info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gilde
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsfw" class="md-nav__link">
+    <span class="md-ellipsis">
+      NSFW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blush" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blush
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comfy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comfy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuddle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuddle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eevee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eevee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluff
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#holo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Holo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hug
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kiss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kitsune" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kitsune
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neko" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senko" class="md-nav__link">
+    <span class="md-ellipsis">
+      Senko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ship
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shiro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tickle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tickle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-guild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gilde
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gilde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Welcome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platzhalter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#donate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guild_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guild
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      User
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsfw_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      NSFW
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NSFW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blowjob" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blowjob
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fuck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neko-nsfw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neko
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pussylick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pussylick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threesome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threesome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="befehle">Befehle<a class="headerlink" href="#befehle" title="Permanent link">&para;</a></h1>
+<p>Diese Seite zeigt alle verfügbaren Befehle für den Bot.</p>
+<p>Der Standardpräfix ist <code>p.</code>, kann aber mit dem <a href="#prefix">Präfix Befehl</a> geändert werden.<br />
+Zudem kann anstelle des Präfix auch eine Erwähnung des Bots (<code>@*Purr*#6875</code>) verwendet werden.</p>
+<div class="admonition warning">
+<p class="admonition-title">Wichtig</p>
+<ul>
+<li><code>Berechtigungen</code> bedeutet Discord Berechtigungen welche der Ausführer des befehls (Du) benötigt.</li>
+<li><code>Bot benötigt</code> wird Berechtigungen erwähnen, welche <strong>zusätzlich</strong> zu den folgenden benötigt werden:<ul>
+<li><code>Nachrichten lesen</code></li>
+<li><code>Nachrichten senden</code></li>
+<li><code>Links einbetten</code></li>
+<li><code>Nachrichtenverlauf lesen</code></li>
+<li><code>Reaktionen hinzufügen</code></li>
+<li><code>Externe Emojis verwenden</code></li>
+<li>Jeder Befehl hat einen <code>help</code> Unterbefehl welche alle benötigten Berechtigungen auflistet und ob der Bot diese hat.</li>
+</ul>
+</li>
+<li>Argumente:<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>Argument</code></span></span> zeigt benötigte Argumente an.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>Argument</code></span></span> zeigt optionale Argumente an.</li>
+<li>Die Reihenfolge der Argumente ist nicht wichtig, ausser wenn dies erwähnt wird.</li>
+<li>Argumente welche mit <code>...</code> enden geben an, dass du sie so oft wie du willst anwenden kannst.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="fun"><a href="#category-fun">Spass</a><a class="headerlink" href="#fun" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#angry">Angry</a></li>
+<li><a href="#bite">Bite</a></li>
+<li><a href="#blush">Blush</a></li>
+<li><a href="#comfy">Comfy</a></li>
+<li><a href="#cry">Cry</a></li>
+<li><a href="#cuddle">Cuddle</a></li>
+<li><a href="#dance">Dance</a></li>
+<li><a href="#eevee">Eevee</a></li>
+<li><a href="#feed">Feed</a></li>
+<li><a href="#fluff">Fluff</a></li>
+<li><a href="#holo">Holo</a></li>
+<li><a href="#hug">Hug</a></li>
+<li><a href="#kiss">Kiss</a></li>
+<li><a href="#kitsune">Kitsune</a></li>
+<li><a href="#lay">Lay</a></li>
+<li><a href="#lick">Lick</a></li>
+<li><a href="#neko">Neko</a></li>
+<li><a href="#okami">Okami</a></li>
+<li><a href="#pat">Pat</a></li>
+<li><a href="#poke">Poke</a></li>
+<li><a href="#pout">Pout</a></li>
+<li><a href="#senko">Senko</a></li>
+<li><a href="#ship">Ship</a></li>
+<li><a href="#shiro">Shiro</a></li>
+<li><a href="#slap">Slap</a></li>
+<li><a href="#smile">Smile</a></li>
+<li><a href="#tail">Tail</a></li>
+<li><a href="#tickle">Tickle</a></li>
+</ul>
+<h3 id="guild"><a href="#category-guild">Gilde</a><a class="headerlink" href="#guild" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#language">Language</a></li>
+<li><a href="#prefix">Prefix</a></li>
+<li><a href="#welcome">Welcome</a></li>
+</ul>
+<h3 id="info"><a href="#category-info">Info</a><a class="headerlink" href="#info" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#donate">Donate</a></li>
+<li><a href="#emote">Emote</a></li>
+<li><a href="#guild">Guild</a></li>
+<li><a href="#help">Help</a></li>
+<li><a href="#info">Info</a></li>
+<li><a href="#invite">Invite</a></li>
+<li><a href="#ping">Ping</a></li>
+<li><a href="#quote">Quote</a></li>
+<li><a href="#shards">Shards</a></li>
+<li><a href="#stats">Stats</a></li>
+<li><a href="#user">User</a></li>
+</ul>
+<h3 id="nsfw"><a href="#category-nsfw">NSFW</a><a class="headerlink" href="#nsfw" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#blowjob">Blowjob</a></li>
+<li><a href="#cum">Cum</a></li>
+<li><a href="#fuck">Fuck</a></li>
+<li><a href="#neko-nsfw">Neko</a></li>
+<li><a href="#pussylick">Pussylick</a></li>
+<li><a href="#solo">Solo</a></li>
+<li><a href="#threesome">Threesome</a></li>
+</ul>
+<hr />
+<h2 id="category-fun">Spass<a class="headerlink" href="#category-fun" title="Permanent link">&para;</a></h2>
+<h3 id="angry">Angry<a class="headerlink" href="#angry" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Angy</code></li>
+<li><code>Rage</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.angry</code></li>
+</ul>
+</div>
+<p>Lässt dich wütend sein.</p>
+<hr />
+<h3 id="bite">Bite<a class="headerlink" href="#bite" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Nibble</code></li>
+<li><code>Nom</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer die du beissen willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.bite @benutzer</code></li>
+</ul>
+</div>
+<p>Beisst die erwähnten Benutzer.</p>
+<hr />
+<h3 id="blush">Blush<a class="headerlink" href="#blush" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Blushing</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.blush</code></li>
+</ul>
+</div>
+<hr />
+<h3 id="comfy">Comfy<a class="headerlink" href="#comfy" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Nichts</code></p>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.comfy</code></li>
+</ul>
+</div>
+<p>Zeigt anderen, dass du es gerade sehr gemütlich hast.</p>
+<hr />
+<h3 id="cry">Cry<a class="headerlink" href="#cry" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Sad</code></li>
+<li><code>Sob</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.cry</code></li>
+</ul>
+</div>
+<p>Lässt dich weinen. <img alt="😢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f622.svg" title=":cry:" /></p>
+<hr />
+<h3 id="cuddle">Cuddle<a class="headerlink" href="#cuddle" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Cuddles</code></li>
+<li><code>Snuggle</code></li>
+<li><code>Snuggles</code></li>
+<li><code>Squeeze</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du Knuddeln willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.cuddle @benutzer</code></li>
+</ul>
+</div>
+<p>Knuddel die erwähnten Benutzer.</p>
+<hr />
+<h3 id="dance">Dance<a class="headerlink" href="#dance" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Dancing</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.dance</code></li>
+</ul>
+</div>
+<p>Zeigt anderen, dass du am tanzen bist. ~(^-^)~</p>
+<hr />
+<h3 id="eevee">Eevee<a class="headerlink" href="#eevee" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Nichts</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--gif</code></span></span><br />
+  Erhalte ein gif anstelle eines Bildes.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.eevee</code></li>
+<li><code>p.eevee --gif</code></li>
+</ul>
+</div>
+<p>Gibt dir ein zufälliges Bild/Gif vom Pokémon Evoli. (<a href="https://purrbot.site/img/sfw/eevee/img/eevee_001.jpg" rel="nofollow" target="_blank">Beispiel (Bild)</a>)</p>
+<hr />
+<h3 id="feed">Feed<a class="headerlink" href="#feed" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Food</code></li>
+<li><code>Eat</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer dem du Essen geben willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.feed @benutzer</code></li>
+</ul>
+</div>
+<p>Lässt dich jemanden was zu essen geben.<br />
+Der angefragte Benutzer kann deine Anfrage akzeptieren oder ablehnen.</p>
+<hr />
+<h3 id="fluff">Fluff<a class="headerlink" href="#fluff" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Fluffing</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer den du fluffen möchtest. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.fluff @benutzer</code></li>
+</ul>
+</div>
+<p>Fragt jemanden ob du ihren Schweif fluffen kannst.<br />
+Der angefragte Benutzer kann deine Anfrage akzeptieren oder ablehnen.</p>
+<hr />
+<h3 id="holo">Holo<a class="headerlink" href="#holo" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Spiceandwolf</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.holo</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild von Holo aus dem Manga und Anime "Spice &amp; Wolf". (<a href="https://purrbot.site/img/sfw/holo/img/holo_001.jpg" rel="nofollow" target="_blank">Beispiel</a>)</p>
+<hr />
+<h3 id="hug">Hug<a class="headerlink" href="#hug" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Hugging</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du Umarmen willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.hug @benutzer</code></li>
+</ul>
+</div>
+<p>Umarmt die erwähnten Benutzer.</p>
+<hr />
+<h3 id="kiss">Kiss<a class="headerlink" href="#kiss" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Kissu</code></li>
+<li><code>Love</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du küssen willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.kiss @benutzer</code></li>
+</ul>
+</div>
+<p>Küsst die erwähnten Benutzer.</p>
+<hr />
+<h3 id="kitsune">Kitsune<a class="headerlink" href="#kitsune" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Foxgirl</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.kitsune</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild einer Kitsune (Fuchsmädchen). (<a href="https://purrbot.site/img/sfw/kitsune/img/kitsune_001.jpg" rel="nofollow" target="_blank">Beispiel</a>)</p>
+<hr />
+<h3 id="lay">Lay<a class="headerlink" href="#lay" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Laying</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Nichts</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.lay</code></li>
+</ul>
+</div>
+<p>Lässt dich liegen</p>
+<hr />
+<h3 id="lick">Lick<a class="headerlink" href="#lick" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Nichts</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du lecken willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.lick @benutzer</code></li>
+</ul>
+</div>
+<p>Leckt die erwähnten Benutzer.</p>
+<hr />
+<h3 id="neko">Neko<a class="headerlink" href="#neko" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Catgirl</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--gif</code></span></span><br />
+  Erhalte ein Gif anstelle eines Bildes.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.neko</code></li>
+<li><code>p.neko --gif</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild/Gif einer Neko (Katzenmädchen). (<a href="https://purrbot.site/img/sfw/neko/img/neko_001.jpg" rel="nofollow" target="_blank">Beispiel (Bild)</a>)</p>
+<p>Für die NSFW version dieses Befehls, klicke <a href="#neko-nsfw">hier</a>.</p>
+<hr />
+<h3 id="pat">Pat<a class="headerlink" href="#pat" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Patting</code></li>
+<li><code>Pet</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du streicheln willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.pat @benutzer</code></li>
+</ul>
+</div>
+<p>Streichelt die erwähnten Benutzer.</p>
+<hr />
+<h3 id="poke">Poke<a class="headerlink" href="#poke" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Boop</code></li>
+<li><code>Poking</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer welche du stupsen willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.poke @benutzer</code></li>
+</ul>
+</div>
+<p>Stupst die erwähnten Benutzer.</p>
+<hr />
+<h3 id="pout">Pout<a class="headerlink" href="#pout" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Hmph</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.pout</code></li>
+</ul>
+</div>
+<p>Lässt dich "hmpf!" gehen.</p>
+<hr />
+<h3 id="senko">Senko<a class="headerlink" href="#senko" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Senko-san</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.senko</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild von Senko-san aus dem Manga und Anime "Sewayaki Kitsune no Senko-San". (<a href="https://purrbot.site/img/sfw/senko/img/senko_001.jpg" rel="nofollow" target="_blank">Beispiel</a>)</p>
+<hr />
+<h3 id="ship">Ship<a class="headerlink" href="#ship" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>Dateien anhängen</code></span></span> - Benötigt um ein Bild anzuhängen.</li>
+</ul>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Shipping</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer1</code></span></span><br />
+  Der Benutzer mit welchem man verkuppelt werden soll. Muss eine Erwähnung sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer2</code></span></span><br />
+  Zweiter Benutzer welcher mit dem ersten Benutzer verkuppelt werden soll. Muss eine Erwähnung sein. Verwendet standardmässig dich.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.ship @benutzer1</code></li>
+<li><code>p.ship @benutzer1 @benutzer2</code></li>
+</ul>
+</div>
+<p>Verkuppelt dich (oder den zweiten Benutzer wenn gegeben) mit dem erwähnten Benutzer.<br />
+Gibt ein Bild (Wenn Berechtigungen gegeben sind) welche einen Prozentsatz zwischen 0 und 100 Prozent anzeigt.</p>
+<hr />
+<h3 id="shiro">Shiro<a class="headerlink" href="#shiro" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.shiro</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild von Shiro aus dem Manga und Anime "Sewayaki Kitsune no Senko-San". (<a href="https://purrbot.site/img/sfw/shiro/img/shiro_001.jpg" rel="nofollow" target="_blank">Beispiel</a>)</p>
+<hr />
+<h3 id="slap">Slap<a class="headerlink" href="#slap" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer die geohrfeigt werden sollen. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.slap @benutzer</code></li>
+</ul>
+</div>
+<p>Ohrfeigt die erwähnten Benutzer.</p>
+<hr />
+<h3 id="smile">Smile<a class="headerlink" href="#smile" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Grin</code></li>
+<li><code>Grinning</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.smile</code></li>
+</ul>
+</div>
+<p>Lässt dich lächeln. <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /></p>
+<hr />
+<h3 id="tail">Tail<a class="headerlink" href="#tail" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Wag</code></li>
+<li><code>Wagging</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.tail</code></li>
+</ul>
+</div>
+<p>Lässt dich deinen Schwanz wedeln.</p>
+<hr />
+<h3 id="tickle">Tickle<a class="headerlink" href="#tickle" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer ...</code></span></span><br />
+  Der/Die Benutzer die du kitzeln willst.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.tickle @benutzer</code></li>
+</ul>
+</div>
+<p>Kitzelt die erwähnten Benutzer.</p>
+<hr />
+<h2 id="category-guild">Gilde<a class="headerlink" href="#category-guild" title="Permanent link">&para;</a></h2>
+<h3 id="language">Language<a class="headerlink" href="#language" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Server verwalten</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Lang</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>set {sprache}</code></span></span><br />
+  Ändert die Sprache. <code>{sprache}</code> muss eine unterstützte Sprache sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>reset</code></span></span><br />
+  Ändert die Sprache zurück zu <code>en</code> (Englisch).</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.language</code></li>
+<li><code>p.language set en-owo</code></li>
+<li><code>p.language reset</code></li>
+</ul>
+</div>
+<p>Erlaubt es dir, eine andere Sprache auf dem Server zu verwenden.<br />
+Wenn kein Argument gegeben ist, werden alle verfügbare Sprachen angezeigt.</p>
+<p>Eine Liste aller bearbeiteten (und eventuell fertiggestellten) Sprachen kannst du unter <a href="https://lang.purrbot.site" rel="nofollow" target="_blank">lang.purrbot.site</a> finden.</p>
+<hr />
+<h3 id="prefix">Prefix<a class="headerlink" href="#prefix" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Server verwalten</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>set {präfix}</code></span></span><br />
+  Ändert den zu verwendeten Präfix. <code>{präfix}</code> muss der neu zu verwendende Präfix sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>reset</code></span></span><br />
+  Ändert den Präfix zurück zum Standardpräfix (<code>p.</code>).</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.prefix set !</code></li>
+<li><code>p.prefix reset</code></li>
+</ul>
+</div>
+<p>Erlaubt es dir den Präfix, welcher für Befehle verwendet wird, zu ändern.<br />
+Standardmässig wird <code>p.</code> verwendet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Du kannst anstelle des Präfix einfach den Bot erwähnen, um einen Befehl auszuführen.</p>
+</div>
+<hr />
+<h3 id="welcome">Welcome<a class="headerlink" href="#welcome" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Server verwalten</code><br />
+<strong>Bot benötigt:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>Dateien anhängen</code></span></span><br />
+  Benötigt um Willkommensbilder für beitretende Benutzer zu zeigen.</li>
+</ul>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>bg set {hintergrund}</code></span></span><br />
+  Ändert den Hintergrund für das Willkommensbild. Muss ein <a href="../welcome-images/#backgrounds">Name eines existierenden Hintergrund</a> sein.<br />
+<a href="https://patreon.com/andre_601">Stufe 2/3 Patreons</a> können eine URL verwenden.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>bg reset</code></span></span><br />
+  Ändert den Hintergründ zurück zu <a href="../welcome-images/#color_white"><code>color_white</code></a>.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>channel set {#kanal}</code></span></span><br />
+  Ändert den Kanal für die Willkommensnachricht. <code>{#kanal}</code> muss eine Kanalerwähnung sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>channel reset</code></span></span><br />
+  Ändert den Kanal zurück zu <code>none</code>.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>color set {farbe}</code></span></span><br />
+  Ändert die farbe, welche für den Text im Willkommensbild verwendet werden soll. <code>{farbe}</code> kann entweder <code>hex:</code> mit einem Hexadezimalen Farbwert, <code>rgb:</code> mit Komma getrennten nummern (0 bis 255) oder <code>random</code> für eine zufällige Farbe sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>color reset</code></span></span><br />
+  Ändert die farbe zurück zu <code>hex:000000</code>.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>icon set {icon}</code></span></span><br />
+  Ändert das Icon im Willkommensbild. <code>{icon}</code> muss ein <a href="../welcome-images/#icons">Name eines existierenden Icons</a> sein.<br />
+<a href="https://patreon.com/andre_601">Stufe 2/3 Patreons</a> können eine URL verwenden.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>icon reset</code></span></span><br />
+  Ändert das Icon zurück zu <a href="../welcome-images/#purr"><code>purr</code></a>.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>msg set {nachricht}</code></span></span><br />
+  Ändert die Nachricht welche zusammen mit dem Bild gezeigt wird. <code>{nachricht}</code> kann ein beliebiger Text sein und kann <a href="#placeholders">Platzhalter</a> enthalten.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>msg reset</code></span></span><br />
+  Ändert die Nachricht zurück zu <code>Welcome {mention}!</code></li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>test</code></span></span><br />
+  Erstellt eine Test-Willkommensnachricht mit allen aktuell gespeicherten Werten.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.welcome bg set color_black</code></li>
+<li><code>p.welcome bg reset</code></li>
+<li><code>p.welcome channel set #welcome</code></li>
+<li><code>p.welcome channel reset</code></li>
+<li><code>p.welcome color set hex:ffffff</code></li>
+<li><code>p.welcome color reset</code></li>
+<li><code>p.welcome icon set neko_hug</code></li>
+<li><code>p.welcome icon reset</code></li>
+<li><code>p.welcome msg set Willkommen auf dem Server {name}! Du bist Mitglied {count_formatted}</code></li>
+<li><code>p.welcome msg reset</code></li>
+<li><code>p.welcome test</code></li>
+</ul>
+</div>
+<p>Erlaubt es dir ein Willkommenssystem für den Bot einzurichten.<br />
+Beachte dass wenn dein Server Mitgliederverifizierung aktiviert hat, wird der Bot nur eine Willkommensnachricht senden sobald der Benutzer die verifizierung abgeschlossen hat.</p>
+<h4 id="placeholders">Platzhalter<a class="headerlink" href="#placeholders" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Platzhalter können im <code>message</code> Unterbefehl frei verwendet werden, und werden mit ihrem respektiven Wert ersetzt.</p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{count}</code> / <code>{members}</code></td>
+<td>Zeigt die aktuelle anzahl an Servermitgliedern an.</td>
+<td><code>1000</code></td>
+</tr>
+<tr>
+<td><code>{count_formatted}</code> / <code>{members_formatted}</code></td>
+<td>Zeigt die aktuelle anzahl an Servermitgliedern an, mit der Nummer formatiert.</td>
+<td><code>1,000</code></td>
+</tr>
+<tr>
+<td><code>{guild}</code> / <code>{server}</code></td>
+<td>Zeigt den namen des Servers.</td>
+<td><code>Cooler Server</code></td>
+</tr>
+<tr>
+<td><code>{mention}</code></td>
+<td>Erwähnt den Benutzer welcher beigetreten ist.</td>
+<td><code>@benutzer</code></td>
+</tr>
+<tr>
+<td><code>{name}</code> / <code>{username}</code></td>
+<td>Zeigt den Namen des Benutzer welcher beigetreten ist.</td>
+<td><code>benutzer</code></td>
+</tr>
+<tr>
+<td><code>{c_mention:&lt;id&gt;}</code></td>
+<td>Erwähnt den Kanal, welcher per <code>&lt;id&gt;</code> gegeben wurde.</td>
+<td><code>#chat</code></td>
+</tr>
+<tr>
+<td><code>{c_name:&lt;id&gt;}</code></td>
+<td>Zeigt den Namen des Kanals, welcher per <code>&lt;id&gt;</code> gegeben wurde.</td>
+<td><code>chat</code></td>
+</tr>
+<tr>
+<td><code>{r_mention:&lt;id&gt;}</code></td>
+<td>Erwähnt die Rolle, welche per <code>&lt;id&gt;</code> gegeben wurde.</td>
+<td><code>@begrüsser</code></td>
+</tr>
+<tr>
+<td><code>{r_name:&lt;id&gt;}</code></td>
+<td>Zeigt den Namen der Rolle, welche per <code>&lt;id&gt;</code> gegeben wurde.</td>
+<td><code>begrüsser</code></td>
+</tr>
+<tr>
+<td><code>{tag}</code></td>
+<td>Zeigt den Tag (<code>name#discriminator</code>) des Benutzer, welcher beigetreten ist.</td>
+<td><code>benutzer#1234</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="category-info">Info<a class="headerlink" href="#category-info" title="Permanent link">&para;</a></h2>
+<h3 id="donate">Donate<a class="headerlink" href="#donate" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Donation</code></li>
+<li><code>Donations</code></li>
+<li><code>Donators</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.donate</code></li>
+</ul>
+</div>
+<p>Gibt dir informationen darüber wie du spenden kannst und welche coolen Personen gespendet haben. <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2764.svg" title=":heart:" /></p>
+<hr />
+<h3 id="emote">Emote<a class="headerlink" href="#emote" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>E</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>:emote:</code></span></span><br />
+  Das Emote von welchem du Informationen willst. Muss eine Erwähnung eines benutzerdefinierten Emoji sein (Unicode Emojis funktionieren nicht).</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>--search</code></span></span><br />
+  Durchsucht die letzten 100 Nachrichten im Kanal nach benutzerdefinierten Emojis und listed diese.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.emote :coolEmoji:</code></li>
+<li><code>p.emote --search</code></li>
+</ul>
+</div>
+<p>Gibt dir informationen über den erwähnten Emoji, oder über alle Emojis welche in den vorherigen 100 Nachrichten gefunden wurden.<br />
+Einige Informationen, wie beispielsweise Server, sind eventuell nicht vefügbar, ausser der Bot ist in dem Server von wo das Emoji stammt.</p>
+<hr />
+<h3 id="guild_1">Guild<a class="headerlink" href="#guild_1" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Guildinfo</code></li>
+<li><code>Server</code></li>
+<li><code>Serverinfo</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.guild</code></li>
+</ul>
+</div>
+<p>Gibt informationen über den Server in welchem du den Befehl verwundet hast.</p>
+<hr />
+<h3 id="help">Help<a class="headerlink" href="#help" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Command</code></li>
+<li><code>Commands</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.help</code></li>
+</ul>
+</div>
+<p>Gibt dir einen Link zu der Seite, welche du gerade liest.</p>
+<hr />
+<h3 id="info_1">Info<a class="headerlink" href="#info_1" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Infos</code></li>
+<li><code>Information</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--dm</code></span></span><br />
+  Sendet die Botinfos in deine Direktnachrichten.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.info</code></li>
+<li><code>p.info --dm</code></li>
+</ul>
+</div>
+<p>Gibt dir informationen über den Bot (Version, verwendete Bibliothek, Bot Listen, etc).</p>
+<hr />
+<h3 id="invite">Invite<a class="headerlink" href="#invite" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Links</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--dm</code></span></span><br />
+  Sendet die Einladungslinks und andere Links in deine Direktnachrichten.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.invite</code></li>
+<li><code>p.invite --dm</code></li>
+</ul>
+</div>
+<p>Gibt dir informationen wie du den Bot einladen kannst.</p>
+<hr />
+<h3 id="ping">Ping<a class="headerlink" href="#ping" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliase:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.ping</code></li>
+</ul>
+</div>
+<p>Überprüft und zeigt den aktuellen Ping zu Discord und wie lange es dauert, eine Nachricht zu bearbeiten.</p>
+<hr />
+<h3 id="quote">Quote<a class="headerlink" href="#quote" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong> <code>Keine</code></p>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>id</code></span></span><br />
+  Die ID der Nachricht, welche zitiert werden soll.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>#kanal</code></span></span><br />
+  Optionaler Kanal in welchem die Nachricht ist. Muss eine Erwähnung sein. Verwendet den Kanal in welchem der Befehl ausgeführt wurde, sollte kein Kanal angegeben werden.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.quote 1234567890123456789</code></li>
+<li><code>p.quote 1234567890123456789 #andererkanal</code></li>
+</ul>
+</div>
+<p>Holt die Nachricht mit der verwendeten ID und zitiert diese.<br />
+Der Bot wird die Nachricht nicht zitieren, wenn diese in einem Altersbeschränkten kanal ist, während der Kanal in welchem der Befehl verwendet wird, nicht Altersbeschränkt ist.</p>
+<hr />
+<h3 id="shards">Shards<a class="headerlink" href="#shards" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Shard</code></li>
+<li><code>Shardinfo</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.shards</code></li>
+</ul>
+</div>
+<p>Gibt eine Liste aller Shards, welcher der Bot aktuell hat, inklusive deren Ping, Anzahl an Servern und Verbindungsstatus.</p>
+<details class="question">
+<summary>Was ist eine Shard?</summary>
+<p>Zitat von der <a href="https://discord.com/developers/docs/topics/gateway#sharding">Discord Entwickler Dokumentation</a> (Übersetzt vom Englischen):  </p>
+<blockquote>
+<p>Wenn Anwendungen wachsen und zu einer zunehmenden Anzahl von Gilden hinzugefügt werden, kann es für einige Entwickler notwendig sein, Teile der Vorgänge ihrer Anwendung auf mehrere Prozesse aufzuteilen. Daher implementiert das Gateway eine Methode der benutzergesteuerten Gildenaufteilung, die es Anwenungen ermöglicht, Ereignisse auf mehrere Gateway-Verbindungen aufzuteilen. Gildenaufteilung wird vvollständig von einer Anwendung gesteuert und erfordert keine gemeinsame Nutzung von Zuständen zwischen separaten Verbindungen, um zu funktionieren. Während alle Answendungen aufteilungen aktivieren können, ist es für Anwendungen in einer kleineren Anzahl von Gilden nicht notwendig.</p>
+</blockquote>
+<p>Kurz zusammengefasst: Shards sind - einfach zusammengefasst - separate Gateway-Verbindungen zu Discord, welche nur Ereignisse und Updates für sich selber erhält und nicht für andere Shards.</p>
+</details>
+<hr />
+<h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Stat</code></li>
+<li><code>Statistic</code></li>
+<li><code>Statistics</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.stats</code></li>
+</ul>
+</div>
+<p>Gibt einige Statistiken über den Bot wie beispielsweise totale anzahl Server, Shards, RAM benutzung und wie lange es seit dem letzten Neustart läuft.</p>
+<hr />
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Member</code></li>
+<li><code>Userinfo</code></li>
+<li><code>Userstats</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer von welchem du Informationen willst. Muss eine Erwähnung sein. Verwendet standardmässig dich.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.user</code></li>
+<li><code>p.user @benutzer</code></li>
+</ul>
+</div>
+<p>Zeigt informationen über den erwähnten Benutzer.</p>
+<hr />
+<h2 id="nsfw_1">NSFW<a class="headerlink" href="#nsfw_1" title="Permanent link">&para;</a></h2>
+<h3 id="blowjob">Blowjob<a class="headerlink" href="#blowjob" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Bj</code></li>
+<li><code>Bjob</code></li>
+<li><code>Succ</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer, welchem du einen Blowjob geben möchtest. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.blowjob @benutzer</code></li>
+</ul>
+</div>
+<p>Fragt den erwähnten Benutzer, ob du ihm einen Blowjob geben kannst.<br />
+Der Benutzer kann deine Anfrage annehmen oder ablehnen.</p>
+<hr />
+<h3 id="cum">Cum<a class="headerlink" href="#cum" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Cumming</code></li>
+</ul>
+<p><strong>Argumente:</strong> <code>Keine</code></p>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.cum</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Gif von jemandem, welcher einen Orgasmus hat.</p>
+<hr />
+<h3 id="fuck">Fuck<a class="headerlink" href="#fuck" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Sex</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer, mit welchem du Sex haben willst. Muss eine Erwähnung sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--anal</code></span></span><br />
+  Wählt Analsex als Option aus.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--normal</code></span></span><br />
+  Wählt Heterosex als Option aus.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--yaoi</code></span></span><br />
+  Wählt Yaoi (Homosexuellen) Sex als Option aus.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--yuri</code></span></span><br />
+  Wählt Yuri (Lesbischen) Sex als Option aus.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.fuck @benutzer</code></li>
+<li><code>p.fuck @benutzer --anal</code></li>
+<li><code>p.fuck @benutzer --normal</code></li>
+<li><code>p.fuck @benutzer --yaoi</code></li>
+<li><code>p.fuck @benutzer --yuri</code></li>
+</ul>
+</div>
+<p>Fragt die Erwähnte Person, ob sie mit dir Sex haben will.</p>
+<p>Wenn keine weiteren Argumente gegeben wurden, kann der gefragte Benutzer zwischen Anal, Normal (Hetero), Yaoi (Homosexuell) oder Yuri (Lesbisch) Sex auswählen, oder die Anfrage ablehnen.<br />
+Wenn eine der Argumente gegeben wurde, kann der gefragte Benutzer die Anfrage annehmen oder ablehnen. </p>
+<hr />
+<h3 id="neko-nsfw">Neko<a class="headerlink" href="#neko-nsfw" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Catgirl</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>--nsfw</code></span></span><br />
+  Gibt ein/e nicht Jugendfreie/s Bild/Gif.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--gif</code></span></span><br />
+  Erhalte ein Gif anstelle eines Bildes.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.neko --nsfw</code></li>
+<li><code>p.neko --nsfw --gif</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Bild oder Gif einer nicht jugendfreien Neko (Katzenfrau).</p>
+<hr />
+<h3 id="pussylick">Pussylick<a class="headerlink" href="#pussylick" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Plick</code></li>
+<li><code>Cunni</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer</code></span></span><br />
+  Der Benutzer, welchem du Cunnilingus geben willst. Muss eine Erwähnung sein.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.pussylick @benutzer</code></li>
+</ul>
+</div>
+<p>Fragt den erwähnten Benutzer, ob du deren Pussy lecken kannst.<br />
+Der Benutzer kann deine Anfrage annehmen oder ablehnen.</p>
+<hr />
+<h3 id="solo">Solo<a class="headerlink" href="#solo" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>Girl</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--male</code></span></span><br />
+  Gibt einen Mann, welcher masturbiert, anstelle einer Frau.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.solo</code></li>
+<li><code>p.solo --male</code></li>
+</ul>
+</div>
+<p>Gibt ein zufälliges Gif einer Frau, welche masturbiert.<br />
+Wenn <code>--male</code> verwendet wird, wird ein Gif eines Mannes welcher masturbiert gegeben.</p>
+<hr />
+<h3 id="threesome">Threesome<a class="headerlink" href="#threesome" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Daten</p>
+<p><strong>Berechtigungen:</strong> <code>Nichts</code><br />
+<strong>Bot benötigt:</strong> <code>Nichts</code></p>
+<p><strong>Aliasse:</strong></p>
+<ul>
+<li><code>3some</code></li>
+</ul>
+<p><strong>Argumente:</strong></p>
+<ul>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer1</code></span></span><br />
+  Der erste Benutzer mit welchem du einen Dreier willst. Muss eine Erwähnung sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg></span></span><span class="mdx-badge__text"><code>@benutzer2</code></span></span><br />
+  Der zweite Benutzer mit welchem du einen Dreier willst. Muss eine Erwähnung sein.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--fff</code></span></span><br />
+  Gibt ein Gif, in welchem nur Frauen zu sehen sind.</li>
+<li><span class="mdx-badge"><span class="mdx-badge__icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.32 3.205a.75.75 0 0 1 1.046-.177 11.056 11.056 0 0 1 2.605 2.606.75.75 0 1 1-1.222.869 9.554 9.554 0 0 0-2.252-2.252.75.75 0 0 1-.177-1.046Zm3.475 14.115a.75.75 0 0 1 .176 1.046 11.07 11.07 0 0 1-2.605 2.605.75.75 0 1 1-.869-1.222 9.554 9.554 0 0 0 2.252-2.252.75.75 0 0 1 1.046-.177ZM2.018 9.543a.75.75 0 0 1 .615.864 9.571 9.571 0 0 0 0 3.186.75.75 0 1 1-1.48.25 11.07 11.07 0 0 1 0-3.686.75.75 0 0 1 .865-.614Zm7.525 12.439a.75.75 0 0 1 .864-.615 9.571 9.571 0 0 0 3.186 0 .75.75 0 1 1 .25 1.48 11.07 11.07 0 0 1-3.686 0 .75.75 0 0 1-.614-.865ZM6.68 3.205a.75.75 0 0 1-.177 1.046A9.558 9.558 0 0 0 4.25 6.503a.75.75 0 1 1-1.223-.87 11.056 11.056 0 0 1 2.606-2.605.75.75 0 0 1 1.046.177ZM3.205 17.32a.75.75 0 0 1 1.046.177 9.554 9.554 0 0 0 2.252 2.252.75.75 0 1 1-.87 1.223 11.056 11.056 0 0 1-2.605-2.606.75.75 0 0 1 .177-1.046Zm6.952-16.166a11.07 11.07 0 0 1 3.686 0 .75.75 0 0 1-.25 1.479 9.571 9.571 0 0 0-3.186 0 .75.75 0 1 1-.25-1.48Zm11.825 8.389a.75.75 0 0 1 .864.614 11.07 11.07 0 0 1 0 3.686.75.75 0 0 1-1.479-.25 9.571 9.571 0 0 0 0-3.186.75.75 0 0 1 .615-.864Z"/></svg></span></span><span class="mdx-badge__text"><code>--mmf</code></span></span><br />
+  Gibt ein Gif, in welchem 2 Männer und 1 Frau zu sehen sind.</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<ul>
+<li><code>p.threesome @benutzer1 @benutzer2</code></li>
+<li><code>p.threesome @benutzer1 @benutzer2 --fff</code></li>
+<li><code>p.threesome @benutzer1 @benutzer2 --mmf</code></li>
+</ul>
+</div>
+<p>Fragt zwei Benutzer, ob diese mit dir einen Dreier haben wollen.<br />
+Wenn keine weiteren Argumente angegeben wurde, wird das Gif einen Mann und zwei Frauen zeigen. Dies kann mit <code>--fff</code> zu nur Frauen oder mit <code>--mmf</code> zu zwei Männern und einer Frau geändert werden.<br />
+Die Benutzer können die Anfrage annehmen oder ablehnen. Nur wenn beide annehmen ist der Befehl erfolgreich.</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Zurück zum Anfang
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Dokumentation mit 
+<img alt="❤" class="twemoji heart md-footer-custom-text" src="https://twemoji.maxcdn.com/v/latest/svg/2764.svg" title="Liebe"> 
+gemacht und unter der
+<a href="https://github.com/purrbot-site/Docs/blob/master/LICENSE" target="_blank" rel="nofollow">MIT-Lizenz</a> verfügbar.<br>
+<a href="#__consent">Cookie-Einstellungen verwalten</a>
+
+    </div>
+  
+
+  <!-- Copyright and theme information -->
+  Erstellt mit <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>,
+<a href="https://squidfunk.github.io/mkdocs-material" target="_blank" rel="noopener">Material for MkDocs</a> und
+<a href="https://facelessuser.github.io/pymdown-extensions/" target="_blank" rel="noopener">Pymdown Extensions</a>.
+
+</div>
+
+      <!-- Social links -->
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://patreon.com/andre_601" target="_blank" rel="noopener" title="patreon.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.957 7.21c-.004-3.064-2.391-5.576-5.191-6.482-3.478-1.125-8.064-.962-11.384.604C2.357 3.231 1.093 7.391 1.046 11.54c-.039 3.411.302 12.396 5.369 12.46 3.765.047 4.326-4.804 6.068-7.141 1.24-1.662 2.836-2.132 4.801-2.618 3.376-.836 5.678-3.501 5.673-7.031Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/purrbot-site" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/TruePurrBot" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148a13.98 13.98 0 0 0 10.15 5.144 4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg>
+    </a>
+  
+    
+    
+      
+    
+    
+    
+      
+      
+    
+    <a href="https://botsin.space/@purrbot" target="_blank" rel="noopener me" title="botsin.space" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie Zustimmung</h4>
+<p>Wir verwenden cookies um deine wiederholten Besuche und Einstellungen zu erkennen, aber auch um die Wirksamkeit unserer Dokumentation und ob Benutzer finden nach was sie suchen zu messen. Mit deiner Zustimmung hilfst du uns, unsere Dokumentation zu verbessern.
+</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Akzeptieren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Einstellungen verwalten</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weitere auf dieser Seite", "search.result.more.other": "# weitere auf dieser Seite", "search.result.none": "Keine passenden Dokumente", "search.result.one": "1 passendes Dokument", "search.result.other": "# passende Dokumente", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version w\u00e4hlen"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>
